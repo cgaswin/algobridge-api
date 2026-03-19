@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from config.logging import setup_logging
+from app.config.logging import setup_logging
+from app.core.exception_handlers import register_exception_handlers
 
 setup_logging()
 
@@ -10,7 +11,9 @@ app = FastAPI(
     version="1.0.0",
 )
 
+register_exception_handlers(app)
+
 
 @app.get("/health")
 async def health():
-    return {"status": "OK"}
+    return {"status": "ok"}
