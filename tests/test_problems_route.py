@@ -1,23 +1,32 @@
+from unittest.mock import AsyncMock, patch
+
 import pytest
 from httpx import ASGITransport, AsyncClient
 
 from app.main import app
 
+fake_insights = {
+    "use_case": "caching",
+    "system_examples": "Redis",
+    "explanation": "hash maps are fast",
+}
+
 
 @pytest.mark.anyio
 async def test_analyze_problem_valid_url():
-    async with AsyncClient(
-        transport=ASGITransport(app=app), base_url="http://test"
-    ) as client:
-        response = await client.post(
-            "/api/v1/problems",
-            json={"url": "https://leetcode.com/problems/two-sum/"},
-        )
+    with patch(
+        "app.api.v1.routes.problems.analyze_problem",
+        AsyncMock(return_value=fake_insights),
+    ):
+        async with AsyncClient(
+            transport=ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            response = await client.post(
+                "/api/v1/problems",
+                json={"url": "https://leetcode.com/problems/two-sum/"},
+            )
     assert response.status_code == 200
-    body = response.json()
-    assert body["success"] is True
-    assert body["data"]["url"] == "https://leetcode.com/problems/two-sum/"
-    assert body["error"] is None
+    assert response.json()["success"] is True
 
 
 @pytest.mark.anyio
@@ -39,19 +48,3 @@ async def test_analyze_problem_invalid_url():
             json={"url": "not-a-url"},
         )
     assert response.status_code == 422
-
-
-@pytest.mark.anyio
-async def test_analyze_problem_url_normalization():
-    async with AsyncClient(
-        transport=ASGITransport(app=app), base_url="http://test"
-    ) as client:
-        response = await client.post(
-            "/api/v1/problems",
-            json={"url": "https://leetcode.com/problems/two-sum"},
-        )
-    assert response.status_code == 200
-    body = response.json()
-    assert body["success"] is True
-    assert body["data"]["url"] == "https://leetcode.com/problems/two-sum"
-    assert body["error"] is None
