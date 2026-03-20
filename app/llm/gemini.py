@@ -2,9 +2,10 @@ import json
 
 from google import genai
 
-from app.config.settings import settings
-from app.core.errors import AppError, ErrorCode
-from app.platforms.leetcode import Problem
+from config.settings import settings
+from core.errors import AppError, ErrorCode
+from platforms.leetcode import Problem
+import logging
 
 client = genai.Client(api_key=settings.gemini_api_key)
 
@@ -30,7 +31,7 @@ Respond ONLY with a valid JSON object in this exact format, no explanation or ma
 async def generate_insights(problem: Problem) -> dict:
     try:
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-3-flash-preview",
             contents=build_prompt(problem),
         )
         if not response.text:

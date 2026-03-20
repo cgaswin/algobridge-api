@@ -1,6 +1,6 @@
-from app.core.errors import AppError, ErrorCode
-from app.llm.gemini import generate_insights
-from app.platforms.leetcode import fetch_problem
+from core.errors import AppError, ErrorCode
+from llm.gemini import generate_insights
+from platforms.leetcode import fetch_problem
 
 
 async def analyze_problem(url: str) -> dict:

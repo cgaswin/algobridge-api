@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from app.api.v1.router import router as v1_router
-from app.config.logging import setup_logging
-from app.core.exception_handlers import register_exception_handlers
+from api.v1.router import router as v1_router
+from config.logging import setup_logging
+from core.exception_handlers import register_exception_handlers
 
 setup_logging()
 

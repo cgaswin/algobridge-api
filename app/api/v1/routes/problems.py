@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, HttpUrl
 
-from app.core.response import success_response
-from app.services.problem_service import analyze_problem
+from core.response import success_response
+from services.problem_service import analyze_problem
 
 router = APIRouter()
 
