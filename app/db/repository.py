@@ -1,0 +1,114 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+
+from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
+
+from app.db.models import Problem, ProblemInsight
+
+
+DEFAULT_PLATFORM = "leetcode"
+
+
+async def get_cached_insights_by_key(
+    session: AsyncSession,
+    *,
+    canonical_key: str,
+    platform: str = DEFAULT_PLATFORM,
+) -> dict | None:
+    """
+    Return cached insights JSON for a canonical problem key, or None if missing.
+    """
+    stmt = (
+        select(ProblemInsight.insights_json)
+        .join(Problem, Problem.id == ProblemInsight.problem_id)
+        .where(
+            Problem.platform == platform,
+            Problem.canonical_key == canonical_key,
+        )
+        .limit(1)
+    )
+    result = await session.execute(stmt)
+    return result.scalar_one_or_none()
+
+
+async def get_problem_with_insight(
+    session: AsyncSession,
+    *,
+    canonical_key: str,
+    platform: str = DEFAULT_PLATFORM,
+) -> Problem | None:
+    """
+    Return the Problem row (with optional insight relationship loaded) by key.
+    """
+    stmt = (
+        select(Problem)
+        .options(selectinload(Problem.insight))
+        .where(
+            Problem.platform == platform,
+            Problem.canonical_key == canonical_key,
+        )
+        .limit(1)
+    )
+    result = await session.execute(stmt)
+    return result.scalar_one_or_none()
+
+
+async def upsert_problem_insights(
+    session: AsyncSession,
+    *,
+    canonical_key: str,
+    raw_url: str,
+    insights_json: Mapping[str, object],
+    source_version: str,
+    platform: str = DEFAULT_PLATFORM,
+) -> ProblemInsight:
+    """
+    Upsert cache for a problem:
+    - Ensure Problem(platform, canonical_key) exists
+    - Insert or update linked ProblemInsight row
+
+    This function commits the transaction and returns the persisted ProblemInsight.
+    """
+    problem = await get_problem_with_insight(
+        session,
+        canonical_key=canonical_key,
+        platform=platform,
+    )
+
+    if problem is None:
+        problem = Problem(
+            platform=platform,
+            canonical_key=canonical_key,
+            raw_url_first_seen=raw_url,
+        )
+        session.add(problem)
+        try:
+            await session.flush()
+        except IntegrityError:
+            # Concurrent insert for same unique key; reload existing row.
+            await session.rollback()
+            problem = await get_problem_with_insight(
+                session,
+                canonical_key=canonical_key,
+                platform=platform,
+            )
+            if problem is None:
+                raise
+
+    if problem.insight is None:
+        problem.insight = ProblemInsight(
+            problem_id=problem.id,
+            insights_json=dict(insights_json),
+            source_version=source_version,
+        )
+    else:
+        problem.insight.insights_json = dict(insights_json)
+        problem.insight.source_version = source_version
+
+    await session.commit()
+    await session.refresh(problem, attribute_names=["insight"])
+    return problem.insight

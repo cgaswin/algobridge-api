@@ -1,6 +1,13 @@
-from core.errors import AppError, ErrorCode
-from llm.gemini import generate_insights
-from platforms.leetcode import fetch_problem
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.core.errors import AppError, ErrorCode
+from app.db.repository import get_cached_insights_by_key, upsert_problem_insights
+from app.db.session import AsyncSessionLocal
+from app.llm.gemini import generate_insights
+from app.platforms.leetcode import extract_slug, fetch_problem
+
+
+SOURCE_VERSION = "gemini-3-flash-preview:v1"
 
 
 async def analyze_problem(url: str) -> dict:
@@ -15,6 +22,25 @@ async def analyze_problem(url: str) -> dict:
             message="Only LeetCode problems are supported",
         )
 
-    problem = await fetch_problem(url)
-    insights = await generate_insights(problem)
-    return insights
+    canonical_key = extract_slug(url)
+
+    async with AsyncSessionLocal() as session:
+        session: AsyncSession
+        cached_insights = await get_cached_insights_by_key(
+            session,
+            canonical_key=canonical_key,
+        )
+        if cached_insights is not None:
+            return cached_insights
+
+        problem = await fetch_problem(url)
+        insights = await generate_insights(problem)
+
+        await upsert_problem_insights(
+            session,
+            canonical_key=canonical_key,
+            raw_url=url,
+            insights_json=insights,
+            source_version=SOURCE_VERSION,
+        )
+        return insights

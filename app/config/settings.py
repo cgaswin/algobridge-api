@@ -7,6 +7,9 @@ class Settings(BaseSettings):
 
     gemini_api_key: str = Field(...)
     leetcode_endpoint: str = Field(...)
+    database_url: str = Field(
+        "postgresql+asyncpg://algobridge:algobridge@localhost:5432/algobridge"
+    )
 
 
 settings = Settings()

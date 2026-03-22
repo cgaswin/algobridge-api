@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: algobridge-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-algobridge}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-algobridge}
+      POSTGRES_DB: ${POSTGRES_DB:-algobridge}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-algobridge} -d ${POSTGRES_DB:-algobridge}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: algobridge-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      LEETCODE_ENDPOINT: ${LEETCODE_ENDPOINT}
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-algobridge}:${POSTGRES_PASSWORD:-algobridge}@db:5432/${POSTGRES_DB:-algobridge}
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    command: uv run fastapi run app/main.py --host 0.0.0.0 --port 8000
+
+volumes:
+  postgres_data:

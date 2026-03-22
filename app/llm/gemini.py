@@ -2,10 +2,10 @@ import json
 
 from google import genai
 
-from config.settings import settings
-from core.errors import AppError, ErrorCode
-from platforms.leetcode import Problem
-import logging
+from app.config.settings import settings
+from app.core.errors import AppError, ErrorCode
+from app.platforms.leetcode import Problem
+
 
 client = genai.Client(api_key=settings.gemini_api_key)
 

@@ -3,8 +3,8 @@ from dataclasses import dataclass
 
 import httpx
 
-from config.settings import settings
-from core.errors import AppError, ErrorCode
+from app.config.settings import settings
+from app.core.errors import AppError, ErrorCode
 
 
 @dataclass
