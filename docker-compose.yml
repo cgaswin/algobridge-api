@@ -14,7 +14,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-algobridge} -d ${POSTGRES_DB:-algobridge}"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-algobridge} -d ${POSTGRES_DB:-algobridge}",
+        ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -34,7 +38,7 @@ services:
       DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-algobridge}:${POSTGRES_PASSWORD:-algobridge}@db:5432/${POSTGRES_DB:-algobridge}
     ports:
       - "${APP_PORT:-8000}:8000"
-    command: uv run fastapi run app/main.py --host 0.0.0.0 --port 8000
+    command: uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 volumes:
   postgres_data:
