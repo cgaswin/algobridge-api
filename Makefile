@@ -4,13 +4,11 @@ dev:
 run:
 	uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 
-test:
-	uv run pytest
+migrate:
+	uv run alembic upgrade head
 
-lint:
-	uv run ruff check .
+migrate-down:
+	uv run alembic downgrade -1
 
-format:
-	uv run ruff format .
-
-check: lint format
+migrate-current:
+	uv run alembic current

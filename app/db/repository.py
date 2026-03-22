@@ -99,16 +99,24 @@ async def upsert_problem_insights(
             if problem is None:
                 raise
 
-    if problem.insight is None:
-        problem.insight = ProblemInsight(
+    stmt = (
+        select(ProblemInsight)
+        .where(ProblemInsight.problem_id == problem.id)
+        .limit(1)
+    )
+    existing_insight = (await session.execute(stmt)).scalar_one_or_none()
+
+    if existing_insight is None:
+        existing_insight = ProblemInsight(
             problem_id=problem.id,
             insights_json=dict(insights_json),
             source_version=source_version,
         )
+        session.add(existing_insight)
     else:
-        problem.insight.insights_json = dict(insights_json)
-        problem.insight.source_version = source_version
+        existing_insight.insights_json = dict(insights_json)
+        existing_insight.source_version = source_version
 
     await session.commit()
-    await session.refresh(problem, attribute_names=["insight"])
-    return problem.insight
+    await session.refresh(existing_insight)
+    return existing_insight
