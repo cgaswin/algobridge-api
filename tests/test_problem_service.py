@@ -23,14 +23,24 @@ fake_insights = {
 @pytest.mark.anyio
 async def test_analyze_problem_success():
     with patch(
-        "app.services.problem_service.fetch_problem",
-        AsyncMock(return_value=fake_problem),
+        "app.services.problem_service.get_cached_insights_by_key",
+        AsyncMock(return_value=None),
     ):
         with patch(
-            "app.services.problem_service.generate_insights",
-            AsyncMock(return_value=fake_insights),
+            "app.services.problem_service.upsert_problem_insights",
+            AsyncMock(),
         ):
-            result = await analyze_problem("https://leetcode.com/problems/two-sum/")
+            with patch(
+                "app.services.problem_service.fetch_problem",
+                AsyncMock(return_value=fake_problem),
+            ):
+                with patch(
+                    "app.services.problem_service.generate_insights",
+                    AsyncMock(return_value=fake_insights),
+                ):
+                    result = await analyze_problem(
+                        "https://leetcode.com/problems/two-sum/"
+                    )
 
     assert result == fake_insights
 
@@ -46,10 +56,42 @@ async def test_analyze_problem_unsupported_platform():
 @pytest.mark.anyio
 async def test_analyze_problem_fetch_failure():
     with patch(
-        "app.services.problem_service.fetch_problem",
-        AsyncMock(
-            side_effect=AppError(code=ErrorCode.INTERNAL_ERROR, message="fetch failed")
-        ),
+        "app.services.problem_service.get_cached_insights_by_key",
+        AsyncMock(return_value=None),
     ):
-        with pytest.raises(AppError):
-            await analyze_problem("https://leetcode.com/problems/two-sum/")
+        with patch(
+            "app.services.problem_service.fetch_problem",
+            AsyncMock(
+                side_effect=AppError(code=ErrorCode.INTERNAL_ERROR, message="fetch failed")
+            ),
+        ):
+            with pytest.raises(AppError):
+                await analyze_problem("https://leetcode.com/problems/two-sum/")
+
+
+@pytest.mark.anyio
+async def test_analyze_problem_cache_hit_skips_external_calls():
+    with patch(
+        "app.services.problem_service.get_cached_insights_by_key",
+        AsyncMock(return_value=fake_insights),
+    ):
+        with patch(
+            "app.services.problem_service.fetch_problem",
+            AsyncMock(),
+        ) as mock_fetch_problem:
+            with patch(
+                "app.services.problem_service.generate_insights",
+                AsyncMock(),
+            ) as mock_generate_insights:
+                with patch(
+                    "app.services.problem_service.upsert_problem_insights",
+                    AsyncMock(),
+                ) as mock_upsert_problem_insights:
+                    result = await analyze_problem(
+                        "https://leetcode.com/problems/two-sum/"
+                    )
+
+    assert result == fake_insights
+    mock_fetch_problem.assert_not_called()
+    mock_generate_insights.assert_not_called()
+    mock_upsert_problem_insights.assert_not_called()

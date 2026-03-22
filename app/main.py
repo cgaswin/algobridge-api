@@ -1,8 +1,11 @@
-from fastapi import FastAPI
+from typing import Any, cast
 
-from api.v1.router import router as v1_router
-from config.logging import setup_logging
-from core.exception_handlers import register_exception_handlers
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.v1.router import router as v1_router
+from app.config.logging import setup_logging
+from app.core.exception_handlers import register_exception_handlers
 
 setup_logging()
 
@@ -13,6 +16,19 @@ app = FastAPI(
 )
 
 register_exception_handlers(app)
+
+cors_options: dict[str, Any] = {
+    "allow_origin_regex": r"^(chrome-extension://[a-z]{32}|moz-extension://[0-9a-fA-F-]+)$",
+    "allow_credentials": True,
+    "allow_methods": ["*"],
+    "allow_headers": ["*"],
+}
+
+app.add_middleware(
+    cast(Any, CORSMiddleware),
+    **cors_options,
+)
+
 app.include_router(v1_router)
 
 
