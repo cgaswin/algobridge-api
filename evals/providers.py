@@ -151,6 +151,7 @@ class CliProvider:
                 )
             except TimeoutError:
                 proc.kill()
+                await proc.wait()
                 raise RetryableError(
                     504, f"{self.name} timed out after {self.timeout_s:.0f}s"
                 )
