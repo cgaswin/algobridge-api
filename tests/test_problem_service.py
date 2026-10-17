@@ -4,7 +4,7 @@ import pytest
 
 from app.core.errors import AppError, ErrorCode
 from app.platforms.leetcode import Problem
-from app.services.problem_service import analyze_problem
+from app.services.problem_service import SOURCE_VERSION, analyze_problem
 
 fake_problem = Problem(
     title="Two Sum",
@@ -15,8 +15,18 @@ fake_problem = Problem(
 
 fake_insights = {
     "use_case": "caching",
-    "system_examples": "Redis",
+    "system_examples": ["Redis — key lookup"],
     "explanation": "hash maps are fast",
+}
+
+expected_payload = {
+    "problem": {
+        "slug": "two-sum",
+        "title": "Two Sum",
+        "difficulty": "easy",
+        "tags": ["Array", "Hash Table"],
+    },
+    **fake_insights,
 }
 
 
@@ -42,7 +52,7 @@ async def test_analyze_problem_success():
                         "https://leetcode.com/problems/two-sum/"
                     )
 
-    assert result == fake_insights
+    assert result == expected_payload
 
 
 @pytest.mark.anyio
@@ -62,7 +72,9 @@ async def test_analyze_problem_fetch_failure():
         with patch(
             "app.services.problem_service.fetch_problem",
             AsyncMock(
-                side_effect=AppError(code=ErrorCode.INTERNAL_ERROR, message="fetch failed")
+                side_effect=AppError(
+                    code=ErrorCode.INTERNAL_ERROR, message="fetch failed"
+                )
             ),
         ):
             with pytest.raises(AppError):
@@ -73,8 +85,8 @@ async def test_analyze_problem_fetch_failure():
 async def test_analyze_problem_cache_hit_skips_external_calls():
     with patch(
         "app.services.problem_service.get_cached_insights_by_key",
-        AsyncMock(return_value=fake_insights),
-    ):
+        AsyncMock(return_value=expected_payload),
+    ) as mock_get_cached:
         with patch(
             "app.services.problem_service.fetch_problem",
             AsyncMock(),
@@ -91,7 +103,8 @@ async def test_analyze_problem_cache_hit_skips_external_calls():
                         "https://leetcode.com/problems/two-sum/"
                     )
 
-    assert result == fake_insights
+    assert result == expected_payload
+    assert mock_get_cached.call_args.kwargs["source_version"] == SOURCE_VERSION
     mock_fetch_problem.assert_not_called()
     mock_generate_insights.assert_not_called()
     mock_upsert_problem_insights.assert_not_called()

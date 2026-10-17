@@ -7,7 +7,7 @@ from app.main import app
 
 fake_insights = {
     "use_case": "caching",
-    "system_examples": "Redis",
+    "system_examples": ["Redis — key lookup"],
     "explanation": "hash maps are fast",
 }
 
@@ -70,7 +70,7 @@ async def test_analyze_problem_url_normalization():
             return_value={
                 "url": "https://leetcode.com/problems/two-sum",
                 "use_case": "caching",
-                "system_examples": "Redis",
+                "system_examples": ["Redis — key lookup"],
                 "explanation": "hash maps are fast",
             }
         ),

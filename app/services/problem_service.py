@@ -3,11 +3,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.errors import AppError, ErrorCode
 from app.db.repository import get_cached_insights_by_key, upsert_problem_insights
 from app.db.session import AsyncSessionLocal
+from app.config.settings import settings
 from app.llm.gemini import generate_insights
+from app.llm.prompts import PROMPT_VERSION
 from app.platforms.leetcode import extract_slug, fetch_problem
 
 
-SOURCE_VERSION = "gemini-3-flash-preview:v1"
+# Cached rows from another model, prompt or payload shape are regenerated.
+SOURCE_VERSION = f"{settings.gemini_model}:{PROMPT_VERSION}"
 
 
 async def analyze_problem(url: str) -> dict:
@@ -29,12 +32,21 @@ async def analyze_problem(url: str) -> dict:
         cached_insights = await get_cached_insights_by_key(
             session,
             canonical_key=canonical_key,
+            source_version=SOURCE_VERSION,
         )
         if cached_insights is not None:
             return cached_insights
 
         problem = await fetch_problem(url)
-        insights = await generate_insights(problem)
+        insights = {
+            "problem": {
+                "slug": canonical_key,
+                "title": problem.title,
+                "difficulty": problem.difficulty.lower(),
+                "tags": problem.tags,
+            },
+            **await generate_insights(problem),
+        }
 
         await upsert_problem_insights(
             session,
