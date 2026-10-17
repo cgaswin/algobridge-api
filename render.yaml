@@ -4,7 +4,7 @@ services:
     runtime: docker
     plan: free
     # Keep this in the same region as the Neon database.
-    region: ohio
+    region: singapore
     branch: main
     healthCheckPath: /health
     autoDeploy: true

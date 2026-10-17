@@ -3,7 +3,7 @@ import pytest
 from app.db.url import async_database_url, sync_database_url
 
 NEON = (
-    "postgresql://user:p%40ss@ep-cool-1.us-east-2.aws.neon.tech/neondb"
+    "postgresql://user:p%40ss@db.example.invalid/neondb"
     "?sslmode=require&channel_binding=require"
 )
 
