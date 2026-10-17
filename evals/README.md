@@ -28,8 +28,9 @@ Every step is resumable. Existing outputs and judgments are skipped, so after a 
 
 Providers:
 
-- `gemini` and `openrouter` call the APIs directly. Set `GEMINI_API_KEY` / `OPENROUTER_API_KEY` in `algobridge-api/.env`.
+- `gemini` calls the API directly. Set `GEMINI_API_KEY` in `algobridge-api/.env`.
 - `agy` (Antigravity CLI) and `codex` (Codex CLI) run each prompt through the locally logged-in CLI, in an empty temp dir with a read-only sandbox. This uses your subscription instead of an API key. Each call carries about 16–28k tokens of agent overhead, and temperature can't be set. `agy models` lists the model IDs.
+- `opencode` runs each prompt through `opencode run` in an empty temp dir. It has no structured-output flag, so the JSON schema goes in the prompt; a batch that comes back malformed is retried on the next run. `opencode models` lists the model IDs.
 
 ```bash
 # Pipeline check: copies the references as a "run"; costs no API calls
@@ -38,12 +39,12 @@ uv run python -m evals generate --provider reference
 # Candidates
 uv run python -m evals generate --provider gemini --model gemini-3-flash-preview
 uv run python -m evals generate --provider gemini --model gemini-3.1-flash-lite-preview
-uv run python -m evals generate --provider openrouter --model meta-llama/llama-3.3-70b-instruct:free
 uv run python -m evals generate --provider agy --model gemini-3.8-flash-medium --rpm 30
 uv run python -m evals generate --provider codex --model gpt-6-luna --rpm 30
 
 # Grade each run (directory names come from evals/results/)
 uv run python -m evals judge --run gemini__gemini-3-flash-preview --judge-provider gemini --judge-model gemini-2.5-pro
+uv run python -m evals judge --run codex__gpt-6-luna --judge-provider opencode --judge-model opencode/deepseek-v4.1-flash-free --rpm 30
 
 uv run python -m evals report
 ```

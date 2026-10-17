@@ -7,7 +7,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
 
-import httpx
 from pydantic import BaseModel
 
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
@@ -82,65 +81,6 @@ class GeminiProvider:
             text=response.text or "",
             input_tokens=usage.prompt_token_count if usage else None,
             output_tokens=usage.candidates_token_count if usage else None,
-            latency_ms=int((time.perf_counter() - start) * 1000),
-        )
-
-
-class OpenRouterProvider:
-    name = "openrouter"
-    url = "https://openrouter.ai/api/v1/chat/completions"
-
-    def __init__(self, model: str, temperature: float):
-        self.model = model
-        self.temperature = temperature
-        self.api_key = _require_env("OPENROUTER_API_KEY")
-
-    async def complete(
-        self, system: str, user: str, schema: type[BaseModel]
-    ) -> LLMResult:
-        payload = {
-            "model": self.model,
-            "temperature": self.temperature,
-            "messages": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-            "response_format": {
-                "type": "json_schema",
-                "json_schema": {
-                    "name": schema.__name__,
-                    "schema": schema.model_json_schema(),
-                },
-            },
-        }
-        start = time.perf_counter()
-        async with httpx.AsyncClient(timeout=180.0) as client:
-            response = await client.post(
-                self.url,
-                headers={
-                    "Authorization": f"Bearer {self.api_key}",
-                    "X-Title": "AlgoBridge evals",
-                },
-                json=payload,
-            )
-
-        if response.status_code in RETRYABLE_STATUS:
-            retry_after = response.headers.get("retry-after")
-            raise RetryableError(
-                response.status_code,
-                response.text[:300],
-                float(retry_after) if retry_after and retry_after.isdigit() else None,
-            )
-        response.raise_for_status()
-
-        data = response.json()
-        if "error" in data:
-            raise RuntimeError(f"OpenRouter error: {data['error']}")
-        usage = data.get("usage") or {}
-        return LLMResult(
-            text=data["choices"][0]["message"].get("content") or "",
-            input_tokens=usage.get("prompt_tokens"),
-            output_tokens=usage.get("completion_tokens"),
             latency_ms=int((time.perf_counter() - start) * 1000),
         )
 
@@ -298,7 +238,6 @@ class OpenCodeProvider(CliProvider):
 
 PROVIDERS: dict[str, type] = {
     "gemini": GeminiProvider,
-    "openrouter": OpenRouterProvider,
     "agy": AntigravityProvider,
     "codex": CodexProvider,
     "opencode": OpenCodeProvider,
