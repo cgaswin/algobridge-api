@@ -66,7 +66,7 @@ docker compose up --build
 
 ## Deploy (Render + Neon, free tiers)
 
-1. Create a Neon project with only Postgres enabled, in the same region as Render (`render.yaml` uses `ohio`; change both if you pick another).
+1. Create a Neon project with only Postgres enabled, in the same region as Render (`render.yaml` uses `singapore`; change both if you pick another).
 2. In Neon's **Connect** dialog, turn **Connection pooling off** and copy the direct connection string. It can be pasted as-is: `sslmode` and `channel_binding` are converted for asyncpg (`app/db/url.py`).
 3. In Render, choose **New → Blueprint** and select this repo. Fill in `DATABASE_URL` and `GEMINI_API_KEY` when prompted.
 4. Each start runs `alembic upgrade head`, then uvicorn on `$PORT` (`scripts/start.sh`).
