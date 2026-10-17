@@ -35,7 +35,6 @@ Create `.env` in project root:
 
 ```env
 GEMINI_API_KEY=your_key
-LEETCODE_ENDPOINT=http://localhost:3000
 DATABASE_URL=postgresql+asyncpg://algobridge:algobridge@localhost:5432/algobridge
 ```
 
@@ -64,6 +63,16 @@ API will run on `http://localhost:8000`.
 ```bash
 docker compose up --build
 ```
+
+## Deploy (Render + Neon, free tiers)
+
+1. Create a Neon project with only Postgres enabled, in the same region as Render (`render.yaml` uses `ohio`; change both if you pick another).
+2. In Neon's **Connect** dialog, turn **Connection pooling off** and copy the direct connection string. It can be pasted as-is: `sslmode` and `channel_binding` are converted for asyncpg (`app/db/url.py`).
+3. In Render, choose **New → Blueprint** and select this repo. Fill in `DATABASE_URL` and `GEMINI_API_KEY` when prompted.
+4. Each start runs `alembic upgrade head`, then uvicorn on `$PORT` (`scripts/start.sh`).
+5. Optional: set the repository variable `API_BASE_URL` (e.g. `https://algobridge-api.onrender.com`) to enable `.github/workflows/keep-warm.yml`. It pings `/health` every 10 minutes so the free instance doesn't sleep.
+
+Problem data comes from LeetCode's public GraphQL endpoint (`LEETCODE_GRAPHQL_URL` overrides it). Premium problems return `422`, because LeetCode withholds their statements from anonymous requests.
 
 ## API
 

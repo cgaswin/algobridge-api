@@ -7,9 +7,10 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from app.config.settings import settings
+from app.db.url import async_database_url
 
 engine = create_async_engine(
-    settings.database_url,
+    async_database_url(settings.database_url),
     pool_pre_ping=True,
 )
 

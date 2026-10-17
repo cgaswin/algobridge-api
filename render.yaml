@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: algobridge-api
+    runtime: docker
+    plan: free
+    # Keep this in the same region as the Neon database.
+    region: ohio
+    branch: main
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3-flash-preview
