@@ -1,0 +1,21 @@
+{
+  "slug": "merge-intervals",
+  "title": "Merge Intervals",
+  "difficulty": "Medium",
+  "topic": "Intervals",
+  "tags": [
+    "Array",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/merge-intervals/",
+  "description": "Given an array of intervals [start, end], merge all overlapping intervals and return the non-overlapping intervals that cover all input intervals.",
+  "reference": {
+    "use_case": "Combining overlapping time ranges into consolidated blocks, such as merging calendar events to compute someone's busy time.",
+    "system_examples": [
+      "Google Calendar free/busy — consolidating overlapping events into busy blocks",
+      "bedtools merge — combining overlapping genomic intervals",
+      "SLA reporting — merging overlapping outage windows to compute total downtime"
+    ],
+    "explanation": "Sorting by start time makes overlapping intervals adjacent, so one pass that either extends the current block or starts a new one merges everything in O(n log n). Interval merging appears throughout scheduling, downtime accounting, and genomic range data."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "find-median-from-data-stream",
+  "title": "Find Median from Data Stream",
+  "difficulty": "Hard",
+  "topic": "Heap / Priority Queue",
+  "tags": [
+    "Two Pointers",
+    "Design",
+    "Sorting",
+    "Heap (Priority Queue)",
+    "Data Stream"
+  ],
+  "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+  "description": "Design a data structure that supports adding integers from a stream and returning the median of all elements added so far.",
+  "reference": {
+    "use_case": "Reporting the running median of a stream of measurements, such as median response time or median order value, as new data points arrive.",
+    "system_examples": [
+      "Application performance monitoring — live p50 latency on dashboards",
+      "Signal processing — median filters that remove spikes from noisy sensor readings",
+      "Finance — rolling median prices that are robust to outliers"
+    ],
+    "explanation": "Keep the lower half in a max-heap and the upper half in a min-heap, balanced in size, for O(log n) inserts and O(1) median reads. At very large scale systems switch to approximate quantile sketches (t-digest, Datadog's DDSketch), but the two-heap design is the exact baseline."
+  }
+}

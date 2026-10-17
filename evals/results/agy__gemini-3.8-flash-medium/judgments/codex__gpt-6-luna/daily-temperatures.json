@@ -1,0 +1,13 @@
+{
+  "slug": "daily-temperatures",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 3,
+  "agreement": 3,
+  "spoiler_free": false,
+  "hallucinations": [
+    "Prometheus-compatible alerting services are not shown to compute time until a future metric value exceeds the current reading as described; alert rules generally evaluate thresholds and durations.",
+    "QuantConnect is attributed a specific time-to-breakout calculation that is plausible but not established as a standard built-in system feature."
+  ],
+  "rationale": "The monotonic-stack explanation correctly captures next-greater-element processing in linear time. The stock example is a reasonable fit, but the monitoring scenario changes the query to peak persistence and the product claims are weakly supported; the technique is named."
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "number-of-islands",
+  "latency_ms": 6084,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A mapping service can count separate land regions in a satellite-derived mask to estimate distinct landmasses or connected flooded areas. The same task appears when grouping adjacent active cells in a grid-based simulation.\",\"system_examples\":[\"Geospatial raster analysis systems — count contiguous land or flooded regions in classified satellite imagery.\",\"Grid-based simulation software — count connected clusters of active cells in a cellular automaton or occupancy map.\"],\"explanation\":\"A traversal marks each land cell as visited and explores its horizontal and vertical neighbors, taking O(rows × columns) time and O(rows × columns) worst-case space. This avoids repeatedly comparing every pair of cells and is practical because the work grows linearly with the input grid; the problem also serves mainly as a standard connected-component exercise.\"}",
+  "parsed": {
+    "use_case": "A mapping service can count separate land regions in a satellite-derived mask to estimate distinct landmasses or connected flooded areas. The same task appears when grouping adjacent active cells in a grid-based simulation.",
+    "system_examples": [
+      "Geospatial raster analysis systems — count contiguous land or flooded regions in classified satellite imagery.",
+      "Grid-based simulation software — count connected clusters of active cells in a cellular automaton or occupancy map."
+    ],
+    "explanation": "A traversal marks each land cell as visited and explores its horizontal and vertical neighbors, taking O(rows × columns) time and O(rows × columns) worst-case space. This avoids repeatedly comparing every pair of cells and is practical because the work grows linearly with the input grid; the problem also serves mainly as a standard connected-component exercise."
+  },
+  "schema_error": null,
+  "issues": []
+}

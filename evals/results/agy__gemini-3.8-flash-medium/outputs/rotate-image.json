@@ -1,0 +1,17 @@
+{
+  "slug": "rotate-image",
+  "latency_ms": 28838,
+  "input_tokens": 28496,
+  "output_tokens": 1899,
+  "raw": "{\"explanation\": \"The standard solution achieves in-place rotation by transposing the matrix across its main diagonal and reversing each row, preserving O(n\\u00b2) time while eliminating the O(n\\u00b2) auxiliary space needed by the naive copy approach. In production graphics and image processing, this in-place manipulation is essential for embedded DSPs and GPU tile caches with strict memory budgets, although high-throughput desktop libraries sometimes deliberately choose out-of-place rotation to optimize sequential memory bus write patterns.\", \"system_examples\": [\"Android SurfaceFlinger \\u2014 reorients display layer buffers during screen orientation changes to match physical panel scanout directions without allocating extra frame memory.\", \"libjpeg-turbo \\u2014 reorients discrete cosine transform coefficient blocks during lossless JPEG transformations to update photo orientation without allocating duplicate block buffers.\"], \"use_case\": \"Display controllers and camera pipelines must reorient pixel buffers by 90 degrees to match hardware sensor mount angles or device orientation changes. In memory-constrained graphics processors and embedded displays, this reorientation must occur directly within the existing frame buffer without allocating secondary scratchpad memory.\"}",
+  "parsed": {
+    "use_case": "Display controllers and camera pipelines must reorient pixel buffers by 90 degrees to match hardware sensor mount angles or device orientation changes. In memory-constrained graphics processors and embedded displays, this reorientation must occur directly within the existing frame buffer without allocating secondary scratchpad memory.",
+    "system_examples": [
+      "Android SurfaceFlinger — reorients display layer buffers during screen orientation changes to match physical panel scanout directions without allocating extra frame memory.",
+      "libjpeg-turbo — reorients discrete cosine transform coefficient blocks during lossless JPEG transformations to update photo orientation without allocating duplicate block buffers."
+    ],
+    "explanation": "The standard solution achieves in-place rotation by transposing the matrix across its main diagonal and reversing each row, preserving O(n²) time while eliminating the O(n²) auxiliary space needed by the naive copy approach. In production graphics and image processing, this in-place manipulation is essential for embedded DSPs and GPU tile caches with strict memory budgets, although high-throughput desktop libraries sometimes deliberately choose out-of-place rotation to optimize sequential memory bus write patterns."
+  },
+  "schema_error": null,
+  "issues": []
+}

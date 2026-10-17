@@ -1,0 +1,17 @@
+{
+  "slug": "network-delay-time",
+  "latency_ms": 5798,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A monitoring service estimates how long an alert takes to reach every server in a directed network when links have different delays. It must report the slowest arrival time, or identify that some servers cannot be reached.\",\"system_examples\":[\"Internet routing control planes — calculate minimum path costs from a router to reachable destinations as input to route selection.\",\"Distributed alerting and messaging systems — estimate delivery times from a publishing node to subscribers across links with different delays.\"],\"explanation\":\"A shortest-path algorithm with a priority queue typically runs in O((V + E) log V), compared with O(VE) for a basic repeated-relaxation approach. Efficiently finding the slowest minimum arrival time helps network services assess reachability and propagation latency at scale; the final maximum is taken across the minimum distances from the source.\"}",
+  "parsed": {
+    "use_case": "A monitoring service estimates how long an alert takes to reach every server in a directed network when links have different delays. It must report the slowest arrival time, or identify that some servers cannot be reached.",
+    "system_examples": [
+      "Internet routing control planes — calculate minimum path costs from a router to reachable destinations as input to route selection.",
+      "Distributed alerting and messaging systems — estimate delivery times from a publishing node to subscribers across links with different delays."
+    ],
+    "explanation": "A shortest-path algorithm with a priority queue typically runs in O((V + E) log V), compared with O(VE) for a basic repeated-relaxation approach. Efficiently finding the slowest minimum arrival time helps network services assess reachability and propagation latency at scale; the final maximum is taken across the minimum distances from the source."
+  },
+  "schema_error": null,
+  "issues": []
+}

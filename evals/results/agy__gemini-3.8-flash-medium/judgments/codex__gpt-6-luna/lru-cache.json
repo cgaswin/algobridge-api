@@ -1,0 +1,13 @@
+{
+  "slug": "lru-cache",
+  "accuracy": 3,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": false,
+  "hallucinations": [
+    "Linux Kernel Page Cache reclaims disk pages specifically according to the least-recently-accessed policy described; Linux page reclaim is more nuanced and not strict LRU.",
+    "Memcached evicts the least recently used item within a slab class as stated; its eviction behavior is not a strict exact LRU policy."
+  ],
+  "rationale": "The bounded cache scenario and map-plus-list design are highly relevant, but the named system behaviors overstate how closely their real eviction policies implement exact LRU. The explanation names the key technique, so the answer is not spoiler-free."
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "subsets",
+  "latency_ms": 29527,
+  "input_tokens": 28723,
+  "output_tokens": 2140,
+  "raw": "{\"explanation\": \"The optimal approach generates all 2^n subsets in O(n \\u00b7 2^n) time and space using bit manipulation or recursive backtracking, matching the lower bound dictated by the output size. Because the search space grows exponentially, production systems strictly limit exhaustive generation to tiny inputs (typically n \\u2264 20) and otherwise rely on branch pruning, approximation, or heuristic search.\", \"system_examples\": [\"PostgreSQL \\u2014 Implements the `GROUP BY CUBE` clause by generating every subset of the target columns to calculate multidimensional aggregation summaries.\", \"LaunchDarkly \\u2014 Evaluates all combinations of active feature flags during combinatorial integration testing to detect conflicting configurations across feature states.\"], \"use_case\": \"In analytics databases, computing multi-dimensional aggregation cubes requires generating all possible groupings from a set of dimension attributes to precalculate rollups at every level of granularity.\"}",
+  "parsed": {
+    "use_case": "In analytics databases, computing multi-dimensional aggregation cubes requires generating all possible groupings from a set of dimension attributes to precalculate rollups at every level of granularity.",
+    "system_examples": [
+      "PostgreSQL — Implements the `GROUP BY CUBE` clause by generating every subset of the target columns to calculate multidimensional aggregation summaries.",
+      "LaunchDarkly — Evaluates all combinations of active feature flags during combinatorial integration testing to detect conflicting configurations across feature states."
+    ],
+    "explanation": "The optimal approach generates all 2^n subsets in O(n · 2^n) time and space using bit manipulation or recursive backtracking, matching the lower bound dictated by the output size. Because the search space grows exponentially, production systems strictly limit exhaustive generation to tiny inputs (typically n ≤ 20) and otherwise rely on branch pruning, approximation, or heuristic search."
+  },
+  "schema_error": null,
+  "issues": []
+}

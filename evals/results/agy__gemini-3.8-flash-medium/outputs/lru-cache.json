@@ -1,0 +1,18 @@
+{
+  "slug": "lru-cache",
+  "latency_ms": 29254,
+  "input_tokens": 28105,
+  "output_tokens": 1703,
+  "raw": "{\"explanation\": \"The standard solution pairs a hash map for constant-time key lookup with a doubly linked list for constant-time node repositioning and eviction. A naive approach storing timestamps or using an array requires an O(N) scan per eviction or reordering, which degrades throughput as cache size scales. In production, achieving O(1) operations ensures predictable, low-latency access patterns even under extreme workloads and hard memory limits.\", \"system_examples\": [\"Redis \\u2014 supports configurable eviction policies that automatically drop the least recently accessed keys when allocated memory limits are reached.\", \"Linux Kernel Page Cache \\u2014 tracks physical memory usage to reclaim disk pages that have remained unaccessed the longest when the operating system experiences memory pressure.\", \"Memcached \\u2014 evicts items that have remained idle the longest within a slab class when allocating new entries exceeds available memory.\"], \"use_case\": \"A web application server maintaining a fixed-size in-memory store for rendered HTML fragments must keep memory consumption strictly bounded while serving frequent requests instantly. When the store reaches capacity, it must discard the data that has gone longest without being accessed to make room for new content without slowing down client requests.\"}",
+  "parsed": {
+    "use_case": "A web application server maintaining a fixed-size in-memory store for rendered HTML fragments must keep memory consumption strictly bounded while serving frequent requests instantly. When the store reaches capacity, it must discard the data that has gone longest without being accessed to make room for new content without slowing down client requests.",
+    "system_examples": [
+      "Redis — supports configurable eviction policies that automatically drop the least recently accessed keys when allocated memory limits are reached.",
+      "Linux Kernel Page Cache — tracks physical memory usage to reclaim disk pages that have remained unaccessed the longest when the operating system experiences memory pressure.",
+      "Memcached — evicts items that have remained idle the longest within a slab class when allocating new entries exceeds available memory."
+    ],
+    "explanation": "The standard solution pairs a hash map for constant-time key lookup with a doubly linked list for constant-time node repositioning and eviction. A naive approach storing timestamps or using an array requires an O(N) scan per eviction or reordering, which degrades throughput as cache size scales. In production, achieving O(1) operations ensures predictable, low-latency access patterns even under extreme workloads and hard memory limits."
+  },
+  "schema_error": null,
+  "issues": []
+}

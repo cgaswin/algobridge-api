@@ -1,0 +1,10 @@
+{
+  "slug": "gas-station",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The greedy scan logic is correctly explained, but the use case mistakenly introduces a 'fixed fuel capacity' constraint not present in the problem, and the system examples are generic."
+}

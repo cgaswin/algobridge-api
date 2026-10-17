@@ -1,0 +1,17 @@
+{
+  "slug": "detect-squares",
+  "latency_ms": 5846,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A location service can count stored observations that, together with a queried observation, form an axis-aligned square on a grid, preserving repeated observations as distinct choices. Similar counting can support spatial pattern detection in discretized sensor or map data.\",\"system_examples\":[\"Grid-based sensor analytics — counts repeated observations participating in square spatial patterns around a queried cell.\",\"Geospatial event analysis — detects axis-aligned square arrangements of events after locations are mapped to a discrete coordinate grid.\"],\"explanation\":\"A frequency index keyed by coordinates lets the query examine candidate opposite corners and multiply the counts of the two required side points, giving O(n) query time in the number of distinct coordinates and O(n) storage; scanning all triples is O(n³). This is a useful pattern for small, structured spatial joins, though square counting itself is mostly a teaching exercise rather than a common standalone production feature.\"}",
+  "parsed": {
+    "use_case": "A location service can count stored observations that, together with a queried observation, form an axis-aligned square on a grid, preserving repeated observations as distinct choices. Similar counting can support spatial pattern detection in discretized sensor or map data.",
+    "system_examples": [
+      "Grid-based sensor analytics — counts repeated observations participating in square spatial patterns around a queried cell.",
+      "Geospatial event analysis — detects axis-aligned square arrangements of events after locations are mapped to a discrete coordinate grid."
+    ],
+    "explanation": "A frequency index keyed by coordinates lets the query examine candidate opposite corners and multiply the counts of the two required side points, giving O(n) query time in the number of distinct coordinates and O(n) storage; scanning all triples is O(n³). This is a useful pattern for small, structured spatial joins, though square counting itself is mostly a teaching exercise rather than a common standalone production feature."
+  },
+  "schema_error": null,
+  "issues": []
+}

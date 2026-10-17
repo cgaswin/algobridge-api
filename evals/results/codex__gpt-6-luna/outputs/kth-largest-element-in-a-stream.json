@@ -1,0 +1,17 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "latency_ms": 7681,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A monitoring service can report the current value at a chosen rank, such as the third-highest response time, as new measurements arrive. It must update the result after each measurement without retaining or reordering the entire history.\",\"system_examples\":[\"Streaming observability dashboard — reports the kth-highest latency or resource measurement as new samples arrive.\",\"Online leaderboard service — tracks the kth-highest score as players submit new results.\"],\"explanation\":\"A min-heap limited to k values keeps the largest k observations, with the smallest of those at its root as the answer. Each insertion takes O(log k), versus sorting all n observations after every update at O(n log n); this keeps updates efficient when streams are long, though these ranked summaries are most useful when the requested rank is small.\"}",
+  "parsed": {
+    "use_case": "A monitoring service can report the current value at a chosen rank, such as the third-highest response time, as new measurements arrive. It must update the result after each measurement without retaining or reordering the entire history.",
+    "system_examples": [
+      "Streaming observability dashboard — reports the kth-highest latency or resource measurement as new samples arrive.",
+      "Online leaderboard service — tracks the kth-highest score as players submit new results."
+    ],
+    "explanation": "A min-heap limited to k values keeps the largest k observations, with the smallest of those at its root as the answer. Each insertion takes O(log k), versus sorting all n observations after every update at O(n log n); this keeps updates efficient when streams are long, though these ranked summaries are most useful when the requested rank is small."
+  },
+  "schema_error": null,
+  "issues": []
+}

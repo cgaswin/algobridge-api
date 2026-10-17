@@ -1,0 +1,18 @@
+{
+  "slug": "course-schedule",
+  "latency_ms": 29851,
+  "input_tokens": 28902,
+  "output_tokens": 2162,
+  "raw": "{\"explanation\": \"The problem is solved using topological sorting, implemented either through Kahn's algorithm (in-degree reduction) or depth-first search with node state tracking (cycle detection), running in O(V + E) time and space. A naive approach of independently tracing all reachability paths from every node can explode to exponential O(V!) time on dense dependency structures. In production build and orchestration systems, this validation is a critical static analysis step to prevent infinite loops, deadlocks, and costly runtime rollback failures.\", \"system_examples\": [\"Terraform \\u2014 analyzing resource configurations and reference attributes prior to creating an execution plan to detect mutually dependent resources\", \"Bazel \\u2014 evaluating target declarations and their declared prerequisites before compilation to ensure there are no circular dependency loops\", \"npm \\u2014 inspecting package manifests during dependency tree resolution to prevent unresolvable circular installation requirements\"], \"use_case\": \"A build automation tool or package manager validating a collection of software modules and their declared prerequisite libraries before compilation or installation. The system must confirm that no circular dependencies exist among components, which would otherwise result in an unresolvable execution deadlock.\"}",
+  "parsed": {
+    "use_case": "A build automation tool or package manager validating a collection of software modules and their declared prerequisite libraries before compilation or installation. The system must confirm that no circular dependencies exist among components, which would otherwise result in an unresolvable execution deadlock.",
+    "system_examples": [
+      "Terraform — analyzing resource configurations and reference attributes prior to creating an execution plan to detect mutually dependent resources",
+      "Bazel — evaluating target declarations and their declared prerequisites before compilation to ensure there are no circular dependency loops",
+      "npm — inspecting package manifests during dependency tree resolution to prevent unresolvable circular installation requirements"
+    ],
+    "explanation": "The problem is solved using topological sorting, implemented either through Kahn's algorithm (in-degree reduction) or depth-first search with node state tracking (cycle detection), running in O(V + E) time and space. A naive approach of independently tracing all reachability paths from every node can explode to exponential O(V!) time on dense dependency structures. In production build and orchestration systems, this validation is a critical static analysis step to prevent infinite loops, deadlocks, and costly runtime rollback failures."
+  },
+  "schema_error": null,
+  "issues": []
+}

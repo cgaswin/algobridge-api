@@ -1,0 +1,23 @@
+{
+  "slug": "non-overlapping-intervals",
+  "title": "Non-overlapping Intervals",
+  "difficulty": "Medium",
+  "topic": "Intervals",
+  "tags": [
+    "Array",
+    "Dynamic Programming",
+    "Greedy",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/non-overlapping-intervals/",
+  "description": "Given an array of intervals, return the minimum number of intervals to remove so that the remaining intervals do not overlap.",
+  "reference": {
+    "use_case": "Removing the fewest bookings so that none of the remaining ones conflict, such as keeping the most meetings possible in a single room.",
+    "system_examples": [
+      "Room and resource booking systems — resolving double-bookings while keeping as many reservations as possible",
+      "Broadcast and ad scheduling — selecting the most non-conflicting slots on a single channel",
+      "Single-machine job scheduling — maximizing the number of jobs completed"
+    ],
+    "explanation": "Sort by end time and greedily keep each interval that starts after the last kept one ends; finishing earliest leaves the most room, which maximizes the number kept (classic interval scheduling). Removals = total − kept, in O(n log n)."
+  }
+}

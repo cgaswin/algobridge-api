@@ -1,0 +1,17 @@
+{
+  "slug": "word-search-ii",
+  "latency_ms": 34467,
+  "input_tokens": 29373,
+  "output_tokens": 2766,
+  "raw": "{\"explanation\": \"The optimal solution indexes the target dictionary into a prefix trie and executes a depth-first backtracking search across the grid, pruning branches immediately when a path no longer matches any known prefix. This reduces the search complexity from O(W * MN * 4^L) for naive individual word searches to O(MN * 4^(min(L, MN))) by searching all W words concurrently. While the explicit 2D grid formulation is primarily a game and interview exercise, joint prefix pruning over state-space graphs is a critical production pattern in compilers, routing engines, and text matchers to avert combinatorial explosion.\", \"system_examples\": [\"Wordament and Boggle with Friends \\u2014 scanning connected letter tiles to identify all playable dictionary words for round analysis and computer opponents.\", \"Lexicon-driven OCR post-processors \\u2014 tracing paths of adjacent character detections across scanned forms to validate sequences against recognized vocabulary.\"], \"use_case\": \"Identifying all valid sequences from a target vocabulary that appear along adjacent paths in a 2D character matrix or connected spatial grid. This arises when automated puzzle solvers or layout-aware document scanners must discover every recognized term formed by neighboring letters in a single pass.\"}",
+  "parsed": {
+    "use_case": "Identifying all valid sequences from a target vocabulary that appear along adjacent paths in a 2D character matrix or connected spatial grid. This arises when automated puzzle solvers or layout-aware document scanners must discover every recognized term formed by neighboring letters in a single pass.",
+    "system_examples": [
+      "Wordament and Boggle with Friends — scanning connected letter tiles to identify all playable dictionary words for round analysis and computer opponents.",
+      "Lexicon-driven OCR post-processors — tracing paths of adjacent character detections across scanned forms to validate sequences against recognized vocabulary."
+    ],
+    "explanation": "The optimal solution indexes the target dictionary into a prefix trie and executes a depth-first backtracking search across the grid, pruning branches immediately when a path no longer matches any known prefix. This reduces the search complexity from O(W * MN * 4^L) for naive individual word searches to O(MN * 4^(min(L, MN))) by searching all W words concurrently. While the explicit 2D grid formulation is primarily a game and interview exercise, joint prefix pruning over state-space graphs is a critical production pattern in compilers, routing engines, and text matchers to avert combinatorial explosion."
+  },
+  "schema_error": null,
+  "issues": []
+}

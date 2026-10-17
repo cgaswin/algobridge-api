@@ -1,0 +1,21 @@
+{
+  "slug": "container-with-most-water",
+  "title": "Container With Most Water",
+  "difficulty": "Medium",
+  "topic": "Two Pointers",
+  "tags": [
+    "Array",
+    "Two Pointers",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/container-with-most-water/",
+  "description": "Given an array of n line heights, pick two lines that together with the x-axis form a container holding the most water (width times the shorter height). Return that maximum area.",
+  "reference": {
+    "use_case": "Choosing two boundary points that maximize capacity when capacity is capped by the weaker boundary and grows with the distance between them, such as placing two walls along a terrain profile to hold the most water.",
+    "system_examples": [
+      "GIS/terrain analysis — evaluating retaining-wall or levee placements along an elevation profile",
+      "Capacity planning over a timeline — finding the widest span whose two bounding checkpoints both sustain a minimum level"
+    ],
+    "explanation": "Start with the widest pair; the shorter side can never be part of a better answer at a narrower width, so discard it and move inward, giving O(n) instead of O(n²). Direct industry uses are limited; the lasting value is the proof technique for safely pruning a two-sided search space."
+  }
+}

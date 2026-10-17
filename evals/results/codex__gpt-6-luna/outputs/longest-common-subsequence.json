@@ -1,0 +1,17 @@
+{
+  "slug": "longest-common-subsequence",
+  "latency_ms": 5985,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A document comparison service can measure how much two revisions preserve the same ordered content, even when sections or words have been inserted between matching text. Similar comparisons help identify retained structure in source files, transcripts, or text records.\",\"system_examples\":[\"Git — diff generation uses related sequence-matching ideas to identify unchanged lines across file revisions.\",\"File comparison and document versioning systems — align ordered text units to show retained content and revision differences.\"],\"explanation\":\"The standard dynamic programming solution takes O(mn) time and O(mn) space for strings of lengths m and n, versus enumerating candidate subsequences, which is exponential. Production diff tools often use specialized algorithms and heuristics, but the same ordered-match objective helps quantify shared content and guide alignment.\"}",
+  "parsed": {
+    "use_case": "A document comparison service can measure how much two revisions preserve the same ordered content, even when sections or words have been inserted between matching text. Similar comparisons help identify retained structure in source files, transcripts, or text records.",
+    "system_examples": [
+      "Git — diff generation uses related sequence-matching ideas to identify unchanged lines across file revisions.",
+      "File comparison and document versioning systems — align ordered text units to show retained content and revision differences."
+    ],
+    "explanation": "The standard dynamic programming solution takes O(mn) time and O(mn) space for strings of lengths m and n, versus enumerating candidate subsequences, which is exponential. Production diff tools often use specialized algorithms and heuristics, but the same ordered-match objective helps quantify shared content and guide alignment."
+  },
+  "schema_error": null,
+  "issues": []
+}

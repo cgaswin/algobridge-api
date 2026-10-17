@@ -1,0 +1,10 @@
+{
+  "slug": "coin-change",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The explanation correctly covers dynamic programming complexity and why greedy choices fail for arbitrary denominations. System examples describe broad categories rather than concrete software platforms, but the application is accurate and spoiler-free."
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "combination-sum",
+  "latency_ms": 28673,
+  "input_tokens": 28139,
+  "output_tokens": 1781,
+  "raw": "{\"explanation\": \"The problem is solved using backtracking with depth-first search, pruning the exploration tree early whenever the running sum exceeds the target. While exhaustive path enumeration has an exponential worst-case time complexity proportional to the target divided by the smallest candidate value, branch-and-bound pruning drastically reduces the explored state space relative to naive permutation generation. In production, generating every valid combination becomes intractable at scale, so engineers typically solve this only over small discrete sets or pivot to dynamic programming and integer linear programming solvers when only an optimal configuration is needed.\", \"system_examples\": [\"Automated Teller Machine (ATM) firmware \\u2014 enumerates valid bill mixtures across loaded cassette denominations to dispense an exact requested withdrawal amount.\", \"Kubernetes cluster autoscalers (e.g., Karpenter) \\u2014 identifies combinations of standardized compute node sizes that sum up to meet exact workload vCPU and memory allocation targets.\", \"Shipping and inventory fulfillment systems \\u2014 finds all valid configurations of reusable packaging containers that together match an exact order volume capacity.\"], \"use_case\": \"An e-commerce billing platform determines all valid combinations of fixed-value promotional vouchers and store credit denominations that can pay off an exact invoice balance. This enables the checkout system to present customers with multiple payment breakdowns or select combinations that minimize transaction fees.\"}",
+  "parsed": {
+    "use_case": "An e-commerce billing platform determines all valid combinations of fixed-value promotional vouchers and store credit denominations that can pay off an exact invoice balance. This enables the checkout system to present customers with multiple payment breakdowns or select combinations that minimize transaction fees.",
+    "system_examples": [
+      "Automated Teller Machine (ATM) firmware — enumerates valid bill mixtures across loaded cassette denominations to dispense an exact requested withdrawal amount.",
+      "Kubernetes cluster autoscalers (e.g., Karpenter) — identifies combinations of standardized compute node sizes that sum up to meet exact workload vCPU and memory allocation targets.",
+      "Shipping and inventory fulfillment systems — finds all valid configurations of reusable packaging containers that together match an exact order volume capacity."
+    ],
+    "explanation": "The problem is solved using backtracking with depth-first search, pruning the exploration tree early whenever the running sum exceeds the target. While exhaustive path enumeration has an exponential worst-case time complexity proportional to the target divided by the smallest candidate value, branch-and-bound pruning drastically reduces the explored state space relative to naive permutation generation. In production, generating every valid combination becomes intractable at scale, so engineers typically solve this only over small discrete sets or pivot to dynamic programming and integer linear programming solvers when only an optimal configuration is needed."
+  },
+  "schema_error": null,
+  "issues": []
+}

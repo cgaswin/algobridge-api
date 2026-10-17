@@ -1,0 +1,17 @@
+{
+  "slug": "daily-temperatures",
+  "latency_ms": 5932,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A weather service can compute, for every forecast day, how long until the next warmer day, helping users spot upcoming warm-ups without repeatedly scanning the forecast.\",\"system_examples\":[\"Weather forecasting services — derive the wait to the next warmer forecast day for each date in a forecast window.\",\"Time-series alerting systems — determine the next timestamp at which a monitored temperature series exceeds each recorded value.\"],\"explanation\":\"A monotonic stack processes the temperatures in O(n) time and O(n) space, instead of the naive O(n²) repeated forward scans. This matters when the same next-greater lookup is applied to long streams or many time series; the specific daily-weather output is also a useful teaching exercise.\"}",
+  "parsed": {
+    "use_case": "A weather service can compute, for every forecast day, how long until the next warmer day, helping users spot upcoming warm-ups without repeatedly scanning the forecast.",
+    "system_examples": [
+      "Weather forecasting services — derive the wait to the next warmer forecast day for each date in a forecast window.",
+      "Time-series alerting systems — determine the next timestamp at which a monitored temperature series exceeds each recorded value."
+    ],
+    "explanation": "A monotonic stack processes the temperatures in O(n) time and O(n) space, instead of the naive O(n²) repeated forward scans. This matters when the same next-greater lookup is applied to long streams or many time series; the specific daily-weather output is also a useful teaching exercise."
+  },
+  "schema_error": null,
+  "issues": []
+}

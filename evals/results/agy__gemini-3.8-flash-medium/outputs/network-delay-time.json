@@ -1,0 +1,17 @@
+{
+  "slug": "network-delay-time",
+  "latency_ms": 26044,
+  "input_tokens": 28216,
+  "output_tokens": 1689,
+  "raw": "{\"explanation\": \"The core technique is Dijkstra's algorithm implemented with a min-priority queue, running in O((V + E) log V) time compared to an O(V * E) Bellman-Ford approach or an unoptimized O(V^2) array scan. By greedily expanding the closest unsettled node, it avoids redundant explorations across cyclic directed topologies with non-negative edge weights. In production routing engines and latency-budget analyzers, this efficiency is critical for maintaining sub-second recalculations over large-scale, frequently shifting infrastructure graphs.\", \"system_examples\": [\"OSPF Routing Protocol \\u2014 Routers model inter-switch link transit delays to evaluate network convergence latency and verify that link-state announcements reach every router in an autonomous domain.\", \"Cloudflare CDN \\u2014 Global cache purging engines calculate worst-case signal propagation delays across regional edge servers to guarantee that stale assets are invalidated everywhere within agreed latency SLAs.\"], \"use_case\": \"Estimating the total time required to broadcast a critical security update or configuration change across a fleet of distributed servers connected by network links with varying latency. The system needs to determine when the slowest server will receive the update or alert operators if certain machines are completely partitioned.\"}",
+  "parsed": {
+    "use_case": "Estimating the total time required to broadcast a critical security update or configuration change across a fleet of distributed servers connected by network links with varying latency. The system needs to determine when the slowest server will receive the update or alert operators if certain machines are completely partitioned.",
+    "system_examples": [
+      "OSPF Routing Protocol — Routers model inter-switch link transit delays to evaluate network convergence latency and verify that link-state announcements reach every router in an autonomous domain.",
+      "Cloudflare CDN — Global cache purging engines calculate worst-case signal propagation delays across regional edge servers to guarantee that stale assets are invalidated everywhere within agreed latency SLAs."
+    ],
+    "explanation": "The core technique is Dijkstra's algorithm implemented with a min-priority queue, running in O((V + E) log V) time compared to an O(V * E) Bellman-Ford approach or an unoptimized O(V^2) array scan. By greedily expanding the closest unsettled node, it avoids redundant explorations across cyclic directed topologies with non-negative edge weights. In production routing engines and latency-budget analyzers, this efficiency is critical for maintaining sub-second recalculations over large-scale, frequently shifting infrastructure graphs."
+  },
+  "schema_error": null,
+  "issues": []
+}

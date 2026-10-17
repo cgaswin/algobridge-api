@@ -1,0 +1,17 @@
+{
+  "slug": "lru-cache",
+  "latency_ms": 5689,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A service keeps a bounded in-memory copy of recently requested records, such as user profiles or database pages, so repeat requests avoid slower storage reads. When full, it discards the item that has gone unused for the longest time.\",\"system_examples\":[\"Redis — its configurable LRU eviction policies remove keys considered least recently used when memory reaches its limit.\",\"Operating system page caches — reclaim resident pages that have gone unused longest when memory pressure requires space.\"],\"explanation\":\"A hash table plus a doubly linked list tracks entries and their recency, allowing lookups, updates, and eviction in O(1) time; a naive scan for the oldest entry takes O(n) per eviction. The constant-time operations matter when cache access is on a hot request path, though real systems may use approximations to reduce bookkeeping overhead.\"}",
+  "parsed": {
+    "use_case": "A service keeps a bounded in-memory copy of recently requested records, such as user profiles or database pages, so repeat requests avoid slower storage reads. When full, it discards the item that has gone unused for the longest time.",
+    "system_examples": [
+      "Redis — its configurable LRU eviction policies remove keys considered least recently used when memory reaches its limit.",
+      "Operating system page caches — reclaim resident pages that have gone unused longest when memory pressure requires space."
+    ],
+    "explanation": "A hash table plus a doubly linked list tracks entries and their recency, allowing lookups, updates, and eviction in O(1) time; a naive scan for the oldest entry takes O(n) per eviction. The constant-time operations matter when cache access is on a hot request path, though real systems may use approximations to reduce bookkeeping overhead."
+  },
+  "schema_error": null,
+  "issues": []
+}

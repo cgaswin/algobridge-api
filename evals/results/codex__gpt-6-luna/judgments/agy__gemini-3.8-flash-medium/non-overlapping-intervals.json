@@ -1,0 +1,10 @@
+{
+  "slug": "non-overlapping-intervals",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate captures the exact greedy interval scheduling mechanism and correctly identifies practical scheduling scenarios. System examples are plausible and relevant, though described at the category level rather than naming specific platforms."
+}

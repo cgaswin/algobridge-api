@@ -1,0 +1,20 @@
+{
+  "slug": "min-stack",
+  "title": "Min Stack",
+  "difficulty": "Medium",
+  "topic": "Stack",
+  "tags": [
+    "Stack",
+    "Design"
+  ],
+  "url": "https://leetcode.com/problems/min-stack/",
+  "description": "Design a stack that supports push, pop, top, and retrieving the minimum element, all in constant time.",
+  "reference": {
+    "use_case": "Supporting nested push/undo operations while instantly answering which value is currently the minimum, such as the most restrictive setting in effect across nested scopes.",
+    "system_examples": [
+      "Nested transaction savepoints and scoped configuration — reporting the tightest active limit after each rollback",
+      "Stream processors — two such stacks form a queue with O(1) min/max for sliding-window aggregates"
+    ],
+    "explanation": "Store with each pushed value the minimum at that depth, so getMin is O(1) and stays correct after pops. Its main real use is as a building block: two min-stacks make a queue with amortized O(1) min/max, used for sliding-window aggregation."
+  }
+}

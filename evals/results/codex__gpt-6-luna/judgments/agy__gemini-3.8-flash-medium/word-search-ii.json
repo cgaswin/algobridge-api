@@ -1,0 +1,10 @@
+{
+  "slug": "word-search-ii",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 3,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "While the trie-guided backtracking explanation is correct, meandering 2D grid searches are a poor fit for OCR post-processing, which deals with linear text flows rather than arbitrary adjacent-cell paths. No concrete puzzle engines or scanning tools are named."
+}

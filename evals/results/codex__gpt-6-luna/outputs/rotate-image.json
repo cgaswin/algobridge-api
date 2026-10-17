@@ -1,0 +1,17 @@
+{
+  "slug": "rotate-image",
+  "latency_ms": 6386,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A photo editor can rotate a square image directly in its pixel buffer, avoiding a second full-sized buffer when memory is constrained. The same operation appears when reorienting square tiles in a graphics or image-processing pipeline.\",\"system_examples\":[\"Image-processing libraries — rotate square pixel buffers in place when their APIs or constrained workflows avoid allocating a second image.\",\"Embedded graphics systems — reorient square display or icon buffers while limiting temporary memory use.\"],\"explanation\":\"The standard in-place method performs a transpose followed by reversing each row, taking O(n²) time and O(1) extra space. A straightforward copy-based rotation also takes O(n²) time but needs O(n²) additional space; avoiding that allocation matters for large images or memory-limited devices. The exact in-place constraint is mostly an algorithm exercise, since many production image APIs use separate output buffers for simpler and safer processing.\"}",
+  "parsed": {
+    "use_case": "A photo editor can rotate a square image directly in its pixel buffer, avoiding a second full-sized buffer when memory is constrained. The same operation appears when reorienting square tiles in a graphics or image-processing pipeline.",
+    "system_examples": [
+      "Image-processing libraries — rotate square pixel buffers in place when their APIs or constrained workflows avoid allocating a second image.",
+      "Embedded graphics systems — reorient square display or icon buffers while limiting temporary memory use."
+    ],
+    "explanation": "The standard in-place method performs a transpose followed by reversing each row, taking O(n²) time and O(1) extra space. A straightforward copy-based rotation also takes O(n²) time but needs O(n²) additional space; avoiding that allocation matters for large images or memory-limited devices. The exact in-place constraint is mostly an algorithm exercise, since many production image APIs use separate output buffers for simpler and safer processing."
+  },
+  "schema_error": null,
+  "issues": []
+}

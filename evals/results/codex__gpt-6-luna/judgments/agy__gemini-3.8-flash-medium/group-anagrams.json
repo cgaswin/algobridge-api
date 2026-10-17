@@ -1,0 +1,12 @@
+{
+  "slug": "group-anagrams",
+  "accuracy": 2,
+  "specificity": 2,
+  "relevance": 2,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Contact deduplication systems grouping names with identical letters in different orders as candidate duplicates"
+  ],
+  "rationale": "Anagram matching is not a realistic mechanism for contact deduplication, making the main use case a poor analogy. The system examples are also generic and lack named platforms."
+}

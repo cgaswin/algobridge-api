@@ -1,0 +1,13 @@
+{
+  "slug": "non-overlapping-intervals",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claim that Google Calendar resolves overlapping invitations to retain the maximum number of appointments with minimal cancellations is unsupported as a product behavior.",
+    "The claim that Hubble’s SPIKE scheduler resolves conflicting proposals by minimizing rejected observations is not established by the example."
+  ],
+  "rationale": "Single-device and single-agenda scheduling fit the interval-selection problem well, and the end-time ordering matches the key method. The explanation names the greedy strategy and end-time ordering, so it is not spoiler-free."
+}

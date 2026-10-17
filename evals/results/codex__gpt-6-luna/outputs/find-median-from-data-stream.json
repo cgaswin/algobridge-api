@@ -1,0 +1,17 @@
+{
+  "slug": "find-median-from-data-stream",
+  "latency_ms": 7094,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A live monitoring service can report the median response time or sensor reading seen so far as new measurements arrive, without retaining and sorting the full history for every query. This is useful when the typical value matters more than the mean, which can be skewed by rare spikes.\",\"system_examples\":[\"Prometheus — operators can query a median from histogram data when the instrumentation records suitable buckets; it is an approximation, not an exact running median of raw observations.\",\"Streaming telemetry pipeline — maintain a running median of recent sensor readings to surface a representative value despite occasional outliers.\"],\"explanation\":\"Two heaps keep the lower and upper halves balanced, so insertion and median lookup each take O(log n) and O(1), respectively; sorting all values after each insertion costs O(n log n) per update. This structure suits exact medians over all observations, though production monitoring systems often use bucketed quantiles or bounded windows to control storage and support distributed aggregation.\"}",
+  "parsed": {
+    "use_case": "A live monitoring service can report the median response time or sensor reading seen so far as new measurements arrive, without retaining and sorting the full history for every query. This is useful when the typical value matters more than the mean, which can be skewed by rare spikes.",
+    "system_examples": [
+      "Prometheus — operators can query a median from histogram data when the instrumentation records suitable buckets; it is an approximation, not an exact running median of raw observations.",
+      "Streaming telemetry pipeline — maintain a running median of recent sensor readings to surface a representative value despite occasional outliers."
+    ],
+    "explanation": "Two heaps keep the lower and upper halves balanced, so insertion and median lookup each take O(log n) and O(1), respectively; sorting all values after each insertion costs O(n log n) per update. This structure suits exact medians over all observations, though production monitoring systems often use bucketed quantiles or bounded windows to control storage and support distributed aggregation."
+  },
+  "schema_error": null,
+  "issues": []
+}

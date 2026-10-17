@@ -1,0 +1,10 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate provides a strong, accurate application in Kafka Streams multi-partition ordering and external merge-sorting. It captures the min-heap and divide-and-conquer techniques with correct time complexity bounds."
+}

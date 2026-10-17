@@ -1,0 +1,17 @@
+{
+  "slug": "merge-intervals",
+  "latency_ms": 5959,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A calendar service can combine overlapping busy periods from multiple calendars into consolidated blocks before finding available meeting times. The same computation also helps monitoring systems condense overlapping incident or maintenance windows into a clear timeline.\",\"system_examples\":[\"Calendar availability services — combine overlapping busy periods across calendars before presenting free time.\",\"Cloud monitoring and incident platforms — consolidate overlapping alert or maintenance windows when building a timeline.\"],\"explanation\":\"Sorting intervals by start time and merging each interval into the latest output interval takes O(n log n) time and O(n) space, versus checking every pair in O(n²) time. It matters when schedules or event timelines contain many entries, since the result stays compact and is efficient to query or display.\"}",
+  "parsed": {
+    "use_case": "A calendar service can combine overlapping busy periods from multiple calendars into consolidated blocks before finding available meeting times. The same computation also helps monitoring systems condense overlapping incident or maintenance windows into a clear timeline.",
+    "system_examples": [
+      "Calendar availability services — combine overlapping busy periods across calendars before presenting free time.",
+      "Cloud monitoring and incident platforms — consolidate overlapping alert or maintenance windows when building a timeline."
+    ],
+    "explanation": "Sorting intervals by start time and merging each interval into the latest output interval takes O(n log n) time and O(n) space, versus checking every pair in O(n²) time. It matters when schedules or event timelines contain many entries, since the result stays compact and is efficient to query or display."
+  },
+  "schema_error": null,
+  "issues": []
+}

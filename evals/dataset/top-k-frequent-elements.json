@@ -1,0 +1,27 @@
+{
+  "slug": "top-k-frequent-elements",
+  "title": "Top K Frequent Elements",
+  "difficulty": "Medium",
+  "topic": "Arrays & Hashing",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Divide and Conquer",
+    "Sorting",
+    "Heap (Priority Queue)",
+    "Bucket Sort",
+    "Counting",
+    "Quickselect"
+  ],
+  "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+  "description": "Given an integer array nums and an integer k, return the k most frequent elements, in any order.",
+  "reference": {
+    "use_case": "Surfacing the most popular items in a large stream of events, such as trending hashtags, top search queries, or the API clients sending the most traffic.",
+    "system_examples": [
+      "Redis — sorted-set leaderboards and the RedisBloom TOPK data type for tracking the most frequent items",
+      "X/Twitter trending topics — ranking the most-mentioned terms in a time window",
+      "Observability dashboards (Datadog top lists, Cloudflare analytics) — top endpoints, IPs, or user agents by request count"
+    ],
+    "explanation": "Count frequencies with a hash map, then select the k largest with a size-k min-heap (O(n log k)) or bucket by frequency (O(n)) instead of sorting every distinct item. At scale this becomes heavy-hitter detection with approximate sketches such as Count-Min or Space-Saving."
+  }
+}

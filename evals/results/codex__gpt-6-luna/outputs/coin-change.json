@@ -1,0 +1,17 @@
+{
+  "slug": "coin-change",
+  "latency_ms": 6009,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A payment or cash-handling service must determine the smallest number of available denominations that exactly totals a requested amount, with each denomination reusable. This also models minimizing the number of fixed-size units needed to cover a quantity.\",\"system_examples\":[\"Cash register and payment systems — choose a minimum-count set of available denominations for exact change when denominations are configurable.\",\"Packaging and inventory systems — represent an order quantity using the fewest available package sizes, or report that it cannot be represented exactly.\"],\"explanation\":\"Dynamic programming evaluates the best coin count for each amount using smaller amounts, taking O(amount × number of denominations) time and O(amount) space, versus enumerating combinations, which can grow exponentially. This matters when denomination sets do not have a reliable greedy rule; the exact optimization is useful, though the classic formulation is also largely a teaching problem.\"}",
+  "parsed": {
+    "use_case": "A payment or cash-handling service must determine the smallest number of available denominations that exactly totals a requested amount, with each denomination reusable. This also models minimizing the number of fixed-size units needed to cover a quantity.",
+    "system_examples": [
+      "Cash register and payment systems — choose a minimum-count set of available denominations for exact change when denominations are configurable.",
+      "Packaging and inventory systems — represent an order quantity using the fewest available package sizes, or report that it cannot be represented exactly."
+    ],
+    "explanation": "Dynamic programming evaluates the best coin count for each amount using smaller amounts, taking O(amount × number of denominations) time and O(amount) space, versus enumerating combinations, which can grow exponentially. This matters when denomination sets do not have a reliable greedy rule; the exact optimization is useful, though the classic formulation is also largely a teaching problem."
+  },
+  "schema_error": null,
+  "issues": []
+}

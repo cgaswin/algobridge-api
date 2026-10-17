@@ -1,0 +1,23 @@
+{
+  "slug": "course-schedule",
+  "title": "Course Schedule",
+  "difficulty": "Medium",
+  "topic": "Graphs",
+  "tags": [
+    "Depth-First Search",
+    "Breadth-First Search",
+    "Graph",
+    "Topological Sort"
+  ],
+  "url": "https://leetcode.com/problems/course-schedule/",
+  "description": "Given numCourses and a list of prerequisite pairs [a, b] meaning b must be taken before a, return whether it is possible to finish all courses.",
+  "reference": {
+    "use_case": "Checking whether a set of tasks with prerequisites can all be completed, i.e. that no chain of requirements loops back on itself.",
+    "system_examples": [
+      "Build systems (Make, Bazel) — ordering targets by dependencies and reporting dependency cycles",
+      "Package managers (npm, apt) — resolving install order and detecting circular dependencies",
+      "Apache Airflow — validating that a workflow has no cycles before scheduling its tasks"
+    ],
+    "explanation": "Model prerequisites as a directed graph; finishing is possible exactly when the graph is acyclic. Kahn's algorithm (in-degree BFS) or DFS with visiting/visited states detects cycles in O(V + E) and yields a valid order. Topological sorting is the core of build tools, schedulers, and migration runners."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "serialize-and-deserialize-binary-tree",
+  "latency_ms": 24551,
+  "input_tokens": 28020,
+  "output_tokens": 1497,
+  "raw": "{\"explanation\": \"The standard solution uses a preorder DFS or level-order BFS traversal with explicit sentinel values (like null markers) to record tree structure in linear time and space. Compared to naive approaches that store distinct inorder and preorder sequences\\u2014which fail on duplicate values and take extra space\\u2014single-traversal encoding achieves optimal O(N) time and space. In production, this pattern underpins object marshalling, compiler caches, and distributed state checkpoints where graph- or pointer-based objects must cross process and machine boundaries.\", \"system_examples\": [\"XGBoost \\u2014 Exporting and reloading ensembles of binary decision trees to and from disk and wire formats so models can be trained offline and served in production inference microservices.\", \"Babel \\u2014 Marshalling parsed abstract syntax tree representations into persistent disk caches to enable fast incremental compilation without re-parsing unchanged code.\"], \"use_case\": \"Persisting hierarchical structures such as abstract syntax trees or decision trees to disk, or transmitting them over network sockets so they can be rebuilt identically in a remote process's memory.\"}",
+  "parsed": {
+    "use_case": "Persisting hierarchical structures such as abstract syntax trees or decision trees to disk, or transmitting them over network sockets so they can be rebuilt identically in a remote process's memory.",
+    "system_examples": [
+      "XGBoost — Exporting and reloading ensembles of binary decision trees to and from disk and wire formats so models can be trained offline and served in production inference microservices.",
+      "Babel — Marshalling parsed abstract syntax tree representations into persistent disk caches to enable fast incremental compilation without re-parsing unchanged code."
+    ],
+    "explanation": "The standard solution uses a preorder DFS or level-order BFS traversal with explicit sentinel values (like null markers) to record tree structure in linear time and space. Compared to naive approaches that store distinct inorder and preorder sequences—which fail on duplicate values and take extra space—single-traversal encoding achieves optimal O(N) time and space. In production, this pattern underpins object marshalling, compiler caches, and distributed state checkpoints where graph- or pointer-based objects must cross process and machine boundaries."
+  },
+  "schema_error": null,
+  "issues": []
+}

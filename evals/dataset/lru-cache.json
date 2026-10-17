@@ -1,0 +1,23 @@
+{
+  "slug": "lru-cache",
+  "title": "LRU Cache",
+  "difficulty": "Medium",
+  "topic": "Linked List",
+  "tags": [
+    "Hash Table",
+    "Linked List",
+    "Design",
+    "Doubly-Linked List"
+  ],
+  "url": "https://leetcode.com/problems/lru-cache/",
+  "description": "Design a fixed-capacity cache with O(1) get and put that evicts the least recently used key when capacity is exceeded.",
+  "reference": {
+    "use_case": "Keeping a bounded in-memory cache of recently used items and evicting the item unused for the longest when space runs out.",
+    "system_examples": [
+      "Memcached — evicts least recently used items within each slab class",
+      "Redis — allkeys-lru / volatile-lru eviction policies (an approximated LRU using sampling)",
+      "Operating-system page caches — LRU-like replacement such as Linux's active/inactive page lists"
+    ],
+    "explanation": "A hash map gives O(1) lookup and a doubly linked list gives O(1) move-to-front and tail eviction, so both operations are O(1). Production systems often approximate it (Redis sampling, CLOCK in kernels) to save memory and contention, but this is the reference design."
+  }
+}

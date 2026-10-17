@@ -1,0 +1,21 @@
+{
+  "slug": "longest-common-subsequence",
+  "title": "Longest Common Subsequence",
+  "difficulty": "Medium",
+  "topic": "2-D Dynamic Programming",
+  "tags": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/longest-common-subsequence/",
+  "description": "Given two strings, return the length of their longest common subsequence: the longest sequence of characters appearing in both in the same relative order, not necessarily contiguously.",
+  "reference": {
+    "use_case": "Finding the longest sequence of elements that appear in the same order in two versions of a file, to show what stayed the same and what changed.",
+    "system_examples": [
+      "diff and Git — computing line-level differences between file versions (Myers' algorithm solves the closely related shortest-edit-script problem)",
+      "Bioinformatics — comparing DNA and protein sequences",
+      "Plagiarism and code-similarity detection"
+    ],
+    "explanation": "dp[i][j] = dp[i−1][j−1] + 1 when characters match, else max(dp[i−1][j], dp[i][j−1]), in O(m·n). LCS is the theoretical basis of diff: lines outside the LCS are exactly the insertions and deletions in a patch."
+  }
+}

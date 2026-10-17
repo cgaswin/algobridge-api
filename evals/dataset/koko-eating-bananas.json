@@ -1,0 +1,21 @@
+{
+  "slug": "koko-eating-bananas",
+  "title": "Koko Eating Bananas",
+  "difficulty": "Medium",
+  "topic": "Binary Search",
+  "tags": [
+    "Array",
+    "Binary Search"
+  ],
+  "url": "https://leetcode.com/problems/koko-eating-bananas/",
+  "description": "Given piles of bananas and h hours, find the minimum integer eating speed k (bananas per hour, one pile per hour at most) that lets Koko finish all piles within h hours.",
+  "reference": {
+    "use_case": "Choosing the minimum processing rate or capacity that still finishes a workload before a deadline, such as the smallest worker throughput that completes a batch of jobs within its SLA.",
+    "system_examples": [
+      "Cloud capacity planning — picking the smallest instance size or replica count that meets a batch deadline",
+      "Bandwidth throttling — finding the lowest transfer rate that still delivers all files within a time budget",
+      "Video transcoding pipelines — selecting the slowest (cheapest) encoding speed that clears the queue before release"
+    ],
+    "explanation": "Feasibility is monotonic in the rate: if speed k works, any faster speed works. Binary searching over the answer range with an O(n) feasibility check gives O(n log M). 'Binary search on the answer' is the standard technique for minimizing capacity or cost under a deadline."
+  }
+}

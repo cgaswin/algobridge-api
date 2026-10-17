@@ -1,0 +1,13 @@
+{
+  "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+  "accuracy": 2,
+  "specificity": 4,
+  "relevance": 2,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [
+    "The Linux kernel is claimed to locate common-ancestor nodes in its virtual-memory-area red-black tree during range operations such as unmapping; this specific operation is unsupported.",
+    "InnoDB is claimed to find lowest common ancestor pages between boundary keys to establish shared latch points and split boundaries; this is unsupported and does not describe a standard LCA-based index operation."
+  ],
+  "rationale": "The explanation correctly states how BST ordering finds the split point in O(h) time and O(1) space. Its named production examples appear invented, and the broader ordered-record framing is only a loose match for the reference’s hierarchy and shared-ancestor applications."
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "word-search-ii",
+  "latency_ms": 5942,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A document scanning service can search a page’s letter grid for many short labels or codes at once, where each match must follow neighboring cells and cannot reuse a cell. Similar matching can support word-finding puzzles or OCR post-processing over compact visual regions.\",\"system_examples\":[\"OCR post-processing system — checks candidate words against neighboring recognized characters in a small image region.\",\"Word puzzle game backend — validates many submitted or hidden words against a board of adjacent letters.\"],\"explanation\":\"The key technique is to organize candidate words in a trie and backtrack through the grid, pruning a path as soon as its letter sequence cannot match any candidate. This avoids restarting a full search for every word and can be much faster than checking each word independently, though worst-case work remains exponential in path length. The pattern has limited direct use in general production search; it is most relevant to word games and specialized OCR or visual-text matching.\"}",
+  "parsed": {
+    "use_case": "A document scanning service can search a page’s letter grid for many short labels or codes at once, where each match must follow neighboring cells and cannot reuse a cell. Similar matching can support word-finding puzzles or OCR post-processing over compact visual regions.",
+    "system_examples": [
+      "OCR post-processing system — checks candidate words against neighboring recognized characters in a small image region.",
+      "Word puzzle game backend — validates many submitted or hidden words against a board of adjacent letters."
+    ],
+    "explanation": "The key technique is to organize candidate words in a trie and backtrack through the grid, pruning a path as soon as its letter sequence cannot match any candidate. This avoids restarting a full search for every word and can be much faster than checking each word independently, though worst-case work remains exponential in path length. The pattern has limited direct use in general production search; it is most relevant to word games and specialized OCR or visual-text matching."
+  },
+  "schema_error": null,
+  "issues": []
+}

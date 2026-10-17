@@ -1,0 +1,17 @@
+{
+  "slug": "time-based-key-value-store",
+  "latency_ms": 6037,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A feature flag or configuration service records changes over time and must answer what value was in effect for a given key at a past time. This supports historical audits and reproducing the configuration seen by an earlier request.\",\"system_examples\":[\"Temporal databases — retrieve a record’s value as of a specified time.\",\"Configuration management systems — reconstruct the setting active for a service at a past timestamp.\"],\"explanation\":\"Store each key’s timestamped values in order and use binary search to find the latest timestamp no greater than the query time. This takes O(log n) per lookup after insertion, versus O(n) scanning through that key’s history; ordered insertion costs O(n) if histories are kept in arrays. The pattern is useful when services need fast historical reads, though the problem’s single-key API is a simplified teaching model of temporal data systems.\"}",
+  "parsed": {
+    "use_case": "A feature flag or configuration service records changes over time and must answer what value was in effect for a given key at a past time. This supports historical audits and reproducing the configuration seen by an earlier request.",
+    "system_examples": [
+      "Temporal databases — retrieve a record’s value as of a specified time.",
+      "Configuration management systems — reconstruct the setting active for a service at a past timestamp."
+    ],
+    "explanation": "Store each key’s timestamped values in order and use binary search to find the latest timestamp no greater than the query time. This takes O(log n) per lookup after insertion, versus O(n) scanning through that key’s history; ordered insertion costs O(n) if histories are kept in arrays. The pattern is useful when services need fast historical reads, though the problem’s single-key API is a simplified teaching model of temporal data systems."
+  },
+  "schema_error": null,
+  "issues": []
+}

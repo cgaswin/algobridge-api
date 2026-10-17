@@ -1,0 +1,24 @@
+{
+  "slug": "network-delay-time",
+  "title": "Network Delay Time",
+  "difficulty": "Medium",
+  "topic": "Advanced Graphs",
+  "tags": [
+    "Depth-First Search",
+    "Breadth-First Search",
+    "Graph",
+    "Heap (Priority Queue)",
+    "Shortest Path"
+  ],
+  "url": "https://leetcode.com/problems/network-delay-time/",
+  "description": "Given a directed network of n nodes with travel times on edges and a source node k, return the time for a signal from k to reach all nodes, or -1 if some node is unreachable.",
+  "reference": {
+    "use_case": "Determining how long a signal sent from one node takes to reach every other node in a network with per-link delays, or whether some nodes cannot be reached.",
+    "system_examples": [
+      "OSPF and IS-IS routing protocols — each router computes shortest paths over link costs",
+      "Navigation apps (e.g. Google Maps) — fastest-route computation over road networks",
+      "Gossip/broadcast protocols — estimating worst-case propagation time of an update across a cluster"
+    ],
+    "explanation": "With non-negative edge weights, Dijkstra's algorithm with a min-heap finds the earliest arrival at every node in O(E log V); the answer is the maximum of those times, or -1 if any node is unreachable. Shortest paths are the foundation of link-state routing and navigation."
+  }
+}

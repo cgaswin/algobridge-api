@@ -1,0 +1,13 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "accuracy": 3,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Prometheus is attributed with maintaining the exact kth-slowest live observation; Prometheus percentile metrics are generally histogram or summary estimates rather than an exact order statistic.",
+    "Apache Flink is specifically attributed with computing continuous running top-N thresholds across unbounded streams; this is plausible, but the precise behavior is not established by the answer."
+  ],
+  "rationale": "The bounded min-heap explanation and leaderboard use case closely match the reference. Flink supports streaming top-N patterns, but the Prometheus claim overstates exact kth-value tracking."
+}

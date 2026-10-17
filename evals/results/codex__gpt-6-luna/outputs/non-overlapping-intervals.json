@@ -1,0 +1,17 @@
+{
+  "slug": "non-overlapping-intervals",
+  "latency_ms": 7006,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A scheduling service needs to keep the largest set of mutually compatible bookings, then cancel the fewest conflicting bookings. The same task appears when selecting non-overlapping maintenance windows or media segments from proposed time ranges.\",\"system_examples\":[\"Workforce and room scheduling systems — resolve conflicting reservations while retaining as many bookings as possible.\",\"Video editing and ad-insertion systems — select compatible time ranges when overlapping segments cannot both be used.\"],\"explanation\":\"Sort intervals by their end times and keep each interval that starts after the last kept interval ends; the removals are the total count minus the kept count. This greedy method takes O(n log n) time for sorting and O(n) extra space or less, compared with checking subsets in exponential time. The pattern is useful for batch conflict resolution, though production schedulers often add priorities, resources, and other constraints that make the full problem more complex.\"}",
+  "parsed": {
+    "use_case": "A scheduling service needs to keep the largest set of mutually compatible bookings, then cancel the fewest conflicting bookings. The same task appears when selecting non-overlapping maintenance windows or media segments from proposed time ranges.",
+    "system_examples": [
+      "Workforce and room scheduling systems — resolve conflicting reservations while retaining as many bookings as possible.",
+      "Video editing and ad-insertion systems — select compatible time ranges when overlapping segments cannot both be used."
+    ],
+    "explanation": "Sort intervals by their end times and keep each interval that starts after the last kept interval ends; the removals are the total count minus the kept count. This greedy method takes O(n log n) time for sorting and O(n) extra space or less, compared with checking subsets in exponential time. The pattern is useful for batch conflict resolution, though production schedulers often add priorities, resources, and other constraints that make the full problem more complex."
+  },
+  "schema_error": null,
+  "issues": []
+}

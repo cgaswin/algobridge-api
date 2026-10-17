@@ -1,0 +1,22 @@
+{
+  "slug": "3sum",
+  "title": "3Sum",
+  "difficulty": "Medium",
+  "topic": "Two Pointers",
+  "tags": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/3sum/",
+  "description": "Given an integer array nums, return all unique triplets [a, b, c] of distinct indices whose values sum to zero. The result must not contain duplicate triplets.",
+  "reference": {
+    "use_case": "Finding every unique set of three entries whose amounts net out exactly, such as three ledger entries that cancel each other during reconciliation.",
+    "system_examples": [
+      "Accounting reconciliation tools — matching groups of debits and credits that net to zero across ledgers",
+      "Anti-money-laundering monitoring — flagging small groups of transfers between accounts whose amounts offset each other",
+      "Promotion engines — finding three-item bundles that hit an exact target price"
+    ],
+    "explanation": "Brute force is O(n³). Sorting first lets you fix one element and sweep two pointers inward over the rest, giving O(n²) and making duplicate skipping trivial. Reducing k-sum to repeated 2-sum is the general approach for exact-total matching."
+  }
+}

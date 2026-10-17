@@ -1,0 +1,17 @@
+{
+  "slug": "sum-of-two-integers",
+  "latency_ms": 30229,
+  "input_tokens": 28678,
+  "output_tokens": 2338,
+  "raw": "{\"explanation\": \"The problem is solved using bit manipulation to simulate a half-adder: bitwise XOR computes the sum without carries, while bitwise AND shifted left by one determines the carry, repeating until the carry is zero. This operates in O(b) time\\u2014bounded by the fixed bit-width b of the integer\\u2014and O(1) space, vastly outperforming naive O(n) unit-increment approaches. While largely an educational exercise in general software engineering due to native CPU addition instructions, the pattern directly underpins hardware ALU design, circuit synthesis, and zero-knowledge proof constraints.\", \"system_examples\": [\"Circom zk-SNARK compiler \\u2014 implementing integer addition within zero-knowledge proof systems where arithmetic must be decomposed into primitive constraint wires\", \"Yosys Open SYNThesis Suite \\u2014 mapping behavioral addition operations into low-level logic gate netlists during digital circuit synthesis for FPGAs and ASICs\"], \"use_case\": \"Synthesizing fundamental arithmetic capabilities in custom hardware circuits or virtual environments that only expose primitive logic operations. This allows systems without dedicated arithmetic hardware units to calculate totals by iteratively combining values and tracking overflow signals.\"}",
+  "parsed": {
+    "use_case": "Synthesizing fundamental arithmetic capabilities in custom hardware circuits or virtual environments that only expose primitive logic operations. This allows systems without dedicated arithmetic hardware units to calculate totals by iteratively combining values and tracking overflow signals.",
+    "system_examples": [
+      "Circom zk-SNARK compiler — implementing integer addition within zero-knowledge proof systems where arithmetic must be decomposed into primitive constraint wires",
+      "Yosys Open SYNThesis Suite — mapping behavioral addition operations into low-level logic gate netlists during digital circuit synthesis for FPGAs and ASICs"
+    ],
+    "explanation": "The problem is solved using bit manipulation to simulate a half-adder: bitwise XOR computes the sum without carries, while bitwise AND shifted left by one determines the carry, repeating until the carry is zero. This operates in O(b) time—bounded by the fixed bit-width b of the integer—and O(1) space, vastly outperforming naive O(n) unit-increment approaches. While largely an educational exercise in general software engineering due to native CPU addition instructions, the pattern directly underpins hardware ALU design, circuit synthesis, and zero-knowledge proof constraints."
+  },
+  "schema_error": null,
+  "issues": []
+}

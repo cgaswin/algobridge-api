@@ -1,0 +1,17 @@
+{
+  "slug": "3sum",
+  "latency_ms": 29221,
+  "input_tokens": 27835,
+  "output_tokens": 1410,
+  "raw": "{\"explanation\": \"By sorting the array and scanning each element with a two-pointer pass for the remaining pair, the algorithm reduces the brute-force O(n\\u00b3) time complexity to O(n\\u00b2). Skipping identical adjacent values during iteration naturally prevents duplicate triplets without relying on expensive auxiliary set allocations. While exact zero-sum triplet search is primarily an algorithmic benchmark, the core pattern of sorting to convert multi-variable searches into coordinated linear sweeps is widely applied in multi-asset reconciliation and constraint matching.\", \"system_examples\": [\"Enterprise financial close software (such as BlackLine) \\u2014 Matching and netting groups of disparate debit, credit, and fee adjustments across sub-ledgers that sum to zero balance.\", \"Electricity grid settlement platforms \\u2014 Finding triplets of regional bilateral power exchange imbalances that perfectly cancel each other out to clear net transmission obligations.\"], \"use_case\": \"In automated financial auditing and multi-party clearing, reconciliation engines search for combinations of three offsetting debit and credit adjustments across accounts that sum to zero. This identifies circular balances or canceling discrepancies to settle mutual obligations without unnecessary inter-account wire transfers.\"}",
+  "parsed": {
+    "use_case": "In automated financial auditing and multi-party clearing, reconciliation engines search for combinations of three offsetting debit and credit adjustments across accounts that sum to zero. This identifies circular balances or canceling discrepancies to settle mutual obligations without unnecessary inter-account wire transfers.",
+    "system_examples": [
+      "Enterprise financial close software (such as BlackLine) — Matching and netting groups of disparate debit, credit, and fee adjustments across sub-ledgers that sum to zero balance.",
+      "Electricity grid settlement platforms — Finding triplets of regional bilateral power exchange imbalances that perfectly cancel each other out to clear net transmission obligations."
+    ],
+    "explanation": "By sorting the array and scanning each element with a two-pointer pass for the remaining pair, the algorithm reduces the brute-force O(n³) time complexity to O(n²). Skipping identical adjacent values during iteration naturally prevents duplicate triplets without relying on expensive auxiliary set allocations. While exact zero-sum triplet search is primarily an algorithmic benchmark, the core pattern of sorting to convert multi-variable searches into coordinated linear sweeps is widely applied in multi-asset reconciliation and constraint matching."
+  },
+  "schema_error": null,
+  "issues": []
+}

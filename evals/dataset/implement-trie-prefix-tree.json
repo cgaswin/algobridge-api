@@ -1,0 +1,23 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "title": "Implement Trie (Prefix Tree)",
+  "difficulty": "Medium",
+  "topic": "Tries",
+  "tags": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+  "description": "Implement a trie with insert(word), search(word) for exact matches, and startsWith(prefix) to check whether any inserted word has the given prefix.",
+  "reference": {
+    "use_case": "Supporting fast inserts, exact lookups, and 'starts with' queries over a large set of strings, as in search-box autocomplete.",
+    "system_examples": [
+      "Autocomplete in search bars and IDEs — suggesting completions for a typed prefix",
+      "Linux kernel IPv4 routing (fib_trie, an LC-trie) — longest-prefix match for route lookup",
+      "Ethereum — the Merkle Patricia Trie stores account and contract state"
+    ],
+    "explanation": "A trie shares common prefixes, so lookups and prefix checks take O(L) in the key length regardless of how many keys exist, and all completions of a prefix live in one subtree. Compressed variants (radix/Patricia tries) power routing tables, autocomplete, and blockchain state."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "edit-distance",
+  "accuracy": 3,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Git uses edit distance to calculate similarity scores for file renames and align modified text lines; Git’s diff and rename detection are not accurately characterized as this algorithm.",
+    "Grammarly uses this specific edit-distance method to identify spelling candidates; the product attribution is unsupported."
+  ],
+  "rationale": "The prefix dynamic programming description, fuzzy-search relevance, and complexity are sound, though the explanation overstates the naive recursion’s exact complexity and implies production filtering runs in sub-millisecond time. The examples fit the problem well, but Git and Grammarly are attributed specific mechanisms without adequate basis."
+}

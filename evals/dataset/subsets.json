@@ -1,0 +1,22 @@
+{
+  "slug": "subsets",
+  "title": "Subsets",
+  "difficulty": "Medium",
+  "topic": "Backtracking",
+  "tags": [
+    "Array",
+    "Backtracking",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/subsets/",
+  "description": "Given an array of unique integers, return all possible subsets (the power set) without duplicates, in any order.",
+  "reference": {
+    "use_case": "Enumerating every combination of a small set of options, such as all on/off combinations of feature flags to test or every bundle of add-ons a customer could choose.",
+    "system_examples": [
+      "Combinatorial configuration testing — exercising every combination of feature flags or build options",
+      "Query optimizers (System R-style planners such as PostgreSQL's standard join search) — evaluating subsets of relations when building join orders",
+      "Market-basket analysis (Apriori) — generating candidate itemsets of products bought together"
+    ],
+    "explanation": "Each element is either in or out, so there are 2ⁿ subsets; backtracking or iterating bitmasks enumerates them in O(n·2ⁿ). Real systems enumerate exhaustively only for small n and otherwise prune, but include/exclude recursion is the base of all of them."
+  }
+}

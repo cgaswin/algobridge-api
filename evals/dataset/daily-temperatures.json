@@ -1,0 +1,22 @@
+{
+  "slug": "daily-temperatures",
+  "title": "Daily Temperatures",
+  "difficulty": "Medium",
+  "topic": "Stack",
+  "tags": [
+    "Array",
+    "Stack",
+    "Monotonic Stack"
+  ],
+  "url": "https://leetcode.com/problems/daily-temperatures/",
+  "description": "Given daily temperatures, return for each day how many days you must wait for a warmer temperature, or 0 if there is none.",
+  "reference": {
+    "use_case": "For each point in a time series, finding how long until the value is next exceeded, such as days until a stock trades above today's price or time until a metric breaches its current level.",
+    "system_examples": [
+      "Trading analytics — 'next higher price' and stock-span indicators on price charts",
+      "Monitoring systems — computing time-to-next-breach for latency or capacity series",
+      "Weather and climate analytics — days until the next warmer day or record high"
+    ],
+    "explanation": "A monotonic decreasing stack of unresolved indices answers every 'next greater element' query in one O(n) pass, since each index is pushed and popped once. This powers stock-span indicators and other next-breakout computations on time series."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "jump-game",
+  "title": "Jump Game",
+  "difficulty": "Medium",
+  "topic": "Greedy",
+  "tags": [
+    "Array",
+    "Dynamic Programming",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/jump-game/",
+  "description": "Given an array where each element is the maximum jump length from that position, starting at index 0, return whether you can reach the last index.",
+  "reference": {
+    "use_case": "Deciding whether you can get from the start to the end of a route when each stop lets you advance up to a certain distance, such as whether a vehicle can reach its destination given the range it gains at each charging stop.",
+    "system_examples": [
+      "EV and drone route planning — checking whether a destination is reachable given range limits at each charging point",
+      "Relay networks — whether a message can traverse a chain of relays with limited transmission ranges"
+    ],
+    "explanation": "Track the farthest index reachable so far in a single pass: if you ever stand beyond that frontier you are stuck, giving O(n) time and O(1) space. It is a minimal example of replacing DP over positions with a running 'best frontier' invariant."
+  }
+}

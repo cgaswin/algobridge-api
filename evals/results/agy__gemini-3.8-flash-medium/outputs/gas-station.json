@@ -1,0 +1,17 @@
+{
+  "slug": "gas-station",
+  "latency_ms": 26317,
+  "input_tokens": 28127,
+  "output_tokens": 1719,
+  "raw": "{\"explanation\": \"The optimal approach uses a greedy single-pass algorithm that advances the candidate start whenever the running gas balance falls below zero, relying on the invariant that a complete circuit is guaranteed if total gas meets total cost. This achieves O(n) time and O(1) space compared to the naive O(n\\u00b2) method of simulating the entire loop from every possible station. In production, this pattern enables real-time feasibility verification and cycle-offset selection in energy-constrained, periodic scheduling pipelines without expensive backtracking.\", \"system_examples\": [\"EV fleet telematics platforms (e.g., Geotab or Samsara) \\u2014 determining the feasible starting hub in a cyclic delivery schedule to ensure a vehicle's battery state of charge remains above zero across all transit segments.\", \"Low Earth orbit satellite power simulators \\u2014 verifying that periodic solar panel charging balances dark-side eclipse consumption across an orbit, identifying the mission epoch where battery reserves never drop below operational thresholds.\"], \"use_case\": \"Planning a closed-loop route for an electric vehicle across terrain with varying elevation gains and regenerative braking, where dispatchers must identify a starting depot such that the vehicle's battery reserve never completely depletes.\"}",
+  "parsed": {
+    "use_case": "Planning a closed-loop route for an electric vehicle across terrain with varying elevation gains and regenerative braking, where dispatchers must identify a starting depot such that the vehicle's battery reserve never completely depletes.",
+    "system_examples": [
+      "EV fleet telematics platforms (e.g., Geotab or Samsara) — determining the feasible starting hub in a cyclic delivery schedule to ensure a vehicle's battery state of charge remains above zero across all transit segments.",
+      "Low Earth orbit satellite power simulators — verifying that periodic solar panel charging balances dark-side eclipse consumption across an orbit, identifying the mission epoch where battery reserves never drop below operational thresholds."
+    ],
+    "explanation": "The optimal approach uses a greedy single-pass algorithm that advances the candidate start whenever the running gas balance falls below zero, relying on the invariant that a complete circuit is guaranteed if total gas meets total cost. This achieves O(n) time and O(1) space compared to the naive O(n²) method of simulating the entire loop from every possible station. In production, this pattern enables real-time feasibility verification and cycle-offset selection in energy-constrained, periodic scheduling pipelines without expensive backtracking."
+  },
+  "schema_error": null,
+  "issues": []
+}

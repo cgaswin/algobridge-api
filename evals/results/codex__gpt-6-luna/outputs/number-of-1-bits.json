@@ -1,0 +1,17 @@
+{
+  "slug": "number-of-1-bits",
+  "latency_ms": 6086,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"Operating systems and embedded devices often need to count active flags in a status or capability word to decide how many resources are enabled. The same count is useful when analyzing binary identifiers or masks.\",\"system_examples\":[\"Linux kernel — counts enabled flags in bitmasks used for CPU capabilities, resource sets, and other low-level state.\",\"Networking equipment — counts set bits in subnet masks to determine prefix length and address capacity.\"],\"explanation\":\"A bit-counting routine processes the integer’s set bits or its fixed-width representation in O(w) time, where w is the number of bits; straightforward per-bit checking is also O(w), while repeated clearing of the lowest set bit takes O(k) for k set bits. This is a useful primitive in systems code, though as a standalone algorithm problem it is mostly a teaching exercise.\"}",
+  "parsed": {
+    "use_case": "Operating systems and embedded devices often need to count active flags in a status or capability word to decide how many resources are enabled. The same count is useful when analyzing binary identifiers or masks.",
+    "system_examples": [
+      "Linux kernel — counts enabled flags in bitmasks used for CPU capabilities, resource sets, and other low-level state.",
+      "Networking equipment — counts set bits in subnet masks to determine prefix length and address capacity."
+    ],
+    "explanation": "A bit-counting routine processes the integer’s set bits or its fixed-width representation in O(w) time, where w is the number of bits; straightforward per-bit checking is also O(w), while repeated clearing of the lowest set bit takes O(k) for k set bits. This is a useful primitive in systems code, though as a standalone algorithm problem it is mostly a teaching exercise."
+  },
+  "schema_error": null,
+  "issues": []
+}

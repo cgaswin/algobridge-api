@@ -1,0 +1,10 @@
+{
+  "slug": "time-based-key-value-store",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate correctly captures point-in-time state retrieval and binary search over ordered timestamps. It misses top marks on specificity because it only cites generic concepts rather than named production systems like Spanner or HBase."
+}

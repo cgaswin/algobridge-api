@@ -1,0 +1,17 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "latency_ms": 34917,
+  "input_tokens": 29448,
+  "output_tokens": 2784,
+  "raw": "{\"explanation\": \"The optimal solution uses a sliding window with two pointers alongside a hash map that records the most recent index of each character, advancing the left boundary immediately past any duplicate. This reduces the runtime from a naive O(n\\u00b3) or O(n\\u00b2) substring-checking approach to a single O(n) linear pass with O(min(n, alphabet_size)) auxiliary space. In production, this pattern is fundamental for streaming systems that must track dynamic state and detect boundary conditions in real time without buffering or rescanning historic data.\", \"system_examples\": [\"Network security monitoring systems \\u2014 inspecting contiguous packet sequences to determine the longest unbroken span of unique connection nonces to flag replay attacks and session collisions.\", \"Real-time event streaming pipelines \\u2014 identifying the longest continuous sequence of records with distinct event identifiers to measure burst capacity and audit stream integrity.\"], \"use_case\": \"Tracking the longest uninterrupted sequence of distinct transactions or unique device identifiers in high-throughput telemetry logs to quantify peak bursts of collision-free activity.\"}",
+  "parsed": {
+    "use_case": "Tracking the longest uninterrupted sequence of distinct transactions or unique device identifiers in high-throughput telemetry logs to quantify peak bursts of collision-free activity.",
+    "system_examples": [
+      "Network security monitoring systems — inspecting contiguous packet sequences to determine the longest unbroken span of unique connection nonces to flag replay attacks and session collisions.",
+      "Real-time event streaming pipelines — identifying the longest continuous sequence of records with distinct event identifiers to measure burst capacity and audit stream integrity."
+    ],
+    "explanation": "The optimal solution uses a sliding window with two pointers alongside a hash map that records the most recent index of each character, advancing the left boundary immediately past any duplicate. This reduces the runtime from a naive O(n³) or O(n²) substring-checking approach to a single O(n) linear pass with O(min(n, alphabet_size)) auxiliary space. In production, this pattern is fundamental for streaming systems that must track dynamic state and detect boundary conditions in real time without buffering or rescanning historic data."
+  },
+  "schema_error": null,
+  "issues": []
+}

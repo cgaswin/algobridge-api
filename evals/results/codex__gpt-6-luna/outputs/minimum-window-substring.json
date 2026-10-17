@@ -1,0 +1,17 @@
+{
+  "slug": "minimum-window-substring",
+  "latency_ms": 5835,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A log search service may need the shortest contiguous segment of an event stream that contains all required event types, including repeated types, to isolate a complete incident trace. The same need arises when extracting the smallest span of text containing every required token.\",\"system_examples\":[\"Log aggregation and observability systems — isolate a compact trace or log excerpt containing all required event types.\",\"Text search and document processing systems — extract the shortest passage containing a set of required terms with specified multiplicities.\"],\"explanation\":\"A sliding window with character counts expands until it covers the required multiplicities, then contracts while coverage remains valid; this takes O(|s| + |t|) time and O(Σ) space for the character set. A naive scan of all substrings takes O(|s|²) candidates and can spend additional time checking each one, so the linear approach makes large text streams practical. This is a useful general pattern, though the exact task is more common as a text-processing primitive than as a named production feature.\"}",
+  "parsed": {
+    "use_case": "A log search service may need the shortest contiguous segment of an event stream that contains all required event types, including repeated types, to isolate a complete incident trace. The same need arises when extracting the smallest span of text containing every required token.",
+    "system_examples": [
+      "Log aggregation and observability systems — isolate a compact trace or log excerpt containing all required event types.",
+      "Text search and document processing systems — extract the shortest passage containing a set of required terms with specified multiplicities."
+    ],
+    "explanation": "A sliding window with character counts expands until it covers the required multiplicities, then contracts while coverage remains valid; this takes O(|s| + |t|) time and O(Σ) space for the character set. A naive scan of all substrings takes O(|s|²) candidates and can spend additional time checking each one, so the linear approach makes large text streams practical. This is a useful general pattern, though the exact task is more common as a text-processing primitive than as a named production feature."
+  },
+  "schema_error": null,
+  "issues": []
+}

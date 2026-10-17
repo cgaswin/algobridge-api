@@ -1,0 +1,17 @@
+{
+  "slug": "course-schedule",
+  "latency_ms": 5638,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A build orchestrator must determine whether a set of tasks can all run when some tasks depend on others. A circular dependency means the plan cannot complete.\",\"system_examples\":[\"Apache Maven — checks project dependency relationships so modules can be built in a valid order and dependency cycles can be detected.\",\"Kubernetes — orders resources with declared prerequisites in deployment workflows and must handle cyclic dependencies in those workflows.\"],\"explanation\":\"Model courses and prerequisites as a directed graph; topological sorting or cycle detection takes O(V + E) time and space, versus checking possible course orders naively, which can grow factorially. The same dependency validation lets production schedulers reject impossible plans before execution; this problem’s direct industry use is common, though its course framing is educational.\"}",
+  "parsed": {
+    "use_case": "A build orchestrator must determine whether a set of tasks can all run when some tasks depend on others. A circular dependency means the plan cannot complete.",
+    "system_examples": [
+      "Apache Maven — checks project dependency relationships so modules can be built in a valid order and dependency cycles can be detected.",
+      "Kubernetes — orders resources with declared prerequisites in deployment workflows and must handle cyclic dependencies in those workflows."
+    ],
+    "explanation": "Model courses and prerequisites as a directed graph; topological sorting or cycle detection takes O(V + E) time and space, versus checking possible course orders naively, which can grow factorially. The same dependency validation lets production schedulers reject impossible plans before execution; this problem’s direct industry use is common, though its course framing is educational."
+  },
+  "schema_error": null,
+  "issues": []
+}

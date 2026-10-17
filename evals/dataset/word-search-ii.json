@@ -1,0 +1,24 @@
+{
+  "slug": "word-search-ii",
+  "title": "Word Search II",
+  "difficulty": "Hard",
+  "topic": "Tries",
+  "tags": [
+    "Array",
+    "String",
+    "Backtracking",
+    "Trie",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/word-search-ii/",
+  "description": "Given an m x n board of letters and a list of words, return all words that can be formed by sequentially adjacent (horizontal or vertical) cells, using each cell at most once per word.",
+  "reference": {
+    "use_case": "Finding every dictionary word that can be traced along adjacent cells of a letter grid without searching for each word separately.",
+    "system_examples": [
+      "Word-game engines (Boggle, word-search and Scrabble solvers) — listing all valid words on a board",
+      "Intrusion detection (Snort, Suricata) — matching traffic against thousands of signatures simultaneously",
+      "Content moderation filters — scanning text for many banned phrases in a single pass"
+    ],
+    "explanation": "Building a trie of all target words lets one backtracking DFS over the grid prune any path that is not a prefix of some word, instead of running a separate search per word. Matching many patterns at once through a shared prefix structure is the same idea as Aho–Corasick in IDS engines."
+  }
+}

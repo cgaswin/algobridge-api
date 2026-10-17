@@ -1,0 +1,10 @@
+{
+  "slug": "sum-of-two-integers",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [],
+  "rationale": "The XOR-and-carry explanation is technically sound, and Circom constraints and Yosys synthesis are relevant, concrete examples of logic-level addition. The unit-increment comparison is imprecise because its cost depends on operand magnitude, and the answer names the solution technique."
+}

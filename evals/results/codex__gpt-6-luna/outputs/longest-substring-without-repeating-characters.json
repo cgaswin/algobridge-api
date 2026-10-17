@@ -1,0 +1,17 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "latency_ms": 5939,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A text editor can report the longest stretch of distinct characters while a user types, useful for detecting unusually varied input or evaluating a password’s character diversity. Similar checks can identify the longest non-repeating segment in streaming text.\",\"system_examples\":[\"Streaming log processors — measure the longest run of unique characters in a message for input analysis or anomaly features.\",\"Text editors and input validators — calculate the longest distinct-character segment when reporting text statistics or checking input rules.\"],\"explanation\":\"A sliding window tracks the current distinct-character segment and moves its start past a repeated character, yielding O(n) time and O(min(n, alphabet size)) space. A naive check of every substring takes O(n²) or worse; the linear scan matters for long strings and streams, though this is mainly a standard string-processing exercise rather than a named production feature.\"}",
+  "parsed": {
+    "use_case": "A text editor can report the longest stretch of distinct characters while a user types, useful for detecting unusually varied input or evaluating a password’s character diversity. Similar checks can identify the longest non-repeating segment in streaming text.",
+    "system_examples": [
+      "Streaming log processors — measure the longest run of unique characters in a message for input analysis or anomaly features.",
+      "Text editors and input validators — calculate the longest distinct-character segment when reporting text statistics or checking input rules."
+    ],
+    "explanation": "A sliding window tracks the current distinct-character segment and moves its start past a repeated character, yielding O(n) time and O(min(n, alphabet size)) space. A naive check of every substring takes O(n²) or worse; the linear scan matters for long strings and streams, though this is mainly a standard string-processing exercise rather than a named production feature."
+  },
+  "schema_error": null,
+  "issues": []
+}

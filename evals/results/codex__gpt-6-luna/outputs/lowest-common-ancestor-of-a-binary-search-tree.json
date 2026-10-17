@@ -1,0 +1,17 @@
+{
+  "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+  "latency_ms": 5508,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A hierarchical catalog or access-control system may need to find the nearest shared parent of two records, such as the smallest organizational unit containing two users. When the hierarchy is ordered by key, the same search identifies where the two paths first meet.\",\"system_examples\":[\"Ordered directory or catalog systems — locate the nearest shared category for two entries in a key-ordered hierarchy\",\"Access-control systems with ordered resource trees — find the closest common scope governing two resources\"],\"explanation\":\"In a binary search tree, compare both target values with the current node: if they fall on opposite sides, or one matches the current node, that node is the answer; otherwise continue into the matching side. This takes O(h) time and O(1) extra space, versus O(n) time to traverse an arbitrary tree; for a balanced tree, h is O(log n).\"}",
+  "parsed": {
+    "use_case": "A hierarchical catalog or access-control system may need to find the nearest shared parent of two records, such as the smallest organizational unit containing two users. When the hierarchy is ordered by key, the same search identifies where the two paths first meet.",
+    "system_examples": [
+      "Ordered directory or catalog systems — locate the nearest shared category for two entries in a key-ordered hierarchy",
+      "Access-control systems with ordered resource trees — find the closest common scope governing two resources"
+    ],
+    "explanation": "In a binary search tree, compare both target values with the current node: if they fall on opposite sides, or one matches the current node, that node is the answer; otherwise continue into the matching side. This takes O(h) time and O(1) extra space, versus O(n) time to traverse an arbitrary tree; for a balanced tree, h is O(log n)."
+  },
+  "schema_error": null,
+  "issues": []
+}

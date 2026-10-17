@@ -1,0 +1,13 @@
+{
+  "slug": "gas-station",
+  "accuracy": 2,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Geotab and Samsara are attributed with finding a feasible starting hub for a cyclic EV schedule; that product capability is not established here.",
+    "Low Earth orbit satellite power simulators are attributed with identifying a feasible mission epoch; this specific system claim is unsupported."
+  ],
+  "rationale": "The EV and satellite examples share a cyclic resource-balance idea, but the named product and simulator capabilities are unsupported. The explanation captures the reference’s running-balance insight and linear scan."
+}

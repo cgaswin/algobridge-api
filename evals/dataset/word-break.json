@@ -1,0 +1,25 @@
+{
+  "slug": "word-break",
+  "title": "Word Break",
+  "difficulty": "Medium",
+  "topic": "1-D Dynamic Programming",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Dynamic Programming",
+    "Trie",
+    "Memoization"
+  ],
+  "url": "https://leetcode.com/problems/word-break/",
+  "description": "Given a string s and a dictionary of words, return whether s can be segmented into a sequence of one or more dictionary words (words may be reused).",
+  "reference": {
+    "use_case": "Splitting text with no spaces into valid dictionary words, such as segmenting hashtags, domain names, or text in languages written without spaces.",
+    "system_examples": [
+      "CJK and Thai tokenizers in search engines (e.g. Elasticsearch ICU and Kuromoji analyzers) — dictionary-based word segmentation",
+      "Hashtag and domain-name segmentation for search and analytics (#throwbackthursday → throwback thursday)",
+      "Spell checkers — detecting missing spaces between words"
+    ],
+    "explanation": "dp[i] is true if some dictionary word ends at position i and dp at that word's start is true, giving O(n²) substring checks (or O(n·L) when bounded by the longest word). Production segmenters extend this with word probabilities to pick the most likely split."
+  }
+}

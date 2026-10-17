@@ -1,0 +1,17 @@
+{
+  "slug": "non-overlapping-intervals",
+  "latency_ms": 28177,
+  "input_tokens": 28436,
+  "output_tokens": 1863,
+  "raw": "{\"explanation\": \"The optimal solution uses a greedy strategy that processes intervals ordered by their end times, reducing an exponential brute-force or O(N^2) dynamic programming approach down to O(N log N). In production systems managing single-resource capacity, this guarantees provably optimal scheduling in near-linear time, preventing costly search overhead under high request volumes.\", \"system_examples\": [\"Google Calendar \\u2014 resolving overlapping meeting invitations on a single agenda to retain the maximum number of accepted appointments with minimal cancellations.\", \"Astronomical observatory schedulers (e.g., Hubble Space Telescope's SPIKE system) \\u2014 resolving conflicting observation time slots competing for a single instrument to minimize rejected research proposals.\"], \"use_case\": \"A reservation management system for shared laboratory hardware must resolve conflicting booking requests for a single device by canceling the fewest reservations possible. This ensures the maximum number of distinct experiments can run without schedule collisions.\"}",
+  "parsed": {
+    "use_case": "A reservation management system for shared laboratory hardware must resolve conflicting booking requests for a single device by canceling the fewest reservations possible. This ensures the maximum number of distinct experiments can run without schedule collisions.",
+    "system_examples": [
+      "Google Calendar — resolving overlapping meeting invitations on a single agenda to retain the maximum number of accepted appointments with minimal cancellations.",
+      "Astronomical observatory schedulers (e.g., Hubble Space Telescope's SPIKE system) — resolving conflicting observation time slots competing for a single instrument to minimize rejected research proposals."
+    ],
+    "explanation": "The optimal solution uses a greedy strategy that processes intervals ordered by their end times, reducing an exponential brute-force or O(N^2) dynamic programming approach down to O(N log N). In production systems managing single-resource capacity, this guarantees provably optimal scheduling in near-linear time, preventing costly search overhead under high request volumes."
+  },
+  "schema_error": null,
+  "issues": []
+}

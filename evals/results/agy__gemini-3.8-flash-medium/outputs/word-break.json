@@ -1,0 +1,17 @@
+{
+  "slug": "word-break",
+  "latency_ms": 37315,
+  "input_tokens": 29781,
+  "output_tokens": 3010,
+  "raw": "{\"explanation\": \"The standard solution uses dynamic programming (or memoized recursion), recording whether each prefix can be formed from dictionary words while optionally bounding prefix lookups by the maximum word length. While naive recursive search degrades to exponential O(2^n) time on inputs with overlapping prefixes, dynamic programming guarantees an O(n * L) runtime, where L is the maximum dictionary word length. In production tokenizers and query parsers, memoizing reachability is crucial to avoid catastrophic latency spikes and denial-of-service risks caused by ambiguous inputs.\", \"system_examples\": [\"Elasticsearch (Kuromoji and Smart Chinese analyzers) \\u2014 determining whether continuous text streams lacking whitespace can be partitioned into recognized dictionary tokens during document indexing.\", \"Twitter / X \\u2014 breaking down multi-word hashtags into constituent vocabulary words for topic extraction, content moderation, and ad targeting.\"], \"use_case\": \"Validating whether an unspaced character sequence, such as a compound domain name or social media hashtag, can be segmented into recognized vocabulary terms. This computational core is also essential in search query normalization and text processing for languages that do not use whitespace delimiters.\"}",
+  "parsed": {
+    "use_case": "Validating whether an unspaced character sequence, such as a compound domain name or social media hashtag, can be segmented into recognized vocabulary terms. This computational core is also essential in search query normalization and text processing for languages that do not use whitespace delimiters.",
+    "system_examples": [
+      "Elasticsearch (Kuromoji and Smart Chinese analyzers) — determining whether continuous text streams lacking whitespace can be partitioned into recognized dictionary tokens during document indexing.",
+      "Twitter / X — breaking down multi-word hashtags into constituent vocabulary words for topic extraction, content moderation, and ad targeting."
+    ],
+    "explanation": "The standard solution uses dynamic programming (or memoized recursion), recording whether each prefix can be formed from dictionary words while optionally bounding prefix lookups by the maximum word length. While naive recursive search degrades to exponential O(2^n) time on inputs with overlapping prefixes, dynamic programming guarantees an O(n * L) runtime, where L is the maximum dictionary word length. In production tokenizers and query parsers, memoizing reachability is crucial to avoid catastrophic latency spikes and denial-of-service risks caused by ambiguous inputs."
+  },
+  "schema_error": null,
+  "issues": []
+}

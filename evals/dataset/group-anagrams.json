@@ -1,0 +1,23 @@
+{
+  "slug": "group-anagrams",
+  "title": "Group Anagrams",
+  "difficulty": "Medium",
+  "topic": "Arrays & Hashing",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/group-anagrams/",
+  "description": "Given an array of strings, group together the strings that are anagrams of each other (same letters, any order). Return the groups in any order.",
+  "reference": {
+    "use_case": "Treating records as duplicates when they are equal after normalization, and collecting them into groups, e.g. grouping queries that differ only in literal values, or words made of the same letters.",
+    "system_examples": [
+      "PostgreSQL pg_stat_statements — aggregates executions of queries that differ only in constants under one normalized query fingerprint",
+      "Word-game solvers (Scrabble/Words With Friends helpers) — index a dictionary by each word's letter multiset to list every playable word for a rack",
+      "Data deduplication pipelines — bucketing customer or product records that match after normalizing order, case, and whitespace"
+    ],
+    "explanation": "Computing a canonical key per item (sorted letters or a 26-letter count tuple) and bucketing by it in a hash map turns O(n²) pairwise comparison into one O(n·k) pass. The same canonicalize-then-group pattern underpins query fingerprinting, deduplication, and GROUP BY execution."
+  }
+}

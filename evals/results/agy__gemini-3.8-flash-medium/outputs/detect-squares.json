@@ -1,0 +1,17 @@
+{
+  "slug": "detect-squares",
+  "latency_ms": 54633,
+  "input_tokens": 29120,
+  "output_tokens": 2490,
+  "raw": "{\"explanation\": \"Instead of an O(N\\u00b3) brute-force search over all point triplets, the key technique iterates over points that can serve as the opposite diagonal corner and uses coordinate hash maps to count the two complementary corners in O(1) time. This reduces the query cost to O(N) time while maintaining O(N) space. While counting exact axis-aligned squares is primarily an interview exercise, coordinate-keyed point indexing and diagonal-anchored shape verification are fundamental concepts in 2D geometry engines and CAD constraint solvers.\", \"system_examples\": [\"Cadence Virtuoso \\u2014 Verifies rectilinear layout patterns such as square contact vias and guard rings during physical design rule checks by matching sets of registered corner coordinates.\", \"Autodesk AutoCAD \\u2014 Evaluates geometric alignment and snap constraints on 2D drafting canvases by identifying when an active coordinate completes an orthogonal square with existing reference points.\"], \"use_case\": \"In automated optical inspection (AOI) for circuit boards and semiconductor packaging, vision systems detect and verify square alignment fiducials and pad structures from detected corner coordinates. When inspecting a candidate coordinate, the system must determine how many valid, axis-aligned square configurations can be completed using previously registered points.\"}",
+  "parsed": {
+    "use_case": "In automated optical inspection (AOI) for circuit boards and semiconductor packaging, vision systems detect and verify square alignment fiducials and pad structures from detected corner coordinates. When inspecting a candidate coordinate, the system must determine how many valid, axis-aligned square configurations can be completed using previously registered points.",
+    "system_examples": [
+      "Cadence Virtuoso — Verifies rectilinear layout patterns such as square contact vias and guard rings during physical design rule checks by matching sets of registered corner coordinates.",
+      "Autodesk AutoCAD — Evaluates geometric alignment and snap constraints on 2D drafting canvases by identifying when an active coordinate completes an orthogonal square with existing reference points."
+    ],
+    "explanation": "Instead of an O(N³) brute-force search over all point triplets, the key technique iterates over points that can serve as the opposite diagonal corner and uses coordinate hash maps to count the two complementary corners in O(1) time. This reduces the query cost to O(N) time while maintaining O(N) space. While counting exact axis-aligned squares is primarily an interview exercise, coordinate-keyed point indexing and diagonal-anchored shape verification are fundamental concepts in 2D geometry engines and CAD constraint solvers."
+  },
+  "schema_error": null,
+  "issues": []
+}

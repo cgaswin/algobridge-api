@@ -1,0 +1,10 @@
+{
+  "slug": "combination-sum",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate accurately identifies pruned backtracking and output-sensitive complexity for enumerating combinations with replacement. While the system examples are category-level descriptions, the core matching logic is sound."
+}

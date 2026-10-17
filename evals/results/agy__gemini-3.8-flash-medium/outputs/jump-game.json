@@ -1,0 +1,18 @@
+{
+  "slug": "jump-game",
+  "latency_ms": 62478,
+  "input_tokens": 13231,
+  "output_tokens": 6085,
+  "raw": "{\"explanation\": \"The optimal solution uses a greedy single-pass scan that tracks the maximum reachable index, achieving O(n) time and O(1) space compared to the O(2^n) naive recursive approach or an O(n^2) dynamic programming table. While the problem is primarily a classic interview and teaching exercise rather than a standalone production service, the core concept of maintaining a running reachability boundary is essential in practice. It enables lightweight, real-time feasibility checks in streaming and embedded systems without the memory allocation or backtracking overhead of graph search algorithms.\", \"system_examples\": [\"Tesla Trip Planner \\u2014 verifying whether an electric vehicle can complete a linear highway corridor where each intermediate charging station provides sufficient range to reach at least one subsequent station or the final destination.\", \"LLVM lld linker \\u2014 validating whether control flow can reach distant program segments through a series of intermediate branch trampolines when instructions have strict hardware limits on forward jump displacement.\", \"Zigbee linear sensor networks \\u2014 determining whether a telemetry packet can traverse a chain of monitoring nodes where each transmitter has a maximum line-of-sight broadcast distance.\"], \"use_case\": \"Determining whether an electric delivery drone can traverse a sequence of linear charging waypoints to reach a destination depot, where each waypoint provides battery charge sufficient to travel up to a specified forward distance.\"}",
+  "parsed": {
+    "use_case": "Determining whether an electric delivery drone can traverse a sequence of linear charging waypoints to reach a destination depot, where each waypoint provides battery charge sufficient to travel up to a specified forward distance.",
+    "system_examples": [
+      "Tesla Trip Planner — verifying whether an electric vehicle can complete a linear highway corridor where each intermediate charging station provides sufficient range to reach at least one subsequent station or the final destination.",
+      "LLVM lld linker — validating whether control flow can reach distant program segments through a series of intermediate branch trampolines when instructions have strict hardware limits on forward jump displacement.",
+      "Zigbee linear sensor networks — determining whether a telemetry packet can traverse a chain of monitoring nodes where each transmitter has a maximum line-of-sight broadcast distance."
+    ],
+    "explanation": "The optimal solution uses a greedy single-pass scan that tracks the maximum reachable index, achieving O(n) time and O(1) space compared to the O(2^n) naive recursive approach or an O(n^2) dynamic programming table. While the problem is primarily a classic interview and teaching exercise rather than a standalone production service, the core concept of maintaining a running reachability boundary is essential in practice. It enables lightweight, real-time feasibility checks in streaming and embedded systems without the memory allocation or backtracking overhead of graph search algorithms."
+  },
+  "schema_error": null,
+  "issues": []
+}

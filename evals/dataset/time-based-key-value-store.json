@@ -1,0 +1,23 @@
+{
+  "slug": "time-based-key-value-store",
+  "title": "Time Based Key-Value Store",
+  "difficulty": "Medium",
+  "topic": "Binary Search",
+  "tags": [
+    "Hash Table",
+    "String",
+    "Binary Search",
+    "Design"
+  ],
+  "url": "https://leetcode.com/problems/time-based-key-value-store/",
+  "description": "Design a key-value store that stores multiple values per key with timestamps and returns, for get(key, timestamp), the value with the largest timestamp less than or equal to the given one.",
+  "reference": {
+    "use_case": "Storing multiple timestamped versions of each key and reading the value as it was at a given point in time.",
+    "system_examples": [
+      "MVCC databases (CockroachDB, Google Spanner) — reads at a timestamp return the latest version written at or before it",
+      "Apache HBase / Google Bigtable — cells keep multiple timestamped versions that can be read as of a timestamp",
+      "Feature stores (e.g. Feast) — point-in-time correct joins that fetch feature values as of each training example's timestamp"
+    ],
+    "explanation": "Writes for a key arrive in increasing timestamp order, so each key's history is already sorted and get is a binary search for the largest timestamp ≤ the query: O(1) set, O(log n) get. This is the core of time-travel reads and snapshot isolation."
+  }
+}

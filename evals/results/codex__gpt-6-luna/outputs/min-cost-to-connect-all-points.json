@@ -1,0 +1,17 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "latency_ms": 6247,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A network planner must connect every sensor station with the least total cable cost when installation cost between two stations is proportional to their Manhattan distance. The same calculation applies to laying links between sites on a city street grid.\",\"system_examples\":[\"Amazon fulfillment centers — internal conveyor or communication links between facility zones can be planned by minimizing total Manhattan-distance connection cost.\",\"Urban utility planning systems — connecting substations or service sites over a street grid can use Manhattan distance as a rough installation-cost model.\"],\"explanation\":\"A minimum spanning tree gives the cheapest set of links that connects all points, and Prim’s or Kruskal’s algorithm runs in O(n²) time for a dense set of pairwise distances, versus considering every possible connected network. This avoids redundant links, though the complete graph and Manhattan-cost model are simplified assumptions compared with real infrastructure constraints.\"}",
+  "parsed": {
+    "use_case": "A network planner must connect every sensor station with the least total cable cost when installation cost between two stations is proportional to their Manhattan distance. The same calculation applies to laying links between sites on a city street grid.",
+    "system_examples": [
+      "Amazon fulfillment centers — internal conveyor or communication links between facility zones can be planned by minimizing total Manhattan-distance connection cost.",
+      "Urban utility planning systems — connecting substations or service sites over a street grid can use Manhattan distance as a rough installation-cost model."
+    ],
+    "explanation": "A minimum spanning tree gives the cheapest set of links that connects all points, and Prim’s or Kruskal’s algorithm runs in O(n²) time for a dense set of pairwise distances, versus considering every possible connected network. This avoids redundant links, though the complete graph and Manhattan-cost model are simplified assumptions compared with real infrastructure constraints."
+  },
+  "schema_error": null,
+  "issues": []
+}

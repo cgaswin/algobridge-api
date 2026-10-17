@@ -1,0 +1,17 @@
+{
+  "slug": "minimum-window-substring",
+  "latency_ms": 29327,
+  "input_tokens": 28698,
+  "output_tokens": 2020,
+  "raw": "{\"explanation\": \"The optimal solution uses a sliding window with two pointers and frequency hash tables to dynamically expand and shrink the candidate range in O(|s| + |t|) time. Compared to the naive O(|s|\\u00b2 \\u00b7 |t|) brute-force check over all substrings, this linear-time approach allows search highlighters and stream processors to evaluate megabyte-sized texts in milliseconds without introducing request latency spikes.\", \"system_examples\": [\"Apache Lucene \\u2014 Generating search result highlight snippets by identifying the smallest contiguous text span that encompasses all matched query terms.\", \"Splunk \\u2014 Isolating the tightest chronological sequence of log records that encompasses a full set of correlated diagnostic error markers during incident investigation.\"], \"use_case\": \"Extracting the most compact text snippet from a long document or web page that contains all required terms from a user's multi-word search query. This enables search engines to display the tightest, most contextually dense preview snippet that satisfies every search constraint.\"}",
+  "parsed": {
+    "use_case": "Extracting the most compact text snippet from a long document or web page that contains all required terms from a user's multi-word search query. This enables search engines to display the tightest, most contextually dense preview snippet that satisfies every search constraint.",
+    "system_examples": [
+      "Apache Lucene — Generating search result highlight snippets by identifying the smallest contiguous text span that encompasses all matched query terms.",
+      "Splunk — Isolating the tightest chronological sequence of log records that encompasses a full set of correlated diagnostic error markers during incident investigation."
+    ],
+    "explanation": "The optimal solution uses a sliding window with two pointers and frequency hash tables to dynamically expand and shrink the candidate range in O(|s| + |t|) time. Compared to the naive O(|s|² · |t|) brute-force check over all substrings, this linear-time approach allows search highlighters and stream processors to evaluate megabyte-sized texts in milliseconds without introducing request latency spikes."
+  },
+  "schema_error": null,
+  "issues": []
+}

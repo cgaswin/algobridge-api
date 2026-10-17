@@ -1,0 +1,17 @@
+{
+  "slug": "group-anagrams",
+  "latency_ms": 31141,
+  "input_tokens": 28659,
+  "output_tokens": 2156,
+  "raw": "{\"explanation\": \"The key technique is canonicalization: transforming each string into an invariant signature\\u2014either by sorting characters or creating a character-frequency tuple\\u2014and inserting items into a hash map keyed by that representation. This improves the complexity from a naive O(N^2 * K) pairwise anagram check to O(N * K log K) or O(N * K) time for N strings of length K. In production systems, projecting complex data into canonical keys is a foundational design pattern for batch deduplication, partitioning, and inverted-index generation.\", \"system_examples\": [\"Word game engines (such as Scrabble and Words with Friends solvers) \\u2014 grouping dictionary lexicons by letter composition to instantly return all playable word rearrangements for a player's rack of tiles.\", \"Mass spectrometry search platforms (such as MaxQuant) \\u2014 grouping candidate peptide sequences with identical amino acid compositions into equivalence classes during isobaric protein identification.\"], \"use_case\": \"A digital dictionary or linguistic search platform clusters vocabulary tokens and search queries that share identical character counts into equivalence classes to identify anagrams and scrambled queries. This allows the system to aggregate all order-independent permutations of the same character set into unified lookup groups.\"}",
+  "parsed": {
+    "use_case": "A digital dictionary or linguistic search platform clusters vocabulary tokens and search queries that share identical character counts into equivalence classes to identify anagrams and scrambled queries. This allows the system to aggregate all order-independent permutations of the same character set into unified lookup groups.",
+    "system_examples": [
+      "Word game engines (such as Scrabble and Words with Friends solvers) — grouping dictionary lexicons by letter composition to instantly return all playable word rearrangements for a player's rack of tiles.",
+      "Mass spectrometry search platforms (such as MaxQuant) — grouping candidate peptide sequences with identical amino acid compositions into equivalence classes during isobaric protein identification."
+    ],
+    "explanation": "The key technique is canonicalization: transforming each string into an invariant signature—either by sorting characters or creating a character-frequency tuple—and inserting items into a hash map keyed by that representation. This improves the complexity from a naive O(N^2 * K) pairwise anagram check to O(N * K log K) or O(N * K) time for N strings of length K. In production systems, projecting complex data into canonical keys is a foundational design pattern for batch deduplication, partitioning, and inverted-index generation."
+  },
+  "schema_error": null,
+  "issues": []
+}
