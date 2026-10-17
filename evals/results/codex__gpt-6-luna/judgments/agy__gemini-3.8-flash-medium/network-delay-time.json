@@ -1,0 +1,10 @@
+{
+  "slug": "network-delay-time",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The technical analysis and complexity bounds are accurate, and the scenario directly reflects the shortest-path tree core. The system examples describe correct domain archetypes but lack concrete named implementations like OSPF or IS-IS."
+}

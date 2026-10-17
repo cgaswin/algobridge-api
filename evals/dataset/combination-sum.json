@@ -1,0 +1,21 @@
+{
+  "slug": "combination-sum",
+  "title": "Combination Sum",
+  "difficulty": "Medium",
+  "topic": "Backtracking",
+  "tags": [
+    "Array",
+    "Backtracking"
+  ],
+  "url": "https://leetcode.com/problems/combination-sum/",
+  "description": "Given distinct positive candidates and a target, return all unique combinations of candidates that sum to the target. Each candidate may be used any number of times.",
+  "reference": {
+    "use_case": "Finding every way to reach an exact total using unlimited quantities of available sizes, such as all combinations of pack sizes that fill an order exactly.",
+    "system_examples": [
+      "Warehouse order fulfillment — combinations of case and pack sizes that meet an exact quantity",
+      "Cloud cost tools — combinations of instance or reserved-capacity units that exactly meet a target capacity",
+      "Cash handling — listing the ways to make an amount from available note denominations"
+    ],
+    "explanation": "Backtracking that only moves forward through candidates (to avoid duplicate orderings) and prunes when the running sum exceeds the target explores only valid partial combinations. If you need only the count or the best combination, the same problem becomes knapsack-style DP."
+  }
+}

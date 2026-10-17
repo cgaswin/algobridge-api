@@ -1,0 +1,10 @@
+{
+  "slug": "sum-of-two-integers",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "XOR-sum plus AND-shifted carry correctly mirrors the hardware-adder insight of the reference; examples like instruction emulators and crypto/embedded bit routines are plausible but unnamed and less concrete than the ALU/GMP/FPGA list."
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "jump-game",
+  "latency_ms": 12026,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A deployment planner checks whether a workflow can advance from its first stage to its final stage when each stage permits skipping ahead by up to a configured number of stages. It must decide reachability before scheduling the workflow.\",\"system_examples\":[\"Workflow orchestration systems — determine whether permitted stage transitions can reach a required final stage.\",\"Network routing and service-chain planners — check whether a sequence of forwarding opportunities can reach a destination under per-position hop limits.\"],\"explanation\":\"A greedy scan tracks the furthest index reachable so far; if the scan reaches an index beyond that frontier, the last index is unreachable. It runs in O(n) time and O(1) extra space, compared with exploring possible jump sequences, which can take exponential time. This keeps the reachability check predictable for large workflows, though the problem’s direct real-world mappings are broad rather than tied to one famous product.\"}",
+  "parsed": {
+    "use_case": "A deployment planner checks whether a workflow can advance from its first stage to its final stage when each stage permits skipping ahead by up to a configured number of stages. It must decide reachability before scheduling the workflow.",
+    "system_examples": [
+      "Workflow orchestration systems — determine whether permitted stage transitions can reach a required final stage.",
+      "Network routing and service-chain planners — check whether a sequence of forwarding opportunities can reach a destination under per-position hop limits."
+    ],
+    "explanation": "A greedy scan tracks the furthest index reachable so far; if the scan reaches an index beyond that frontier, the last index is unreachable. It runs in O(n) time and O(1) extra space, compared with exploring possible jump sequences, which can take exponential time. This keeps the reachability check predictable for large workflows, though the problem’s direct real-world mappings are broad rather than tied to one famous product."
+  },
+  "schema_error": null,
+  "issues": []
+}

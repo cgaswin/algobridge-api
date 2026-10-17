@@ -1,0 +1,10 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 2,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "While the sliding window explanation is algorithmically correct, the use cases—such as text editors measuring character diversity during typing—are contrived toy examples rather than realistic production applications. It misses the broader stream-processing and replay-prevention scenarios highlighted in the reference."
+}

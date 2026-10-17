@@ -1,0 +1,10 @@
+{
+  "slug": "top-k-frequent-elements",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate provides excellent, highly concrete examples in Elasticsearch terms aggregations and Prometheus topk queries that directly mirror the problem's computational core. The algorithmic tradeoffs and use case fully agree with the reference."
+}

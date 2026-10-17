@@ -1,0 +1,17 @@
+{
+  "slug": "min-stack",
+  "latency_ms": 6245,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A telemetry service may need to track the smallest reading among currently active measurements while adding and removing readings in arrival order. Each update and minimum lookup must remain fast as the stream changes.\",\"system_examples\":[\"Monitoring and observability systems — maintain the lowest active sensor or metric reading as samples are added and expired.\",\"Order-processing systems — track the lowest outstanding price or quantity while entries are pushed and removed in last-in, first-out order.\"],\"explanation\":\"The design stores enough information alongside each stack entry to recover the minimum for the current stack state, keeping push, pop, top, and minimum lookup at O(1) time and O(n) space. A naive minimum scan takes O(n) per lookup; this pattern is useful when updates and minimum queries are interleaved frequently. Direct use in named products is uncommon, so the examples describe realistic system categories.\"}",
+  "parsed": {
+    "use_case": "A telemetry service may need to track the smallest reading among currently active measurements while adding and removing readings in arrival order. Each update and minimum lookup must remain fast as the stream changes.",
+    "system_examples": [
+      "Monitoring and observability systems — maintain the lowest active sensor or metric reading as samples are added and expired.",
+      "Order-processing systems — track the lowest outstanding price or quantity while entries are pushed and removed in last-in, first-out order."
+    ],
+    "explanation": "The design stores enough information alongside each stack entry to recover the minimum for the current stack state, keeping push, pop, top, and minimum lookup at O(1) time and O(n) space. A naive minimum scan takes O(n) per lookup; this pattern is useful when updates and minimum queries are interleaved frequently. Direct use in named products is uncommon, so the examples describe realistic system categories."
+  },
+  "schema_error": null,
+  "issues": []
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "top-k-frequent-elements",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [],
+  "rationale": "The examples and explanation match the frequency-ranking use case and correctly describe heap, bucket, and Quickselect approaches. The claim that avoiding full sorting prevents excessive memory allocation is overstated because the heap still needs memory proportional to k; the answer names the techniques."
+}

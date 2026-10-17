@@ -1,0 +1,18 @@
+{
+  "slug": "edit-distance",
+  "latency_ms": 6317,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A document editor can compare an older and a newer version of a short text to estimate how many character-level edits separate them. Similar comparisons help identify misspelled names or reconcile slightly different identifiers received from external systems.\",\"system_examples\":[\"Git — diff tools align changed lines and characters between file versions; character-level edit counts can help describe or rank differences.\",\"Elasticsearch — fuzzy term queries use edit distance to match search terms with small spelling errors.\",\"Spell-checking systems — rank candidate corrections by how many character edits would turn a typed word into a dictionary entry.\"],\"explanation\":\"Dynamic programming computes the minimum cost for every pair of prefixes in O(mn) time and O(mn) space, versus enumerating possible edit sequences, whose number grows rapidly. Production systems use this to measure similarity or generate typo-tolerant matches; for long strings or large candidate sets, they often add length bounds, thresholds, or specialized algorithms to control the work.\"}",
+  "parsed": {
+    "use_case": "A document editor can compare an older and a newer version of a short text to estimate how many character-level edits separate them. Similar comparisons help identify misspelled names or reconcile slightly different identifiers received from external systems.",
+    "system_examples": [
+      "Git — diff tools align changed lines and characters between file versions; character-level edit counts can help describe or rank differences.",
+      "Elasticsearch — fuzzy term queries use edit distance to match search terms with small spelling errors.",
+      "Spell-checking systems — rank candidate corrections by how many character edits would turn a typed word into a dictionary entry."
+    ],
+    "explanation": "Dynamic programming computes the minimum cost for every pair of prefixes in O(mn) time and O(mn) space, versus enumerating possible edit sequences, whose number grows rapidly. Production systems use this to measure similarity or generate typo-tolerant matches; for long strings or large candidate sets, they often add length bounds, thresholds, or specialized algorithms to control the work."
+  },
+  "schema_error": null,
+  "issues": []
+}

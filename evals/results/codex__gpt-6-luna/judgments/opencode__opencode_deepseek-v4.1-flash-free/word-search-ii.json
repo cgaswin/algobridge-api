@@ -1,0 +1,12 @@
+{
+  "slug": "word-search-ii",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "OCR post-processing described as checking candidate words against neighboring recognized characters in a small image region is an invented/implausible mechanism for this grid-adjacency search"
+  ],
+  "rationale": "Trie-plus-backtracking-with-pruning is accurately described and is the same core as the reference. Examples are generic (OCR post-processing, word puzzle backend) and the OCR mechanism is dubious, whereas the reference cited Snort/Suricata/Aho-Corasick multi-pattern matching."
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "network-delay-time",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Cloudflare CDN — claim that global cache-purge engines compute worst-case signal propagation delays across regional edge servers to meet latency SLAs is an unsupported/invented product attribution."
+  ],
+  "rationale": "Correctly identifies Dijkstra with a min-heap as the single-source shortest-path core, matching the reference, and the broadcast use case is on point. Only the Cloudflare example overstates a specific mechanism not actually known to exist."
+}

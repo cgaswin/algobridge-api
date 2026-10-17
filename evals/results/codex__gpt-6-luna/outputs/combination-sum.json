@@ -1,0 +1,17 @@
+{
+  "slug": "combination-sum",
+  "latency_ms": 7060,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A pricing or resource-planning service may need to enumerate every allowed bundle of item sizes whose total exactly matches a requested quantity, with each item type available without a fixed per-type limit. The same structure appears when composing a target from reusable denominations or package sizes.\",\"system_examples\":[\"Coin change and cash-register systems — enumerate ways to assemble a requested value from reusable coin denominations.\",\"Manufacturing cut-list planners — enumerate combinations of standard stock lengths that exactly meet a required total length.\"],\"explanation\":\"Backtracking explores candidate choices while keeping the partial sum at or below the target, and restricts later choices to avoid generating the same combination in different orders. Runtime is output-sensitive and can be exponential in the target and candidate set; unlike checking whether any solution exists, returning every combination necessarily costs at least the size of the output. This problem is mainly a teaching exercise for exhaustive search, though similar enumeration can support constrained planning tools.\"}",
+  "parsed": {
+    "use_case": "A pricing or resource-planning service may need to enumerate every allowed bundle of item sizes whose total exactly matches a requested quantity, with each item type available without a fixed per-type limit. The same structure appears when composing a target from reusable denominations or package sizes.",
+    "system_examples": [
+      "Coin change and cash-register systems — enumerate ways to assemble a requested value from reusable coin denominations.",
+      "Manufacturing cut-list planners — enumerate combinations of standard stock lengths that exactly meet a required total length."
+    ],
+    "explanation": "Backtracking explores candidate choices while keeping the partial sum at or below the target, and restricts later choices to avoid generating the same combination in different orders. Runtime is output-sensitive and can be exponential in the target and candidate set; unlike checking whether any solution exists, returning every combination necessarily costs at least the size of the output. This problem is mainly a teaching exercise for exhaustive search, though similar enumeration can support constrained planning tools."
+  },
+  "schema_error": null,
+  "issues": []
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "longest-common-subsequence",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "The Unix diff utility is described as computing a minimal edit script by identifying matching lines; diff implementations may use algorithms such as Myers’ rather than directly computing classic LCS.",
+    "NCBI BLAST and alignment tools are presented as LCS applications, though BLAST uses local alignment methods rather than the classic LCS recurrence."
+  ],
+  "rationale": "The file-version and biological-sequence examples fit the problem well, and the explanation accurately describes the LCS recurrence and its relationship to diff. The named tools are somewhat over-attributed to classic LCS."
+}

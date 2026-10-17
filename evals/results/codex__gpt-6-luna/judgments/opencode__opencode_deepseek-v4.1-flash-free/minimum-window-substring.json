@@ -1,0 +1,10 @@
+{
+  "slug": "minimum-window-substring",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Sliding-window expand/contract with counts and the O(|s|+|t|) bound match the reference exactly, but the system examples are generic categories rather than named tools like Lucene/Elasticsearch."
+}

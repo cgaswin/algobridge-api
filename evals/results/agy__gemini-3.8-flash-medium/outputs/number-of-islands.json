@@ -1,0 +1,18 @@
+{
+  "slug": "number-of-islands",
+  "latency_ms": 26807,
+  "input_tokens": 28358,
+  "output_tokens": 1737,
+  "raw": "{\"explanation\": \"The problem centers on connected-component labeling, standardly solved using breadth-first search, depth-first search, or disjoint-set union. It achieves optimal O(M \\u00d7 N) time by marking visited cells to process each location and edge once, avoiding naive O((M \\u00d7 N)\\u00b2) repeated-scan strategies. In production raster pipelines, iterative traversals prevent call-stack overflows on large images, while union-find variants enable parallel component labeling across tiled and streaming datasets.\", \"system_examples\": [\"OpenCV (`connectedComponents`) \\u2014 identifies and counts distinct contiguous foreground pixel blobs within binary image masks.\", \"QGIS \\u2014 groups adjacent cells sharing the same land-use classification into discrete geographical patches for spatial analysis.\", \"Adobe Photoshop \\u2014 determines the boundaries of contiguous pixel clusters when users create selection masks with the Magic Wand tool.\"], \"use_case\": \"In medical imaging software, automated diagnostic tools analyze binary segmentation masks from radiological scans to count and isolate individual lesions or tumors. Similarly, geospatial systems evaluate satellite raster grids to calculate the number of discrete, contiguous patches of forest or water bodies.\"}",
+  "parsed": {
+    "use_case": "In medical imaging software, automated diagnostic tools analyze binary segmentation masks from radiological scans to count and isolate individual lesions or tumors. Similarly, geospatial systems evaluate satellite raster grids to calculate the number of discrete, contiguous patches of forest or water bodies.",
+    "system_examples": [
+      "OpenCV (`connectedComponents`) — identifies and counts distinct contiguous foreground pixel blobs within binary image masks.",
+      "QGIS — groups adjacent cells sharing the same land-use classification into discrete geographical patches for spatial analysis.",
+      "Adobe Photoshop — determines the boundaries of contiguous pixel clusters when users create selection masks with the Magic Wand tool."
+    ],
+    "explanation": "The problem centers on connected-component labeling, standardly solved using breadth-first search, depth-first search, or disjoint-set union. It achieves optimal O(M × N) time by marking visited cells to process each location and edge once, avoiding naive O((M × N)²) repeated-scan strategies. In production raster pipelines, iterative traversals prevent call-stack overflows on large images, while union-find variants enable parallel component labeling across tiled and streaming datasets."
+  },
+  "schema_error": null,
+  "issues": []
+}

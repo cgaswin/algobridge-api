@@ -1,0 +1,18 @@
+{
+  "slug": "number-of-1-bits",
+  "latency_ms": 27974,
+  "input_tokens": 28328,
+  "output_tokens": 1929,
+  "raw": "{\"explanation\": \"While checking each bit sequentially takes O(w) time for a w-bit integer, Brian Kernighan\\u2019s algorithm clears the lowest set bit repeatedly in O(k) operations where k is the count of 1s, and divide-and-conquer bit-parallel masks or hardware POPCNT instructions achieve O(1) time. In production, population counting is a core primitive for roaring bitmaps and inverted indexes, where micro-optimizations across millions of bit vectors directly dictate database query throughput.\", \"system_examples\": [\"Redis \\u2014 Implements the BITCOUNT command to count active flags in stored strings, commonly used to calculate daily active users or feature attendance.\", \"Apache Lucene \\u2014 Evaluates filter bitsets to determine the total number of matching search hits without needing to unpack and iterate through individual document identifiers.\", \"x86 and ARM Architectures \\u2014 Exposes dedicated hardware instructions (POPCNT and VCNT) because calculating set flags is an essential inner-loop primitive in databases, cryptography, and bioinformatics.\"], \"use_case\": \"Determining the number of active items or matching attributes in compact binary representations, such as evaluating the cardinality of filter results or measuring similarity differences between perceptual fingerprints.\"}",
+  "parsed": {
+    "use_case": "Determining the number of active items or matching attributes in compact binary representations, such as evaluating the cardinality of filter results or measuring similarity differences between perceptual fingerprints.",
+    "system_examples": [
+      "Redis — Implements the BITCOUNT command to count active flags in stored strings, commonly used to calculate daily active users or feature attendance.",
+      "Apache Lucene — Evaluates filter bitsets to determine the total number of matching search hits without needing to unpack and iterate through individual document identifiers.",
+      "x86 and ARM Architectures — Exposes dedicated hardware instructions (POPCNT and VCNT) because calculating set flags is an essential inner-loop primitive in databases, cryptography, and bioinformatics."
+    ],
+    "explanation": "While checking each bit sequentially takes O(w) time for a w-bit integer, Brian Kernighan’s algorithm clears the lowest set bit repeatedly in O(k) operations where k is the count of 1s, and divide-and-conquer bit-parallel masks or hardware POPCNT instructions achieve O(1) time. In production, population counting is a core primitive for roaring bitmaps and inverted indexes, where micro-optimizations across millions of bit vectors directly dictate database query throughput."
+  },
+  "schema_error": null,
+  "issues": []
+}

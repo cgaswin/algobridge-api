@@ -1,0 +1,22 @@
+{
+  "slug": "detect-squares",
+  "title": "Detect Squares",
+  "difficulty": "Medium",
+  "topic": "Math & Geometry",
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Design",
+    "Counting"
+  ],
+  "url": "https://leetcode.com/problems/detect-squares/",
+  "description": "Design a structure that adds 2D points (duplicates allowed) and, given a query point, counts the ways to choose three stored points that form an axis-aligned square with positive area together with the query point.",
+  "reference": {
+    "use_case": "Storing a stream of points and quickly counting how many axis-aligned squares a new point would complete with previously seen points.",
+    "system_examples": [
+      "Document and UI analysis — recovering axis-aligned boxes such as table cells from detected corner points",
+      "CAD and surveying tools — recognizing square plots or grid cells from measured points"
+    ],
+    "explanation": "Counting point frequencies in a hash map lets each query try every stored point as the diagonal corner and look up the other two corners in O(1), giving O(n) per query instead of O(n³). It is mainly a design exercise in choosing an index that turns geometric search into counted lookups."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "edit-distance",
+  "title": "Edit Distance",
+  "difficulty": "Medium",
+  "topic": "2-D Dynamic Programming",
+  "tags": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/edit-distance/",
+  "description": "Given two strings word1 and word2, return the minimum number of insertions, deletions, and character replacements needed to convert word1 into word2.",
+  "reference": {
+    "use_case": "Measuring how different two strings are as the minimum number of single-character edits, to suggest corrections or match near-duplicates.",
+    "system_examples": [
+      "Spell checkers and 'did you mean' search suggestions",
+      "Lucene/Elasticsearch fuzzy queries — matching terms within a Levenshtein edit distance using Levenshtein automata",
+      "Record linkage — matching names and addresses with typos across databases"
+    ],
+    "explanation": "dp[i][j] holds the distance between prefixes; each cell is a free match or 1 + the minimum of insert, delete, and replace, filled in O(m·n). Levenshtein distance underlies fuzzy search, spell correction, and record linkage."
+  }
+}

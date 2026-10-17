@@ -1,0 +1,12 @@
+{
+  "slug": "edit-distance",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Git — claimed to compute file/code similarity via minimum character edits (Levenshtein); Git diff is Myers' LCS-style algorithm and rename detection uses chunk-hash similarity, not edit distance"
+  ],
+  "rationale": "Elasticsearch Levenshtein automata matches the reference well and the DP/threshold-banding insight is correct, but the Git attribution misstates the algorithm."
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "rotate-image",
+  "title": "Rotate Image",
+  "difficulty": "Medium",
+  "topic": "Math & Geometry",
+  "tags": [
+    "Array",
+    "Math",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/rotate-image/",
+  "description": "Given an n x n matrix representing an image, rotate it 90 degrees clockwise in place, without allocating another matrix.",
+  "reference": {
+    "use_case": "Rotating a square image or grid by 90 degrees in place without allocating a second copy.",
+    "system_examples": [
+      "Image editors and phone galleries — rotating photos",
+      "Games — rotating tile maps and pieces (e.g. Tetris piece rotation)",
+      "Embedded and GPU code — in-place matrix transforms under tight memory limits"
+    ],
+    "explanation": "A 90° clockwise rotation equals a transpose followed by reversing each row (or a four-way cyclic swap per layer), in O(n²) time and O(1) extra space. In-place transforms matter when memory is tight, such as on embedded devices or with very large images."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 4,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Attributing Manhattan-distance minimum spanning tree optimization to Amazon fulfillment center internal conveyor planning is speculative."
+  ],
+  "rationale": "The candidate correctly maps the problem to MST algorithms (Prim's and Kruskal's) on street-grid topologies. However, naming Amazon fulfillment center conveyor layouts as a Manhattan MST example is an unverified, speculative attribution."
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "title": "Merge k Sorted Lists",
+  "difficulty": "Hard",
+  "topic": "Linked List",
+  "tags": [
+    "Linked List",
+    "Divide and Conquer",
+    "Heap (Priority Queue)",
+    "Merge Sort"
+  ],
+  "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+  "description": "Given an array of k linked lists, each sorted in ascending order, merge them into one sorted linked list.",
+  "reference": {
+    "use_case": "Combining many already-sorted streams into one sorted stream, such as merging sorted data files on disk or time-ordered results from many shards.",
+    "system_examples": [
+      "LSM-tree storage engines (RocksDB, LevelDB, Cassandra) — compaction merges multiple sorted SSTables into one",
+      "Database external sorting (e.g. PostgreSQL tuplesort) — merges sorted runs spilled to disk",
+      "Distributed search (Elasticsearch coordinating node) — merges per-shard sorted hits into a global result"
+    ],
+    "explanation": "A min-heap holding the current head of each list yields the next smallest element in O(log k), so merging N elements costs O(N log k) instead of O(N·k); pairwise divide-and-conquer merging achieves the same bound. k-way merge is the backbone of LSM compaction, external sorting, and scatter-gather queries."
+  }
+}

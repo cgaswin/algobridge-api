@@ -1,0 +1,10 @@
+{
+  "slug": "top-k-frequent-elements",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Datadog top error patterns, X trending topics, and Cloudflare IP-volume analysis are accurate top-K systems, and the min-heap/bucket/Quickselect explanation matches the reference's selection insight."
+}

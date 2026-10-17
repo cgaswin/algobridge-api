@@ -1,0 +1,17 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "latency_ms": 6742,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A search service stores terms from product names, usernames, or commands and answers both exact-match lookups and “what entries begin with this text?” queries as a user types. The same structure supports efficient prefix-based routing and autocomplete over changing dictionaries.\",\"system_examples\":[\"Elasticsearch completion suggester — indexes terms for prefix-based search-as-you-type suggestions.\",\"Shell command completion — checks command names and paths against entered prefixes, while exact lookup validates a full command name.\"],\"explanation\":\"A trie shares common prefixes among stored strings, so insert, exact search, and prefix checks take O(L) time for a word or prefix of length L, rather than scanning all N stored strings. This makes lookup time depend on the input length instead of dictionary size, though the nodes consume memory proportional to the total stored characters; production autocomplete systems often add ranking and filtering beyond this core.\"}",
+  "parsed": {
+    "use_case": "A search service stores terms from product names, usernames, or commands and answers both exact-match lookups and “what entries begin with this text?” queries as a user types. The same structure supports efficient prefix-based routing and autocomplete over changing dictionaries.",
+    "system_examples": [
+      "Elasticsearch completion suggester — indexes terms for prefix-based search-as-you-type suggestions.",
+      "Shell command completion — checks command names and paths against entered prefixes, while exact lookup validates a full command name."
+    ],
+    "explanation": "A trie shares common prefixes among stored strings, so insert, exact search, and prefix checks take O(L) time for a word or prefix of length L, rather than scanning all N stored strings. This makes lookup time depend on the input length instead of dictionary size, though the nodes consume memory proportional to the total stored characters; production autocomplete systems often add ranking and filtering beyond this core."
+  },
+  "schema_error": null,
+  "issues": []
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "coin-change",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 3,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claim that network packet fragmentation layers minimize the number of fixed-size buffers for exact payload sizing is not a typical or supported use of this problem formulation.",
+    "The claim that ATM firmware particularly solves arbitrary non-canonical denomination cases is unsupported; standard currency denominations generally avoid that need."
+  ],
+  "rationale": "The core minimum-units exact-sum framing is relevant, and the DP recurrence and complexity are broadly correct. The BFS alternative is valid, but the answer shifts focus toward generalized variants and includes weak system attributions; it also names the solution technique."
+}

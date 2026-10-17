@@ -1,0 +1,22 @@
+{
+  "slug": "coin-change",
+  "title": "Coin Change",
+  "difficulty": "Medium",
+  "topic": "1-D Dynamic Programming",
+  "tags": [
+    "Array",
+    "Dynamic Programming",
+    "Breadth-First Search"
+  ],
+  "url": "https://leetcode.com/problems/coin-change/",
+  "description": "Given coin denominations and an amount, return the fewest coins needed to make that amount (unlimited coins of each kind), or -1 if it cannot be made.",
+  "reference": {
+    "use_case": "Making an exact amount with the fewest pieces from a fixed set of sizes, such as dispensing cash with the fewest notes.",
+    "system_examples": [
+      "ATMs and cash registers — dispensing an amount with the fewest notes or coins available",
+      "Cloud resource allocation — reaching a target capacity with the fewest instances of fixed sizes",
+      "Retail fulfillment — meeting an order quantity with the fewest standard-size packages"
+    ],
+    "explanation": "Greedily taking the largest coin fails for arbitrary denominations (coins 1, 3, 4 for amount 6 gives 4+1+1 instead of 3+3), so build the minimum count for every amount up to the target: dp[a] = 1 + min(dp[a − c]), in O(amount × coins). This unbounded-knapsack DP applies whenever exact totals must be met with minimal units."
+  }
+}

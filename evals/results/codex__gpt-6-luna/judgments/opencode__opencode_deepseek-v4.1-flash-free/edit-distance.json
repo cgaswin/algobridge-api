@@ -1,0 +1,10 @@
+{
+  "slug": "edit-distance",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Git diff, Elasticsearch fuzzy queries, and spell-checking are all valid edit-distance applications, and the DP-over-prefixes explanation matches the reference core."
+}

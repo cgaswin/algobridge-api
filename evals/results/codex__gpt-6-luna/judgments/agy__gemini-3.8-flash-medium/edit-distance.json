@@ -1,0 +1,10 @@
+{
+  "slug": "edit-distance",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate correctly identifies fuzzy matching and spell checking as core applications, though attributing Levenshtein edit distance directly to Git diff is somewhat loose."
+}

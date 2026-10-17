@@ -1,0 +1,12 @@
+{
+  "slug": "merge-intervals",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Varnish merging overlapping Byte-Range requests into continuous ranges before origin fetch — plausible-sounding but not a documented Varnish behavior."
+  ],
+  "rationale": "Google Calendar busy-block consolidation and Linux VMA coalescing are real and the sort-then-greedy-pass O(n log n) explanation matches the reference. The Varnish range-merging claim is unverified."
+}

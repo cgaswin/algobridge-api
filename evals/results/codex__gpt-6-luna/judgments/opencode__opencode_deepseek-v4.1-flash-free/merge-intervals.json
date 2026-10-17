@@ -1,0 +1,10 @@
+{
+  "slug": "merge-intervals",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Matches the reference exactly: sorting by start and a single merge pass in O(n log n), applied to calendar free/busy and downtime-style timelines. Named systems are reasonable but slightly generic compared to Google Calendar and bedtools merge."
+}

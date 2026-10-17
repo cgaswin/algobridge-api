@@ -1,0 +1,12 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Google Search is specifically attributed with serving autocomplete suggestions through prefix matching against indexed queries; the implementation detail is unsupported."
+  ],
+  "rationale": "Autocomplete and longest-prefix routing are direct trie applications, and the explanation accurately describes shared prefixes and O(L) lookup. The Google implementation claim is plausible but not substantiated."
+}

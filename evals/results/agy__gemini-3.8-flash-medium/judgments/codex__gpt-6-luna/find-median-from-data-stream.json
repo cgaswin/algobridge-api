@@ -1,0 +1,12 @@
+{
+  "slug": "find-median-from-data-stream",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [
+    "Algorithmic trade execution routers maintain the described live median execution latency to dynamically adjust routing thresholds; this specific product/system behavior is unsupported."
+  ],
+  "rationale": "The two-heap design and approximate-sketch caveat closely match the reference, and the streaming median use case is apt. The trade-router claim is speculative, and the explanation names the solution technique, making spoiler_free false."
+}

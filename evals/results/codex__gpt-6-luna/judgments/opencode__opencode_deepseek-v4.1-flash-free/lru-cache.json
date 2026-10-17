@@ -1,0 +1,10 @@
+{
+  "slug": "lru-cache",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly describes a bounded in-memory cache evicting the longest-unused item, with accurate Redis and OS page-cache attributions and the same hash-map + doubly-linked-list O(1) insight plus a nod to real-system approximations. Slightly less specific than the reference, which names concrete Redis policies and Memcached slab behavior."
+}

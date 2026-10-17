@@ -1,0 +1,12 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Prometheus is described as maintaining k-th-largest / high-percentile latency thresholds as metrics are scraped; Prometheus uses histograms and summaries for quantiles, not a bounded top-k min-heap."
+  ],
+  "rationale": "The top-N leaderboard scenario and capped min-heap technique match the reference, but the Prometheus example is a loose/inapt attribution while the Flink example is sound."
+}

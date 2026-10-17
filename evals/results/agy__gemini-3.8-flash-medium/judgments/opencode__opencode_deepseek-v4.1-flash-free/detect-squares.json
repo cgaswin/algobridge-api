@@ -1,0 +1,13 @@
+{
+  "slug": "detect-squares",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Cadence Virtuoso — claimed to verify square contact vias/guard rings by matching sets of registered corner coordinates (DRC uses geometric rule checks, not point-set square counting)",
+    "Autodesk AutoCAD — claimed to evaluate snap constraints by detecting when a coordinate completes an orthogonal square (invented mechanism)"
+  ],
+  "rationale": "Shares the precise core (counting axis-aligned squares completed from registered points) and O(N) diagonal+hash-map approach, but the named CAD products are asserted to use this mechanism without basis."
+}

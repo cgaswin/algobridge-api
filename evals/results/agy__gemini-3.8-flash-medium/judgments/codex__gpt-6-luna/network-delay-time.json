@@ -1,0 +1,13 @@
+{
+  "slug": "network-delay-time",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claim that Cloudflare’s cache-purging engine computes worst-case propagation delays across regional edge servers to guarantee invalidation within SLAs is unsupported.",
+    "The OSPF description conflates link-state announcement flooding with shortest-path calculation and convergence-latency verification."
+  ],
+  "rationale": "Broadcasting updates across a latency-weighted network is a strong match, and the shortest-path explanation aligns with the reference. The specific Cloudflare attribution is unsupported, and naming Dijkstra makes the answer not spoiler-free."
+}

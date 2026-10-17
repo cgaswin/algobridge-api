@@ -1,0 +1,10 @@
+{
+  "slug": "min-stack",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 3,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures storing the min alongside each entry for O(1) queries, but the 'added and removed in arrival order' framing is queue-like, not the LIFO/nested-scope insight, and misses the two-stacks-as-queue building block; examples are unnamed categories."
+}

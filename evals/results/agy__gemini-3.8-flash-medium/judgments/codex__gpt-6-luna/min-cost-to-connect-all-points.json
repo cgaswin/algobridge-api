@@ -1,0 +1,14 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "accuracy": 2,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Cadence Innovus is claimed to determine a minimum rectilinear spanning connection between multi-terminal pin groups; that specific attribution is unsupported and conflates wirelength estimation with an exact MST.",
+    "QGIS is claimed to calculate minimum total installation length for interconnecting facilities; this is not established as a standard QGIS capability.",
+    "The MST is described as a wirelength lower bound before adding Steiner points, but an MST is generally an upper bound on the minimum Steiner-tree length, not a lower bound."
+  ],
+  "rationale": "The infrastructure and circuit-wiring scenarios are relevant to connecting points at minimum total cost, and the dense-graph Prim explanation is sound. The product claims are overstated, and the claimed lower-bound relationship to Steiner wiring is reversed."
+}

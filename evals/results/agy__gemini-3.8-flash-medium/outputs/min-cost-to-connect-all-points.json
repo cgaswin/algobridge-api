@@ -1,0 +1,17 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "latency_ms": 38726,
+  "input_tokens": 30130,
+  "output_tokens": 3263,
+  "raw": "{\"explanation\": \"The problem models finding a Minimum Spanning Tree over a dense graph with O(N\\u00b2) implicit edges, optimally solved using Prim's algorithm with an array in O(N\\u00b2) time and O(N) space rather than naive exponential spanning-tree enumeration or O(N\\u00b2 log N) Kruskal's algorithm with Union-Find. Skipping the construction of an explicit edge list avoids the O(N\\u00b2) memory overhead that would otherwise choke dense instances. In production EDA routing and physical infrastructure planning, this structure serves as the essential wirelength lower bound before adding Steiner points or detouring around physical obstacles.\", \"system_examples\": [\"Cadence Innovus \\u2014 Estimates interconnect wirelength during integrated circuit placement by determining the minimum total rectilinear distance needed to link multi-terminal pin groups.\", \"QGIS \\u2014 Calculates the lowest total installation length required to interconnect a collection of geographically dispersed facilities or utility access points.\"], \"use_case\": \"Routing physical traces between electronic component pins on a circuit board or microchip where wiring is restricted to orthogonal grid tracks and total metal length must be minimized. A similar scenario occurs when laying municipal utility pipes or fiber-optic lines to connect a set of distributed facilities at the lowest possible overall construction cost.\"}",
+  "parsed": {
+    "use_case": "Routing physical traces between electronic component pins on a circuit board or microchip where wiring is restricted to orthogonal grid tracks and total metal length must be minimized. A similar scenario occurs when laying municipal utility pipes or fiber-optic lines to connect a set of distributed facilities at the lowest possible overall construction cost.",
+    "system_examples": [
+      "Cadence Innovus — Estimates interconnect wirelength during integrated circuit placement by determining the minimum total rectilinear distance needed to link multi-terminal pin groups.",
+      "QGIS — Calculates the lowest total installation length required to interconnect a collection of geographically dispersed facilities or utility access points."
+    ],
+    "explanation": "The problem models finding a Minimum Spanning Tree over a dense graph with O(N²) implicit edges, optimally solved using Prim's algorithm with an array in O(N²) time and O(N) space rather than naive exponential spanning-tree enumeration or O(N² log N) Kruskal's algorithm with Union-Find. Skipping the construction of an explicit edge list avoids the O(N²) memory overhead that would otherwise choke dense instances. In production EDA routing and physical infrastructure planning, this structure serves as the essential wirelength lower bound before adding Steiner points or detouring around physical obstacles."
+  },
+  "schema_error": null,
+  "issues": []
+}

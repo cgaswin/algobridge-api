@@ -1,0 +1,10 @@
+{
+  "slug": "number-of-islands",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly frames connected-component labeling via DFS/BFS/union-find in O(M×N), and the OpenCV connectedComponents, QGIS, and Magic Wand examples closely mirror the reference while adding medical-imaging detail."
+}

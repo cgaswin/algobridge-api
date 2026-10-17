@@ -1,0 +1,10 @@
+{
+  "slug": "non-overlapping-intervals",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Sort-by-end-time greedy with O(n log n) exactly matches the reference interval-scheduling insight, and the single-device booking scenario plus Hubble SPIKE scheduler are concrete and accurate."
+}

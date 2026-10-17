@@ -1,0 +1,21 @@
+{
+  "slug": "sum-of-two-integers",
+  "title": "Sum of Two Integers",
+  "difficulty": "Medium",
+  "topic": "Bit Manipulation",
+  "tags": [
+    "Math",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/sum-of-two-integers/",
+  "description": "Given two integers a and b, return their sum without using the + or - operators.",
+  "reference": {
+    "use_case": "Adding two numbers using only logic operations, which is how addition is implemented in digital hardware.",
+    "system_examples": [
+      "CPU arithmetic logic units — ripple-carry and carry-lookahead adders built from logic gates",
+      "Arbitrary-precision libraries (e.g. GMP) — propagating carries across multi-word integers",
+      "FPGA/HDL design — implementing custom adders in Verilog or VHDL"
+    ],
+    "explanation": "XOR gives the sum without carries and AND shifted left gives the carries; repeating until no carry remains adds the numbers, mirroring a hardware adder. In Python you must mask to 32 bits to emulate fixed-width overflow. The practical value is understanding carry propagation in hardware arithmetic."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "time-based-key-value-store",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Spanner MVCC stale reads, Prometheus instant-query lookback, and HBase versioned cells are all accurate point-in-time-read systems, and the hash-map + sorted-array binary-search solution mirrors the reference exactly."
+}

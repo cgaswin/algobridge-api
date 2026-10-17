@@ -1,0 +1,10 @@
+{
+  "slug": "time-based-key-value-store",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [],
+  "rationale": "The timestamp-predecessor lookup and ordered-history mechanism closely match the reference, and the Spanner, Prometheus, and HBase examples are relevant. The claim that production histories commonly grow into millions of entries is an unsupported generalization, and the explanation explicitly names binary search."
+}

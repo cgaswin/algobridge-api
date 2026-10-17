@@ -1,0 +1,25 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "title": "Kth Largest Element in a Stream",
+  "difficulty": "Easy",
+  "topic": "Heap / Priority Queue",
+  "tags": [
+    "Tree",
+    "Design",
+    "Binary Search Tree",
+    "Heap (Priority Queue)",
+    "Binary Tree",
+    "Data Stream"
+  ],
+  "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+  "description": "Design a class initialized with k and an initial array that, after each added value, returns the kth largest element seen so far.",
+  "reference": {
+    "use_case": "Continuously reporting the k-th highest value as new data arrives, such as the cutoff score for entering a top-100 leaderboard.",
+    "system_examples": [
+      "Gaming leaderboards — maintaining the score threshold for the top-N",
+      "Lucene/Elasticsearch top-hits collection — keeping only the best k scoring documents while scanning matches",
+      "Latency alerting — tracking the k-th slowest request in a window as a high-percentile threshold"
+    ],
+    "explanation": "A min-heap capped at size k always holds the k-th largest at its root; each new value costs O(log k) and memory stays O(k) regardless of stream length. Bounded heaps are the standard way to keep top-k results in search and ranking."
+  }
+}

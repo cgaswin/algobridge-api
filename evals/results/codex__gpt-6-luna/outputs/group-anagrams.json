@@ -1,0 +1,17 @@
+{
+  "slug": "group-anagrams",
+  "latency_ms": 6894,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A contact-import service can cluster names or labels that contain the same characters in different orders, helping flag likely duplicates for review. The core task is to assign each string to the group with the same character counts.\",\"system_examples\":[\"Contact deduplication systems — group names with identical letters in different orders as candidate duplicates for human review.\",\"Word-game servers — group a supplied word list by which entries can be formed from the same letters.\"],\"explanation\":\"A canonical signature, such as sorted characters or letter counts, lets each string be assigned to its group in expected O(n·k) time for n strings of average length k, versus comparing every pair, which can take O(n²·k). This is a useful grouping pattern, though the exact anagram task is more common in word games and data-cleaning utilities than as a central production workload.\"}",
+  "parsed": {
+    "use_case": "A contact-import service can cluster names or labels that contain the same characters in different orders, helping flag likely duplicates for review. The core task is to assign each string to the group with the same character counts.",
+    "system_examples": [
+      "Contact deduplication systems — group names with identical letters in different orders as candidate duplicates for human review.",
+      "Word-game servers — group a supplied word list by which entries can be formed from the same letters."
+    ],
+    "explanation": "A canonical signature, such as sorted characters or letter counts, lets each string be assigned to its group in expected O(n·k) time for n strings of average length k, versus comparing every pair, which can take O(n²·k). This is a useful grouping pattern, though the exact anagram task is more common in word games and data-cleaning utilities than as a central production workload."
+  },
+  "schema_error": null,
+  "issues": []
+}

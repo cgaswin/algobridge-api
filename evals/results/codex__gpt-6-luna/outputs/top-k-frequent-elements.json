@@ -1,0 +1,17 @@
+{
+  "slug": "top-k-frequent-elements",
+  "latency_ms": 6250,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A log analytics service groups events by error code and returns the most common codes for an incident dashboard. This helps operators focus on the failures affecting the largest number of requests.\",\"system_examples\":[\"Elasticsearch — terms aggregations rank field values by document count for dashboards and log analysis.\",\"Prometheus — topk queries return the label values or time series with the highest sample values, such as the most active endpoints.\"],\"explanation\":\"Frequency counting followed by a heap or bucket-based selection can find the top k in O(n log k) or O(n), compared with O(n log n) to sort all distinct values. Production analytics systems use this pattern to surface dominant events without fully ordering every category.\"}",
+  "parsed": {
+    "use_case": "A log analytics service groups events by error code and returns the most common codes for an incident dashboard. This helps operators focus on the failures affecting the largest number of requests.",
+    "system_examples": [
+      "Elasticsearch — terms aggregations rank field values by document count for dashboards and log analysis.",
+      "Prometheus — topk queries return the label values or time series with the highest sample values, such as the most active endpoints."
+    ],
+    "explanation": "Frequency counting followed by a heap or bucket-based selection can find the top k in O(n log k) or O(n), compared with O(n log n) to sort all distinct values. Production analytics systems use this pattern to surface dominant events without fully ordering every category."
+  },
+  "schema_error": null,
+  "issues": []
+}

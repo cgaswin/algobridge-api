@@ -1,0 +1,18 @@
+{
+  "slug": "top-k-frequent-elements",
+  "latency_ms": 23347,
+  "input_tokens": 27781,
+  "output_tokens": 1323,
+  "raw": "{\"explanation\": \"While the naive approach counts frequencies and fully sorts all unique elements in O(N log N) time, the problem is optimally solved using a min-heap of size k in O(N log k) time or bucket sort / Quickselect in O(N) average time. In production, avoiding a full sort across millions of distinct keys prevents CPU bottlenecks and excessive memory allocations, making real-time, low-latency top-K summaries feasible at scale.\", \"system_examples\": [\"Datadog Log Management \\u2014 surfacing the highest-volume recurring error patterns across distributed services on alert dashboards.\", \"Twitter / X Search Trends \\u2014 aggregating recent posts to isolate the highest-volume hashtags and discussion topics for real-time trending lists.\", \"Cloudflare DDoS Protection \\u2014 identifying the client IP addresses generating the highest volume of inbound traffic during a traffic spike to isolate abuse.\"], \"use_case\": \"Surfacing the most frequently occurring items across large event streams, such as the most common error signatures in service logs or the most popular search queries over a given window. This allows monitoring tools and analytics dashboards to highlight dominant trends without having to inspect every distinct record.\"}",
+  "parsed": {
+    "use_case": "Surfacing the most frequently occurring items across large event streams, such as the most common error signatures in service logs or the most popular search queries over a given window. This allows monitoring tools and analytics dashboards to highlight dominant trends without having to inspect every distinct record.",
+    "system_examples": [
+      "Datadog Log Management — surfacing the highest-volume recurring error patterns across distributed services on alert dashboards.",
+      "Twitter / X Search Trends — aggregating recent posts to isolate the highest-volume hashtags and discussion topics for real-time trending lists.",
+      "Cloudflare DDoS Protection — identifying the client IP addresses generating the highest volume of inbound traffic during a traffic spike to isolate abuse."
+    ],
+    "explanation": "While the naive approach counts frequencies and fully sorts all unique elements in O(N log N) time, the problem is optimally solved using a min-heap of size k in O(N log k) time or bucket sort / Quickselect in O(N) average time. In production, avoiding a full sort across millions of distinct keys prevents CPU bottlenecks and excessive memory allocations, making real-time, low-latency top-K summaries feasible at scale."
+  },
+  "schema_error": null,
+  "issues": []
+}

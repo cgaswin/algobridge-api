@@ -1,0 +1,10 @@
+{
+  "slug": "daily-temperatures",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Monotonic-stack next-greater-element framing matches the reference core, but the weather-centric examples lack the reference's trading/monitoring naming of concrete domains."
+}

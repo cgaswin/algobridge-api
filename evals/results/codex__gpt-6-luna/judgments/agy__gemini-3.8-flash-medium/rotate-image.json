@@ -1,0 +1,10 @@
+{
+  "slug": "rotate-image",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The candidate correctly identifies the in-place transpose-and-reverse approach and provides realistic commentary on memory trade-offs. The systems cited are valid domains, though they refer to generic image libraries rather than specific products."
+}

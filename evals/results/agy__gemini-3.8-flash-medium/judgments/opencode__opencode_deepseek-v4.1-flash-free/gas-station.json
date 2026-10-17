@@ -1,0 +1,10 @@
+{
+  "slug": "gas-station",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures the same running-balance/greedy single-pass insight and the 'balance never negative' cyclic-resource framing, with consistently apt EV and satellite-power analogies."
+}

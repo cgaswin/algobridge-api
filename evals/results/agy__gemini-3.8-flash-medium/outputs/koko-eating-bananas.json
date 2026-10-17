@@ -1,0 +1,17 @@
+{
+  "slug": "koko-eating-bananas",
+  "latency_ms": 30819,
+  "input_tokens": 28895,
+  "output_tokens": 2268,
+  "raw": "{\"explanation\": \"The core technique is binary search on the monotonic answer space [1, max(piles)], reducing time complexity from the naive linear scan's O(max(piles) * N) to O(N * log(max(piles))). This optimization over a monotonic feasibility function is foundational in systems engineering for right-sizing capacity, allowing automated allocators to find the cheapest bandwidth, thread, or memory allocation that still satisfies strict SLA deadlines.\", \"system_examples\": [\"Cloud batch workflow schedulers (such as AWS Batch) \\u2014 sizing the minimum throughput capacity required to complete a collection of non-splittable jobs within an allotted maintenance window.\", \"Video transcoding pipelines (such as Netflix) \\u2014 calculating the minimum per-worker encoding rate needed to process a queue of variable-duration video chunks before scheduled release deadlines.\"], \"use_case\": \"Determining the minimum provisioned network bandwidth or worker processing rate required to clear a queue of variable-sized data batches within a service-level agreement deadline, where each discrete batch must be completed in its own time unit.\"}",
+  "parsed": {
+    "use_case": "Determining the minimum provisioned network bandwidth or worker processing rate required to clear a queue of variable-sized data batches within a service-level agreement deadline, where each discrete batch must be completed in its own time unit.",
+    "system_examples": [
+      "Cloud batch workflow schedulers (such as AWS Batch) — sizing the minimum throughput capacity required to complete a collection of non-splittable jobs within an allotted maintenance window.",
+      "Video transcoding pipelines (such as Netflix) — calculating the minimum per-worker encoding rate needed to process a queue of variable-duration video chunks before scheduled release deadlines."
+    ],
+    "explanation": "The core technique is binary search on the monotonic answer space [1, max(piles)], reducing time complexity from the naive linear scan's O(max(piles) * N) to O(N * log(max(piles))). This optimization over a monotonic feasibility function is foundational in systems engineering for right-sizing capacity, allowing automated allocators to find the cheapest bandwidth, thread, or memory allocation that still satisfies strict SLA deadlines."
+  },
+  "schema_error": null,
+  "issues": []
+}

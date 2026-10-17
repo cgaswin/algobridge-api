@@ -1,0 +1,10 @@
+{
+  "slug": "rotate-image",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Transpose-plus-reverse-rows in O(n²) time and O(1) space is the exact reference technique, and SurfaceFlinger and libjpeg-turbo are accurate instances of in-place buffer reorientation under memory pressure."
+}

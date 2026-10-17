@@ -1,0 +1,21 @@
+{
+  "slug": "number-of-1-bits",
+  "title": "Number of 1 Bits",
+  "difficulty": "Easy",
+  "topic": "Bit Manipulation",
+  "tags": [
+    "Divide and Conquer",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/number-of-1-bits/",
+  "description": "Given a positive integer, return the number of set bits (1s) in its binary representation (its Hamming weight).",
+  "reference": {
+    "use_case": "Counting how many flags are set in a bitmask, such as how many permissions a user holds or how many rows a filter matched in a bitmap.",
+    "system_examples": [
+      "Bitmap indexes (Roaring bitmaps in Apache Druid and Lucene) — counting matching rows",
+      "Chess engines — counting pieces and attacked squares on bitboards with the CPU POPCNT instruction",
+      "Similarity search — Hamming distance between binary embeddings or perceptual image hashes"
+    ],
+    "explanation": "n & (n − 1) clears the lowest set bit, so looping until zero takes one iteration per set bit, and CPUs provide a single POPCNT instruction. Popcount is a hot primitive in bitmap indexes, bitboard engines, and Hamming-distance search."
+  }
+}

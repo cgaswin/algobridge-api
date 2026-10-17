@@ -1,0 +1,17 @@
+{
+  "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+  "latency_ms": 30546,
+  "input_tokens": 28841,
+  "output_tokens": 2102,
+  "raw": "{\"explanation\": \"While general tree LCA requires traversing multiple subtrees or storing ancestor paths in O(N) time and space, a binary search tree allows descending directly toward the split point using node value comparisons in O(h) time and O(1) auxiliary space. In production indexing engines and memory managers, this property eliminates overhead by pruning irrelevant subtrees during tree traversal, allowing parent resolution to run on high-throughput critical paths without memory allocations.\", \"system_examples\": [\"Linux Kernel (mm subsystem) \\u2014 Locating the common ancestor node in the red-black tree of virtual memory areas to identify the split point between two addresses during range operations like memory unmapping.\", \"MySQL InnoDB \\u2014 Finding the lowest common ancestor page in an index tree between two boundary keys to establish shared latch points and split boundaries during range operations.\"], \"use_case\": \"In systems that organize ordered records or address allocations hierarchically, operations frequently need to find the most specific branch or parent region that encompasses two distinct keys to coordinate range locks or manage shared allocations.\"}",
+  "parsed": {
+    "use_case": "In systems that organize ordered records or address allocations hierarchically, operations frequently need to find the most specific branch or parent region that encompasses two distinct keys to coordinate range locks or manage shared allocations.",
+    "system_examples": [
+      "Linux Kernel (mm subsystem) — Locating the common ancestor node in the red-black tree of virtual memory areas to identify the split point between two addresses during range operations like memory unmapping.",
+      "MySQL InnoDB — Finding the lowest common ancestor page in an index tree between two boundary keys to establish shared latch points and split boundaries during range operations."
+    ],
+    "explanation": "While general tree LCA requires traversing multiple subtrees or storing ancestor paths in O(N) time and space, a binary search tree allows descending directly toward the split point using node value comparisons in O(h) time and O(1) auxiliary space. In production indexing engines and memory managers, this property eliminates overhead by pruning irrelevant subtrees during tree traversal, allowing parent resolution to run on high-throughput critical paths without memory allocations."
+  },
+  "schema_error": null,
+  "issues": []
+}

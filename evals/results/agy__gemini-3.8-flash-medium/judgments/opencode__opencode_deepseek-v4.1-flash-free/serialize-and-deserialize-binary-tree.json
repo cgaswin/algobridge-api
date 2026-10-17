@@ -1,0 +1,10 @@
+{
+  "slug": "serialize-and-deserialize-binary-tree",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Preorder traversal with explicit null sentinels rebuilt in O(n) matches the reference's key insight that structure must be captured; XGBoost model persistence and Babel AST caches are valid, specific examples."
+}

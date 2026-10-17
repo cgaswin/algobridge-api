@@ -1,0 +1,13 @@
+{
+  "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "MySQL InnoDB index trees are B+trees, not binary search trees, so BST ordering does not apply to the described lowest-common-ancestor-page lookup.",
+    "Linux kernel mm VMA rbtree is not used for LCA/split-point resolution the way described."
+  ],
+  "rationale": "Captures the BST split-point descent (O(h), O(1)) insight, but the chosen examples stretch the analogy: InnoDB uses B+trees (not BSTs) and the kernel VMA rbtree attribution is a loose fit compared with the reference's merge-base/org-chart/routing examples."
+}

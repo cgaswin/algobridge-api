@@ -1,0 +1,10 @@
+{
+  "slug": "detect-squares",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Frequency-map diagonal lookup with count multiplication is exactly the reference technique with correct O(n) query time; sensor/geospatial examples are plausible but less specific than the reference's document/CAD framing."
+}

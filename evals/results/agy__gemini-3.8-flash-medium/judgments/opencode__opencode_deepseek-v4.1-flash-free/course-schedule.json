@@ -1,0 +1,10 @@
+{
+  "slug": "course-schedule",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Directly matches the reference: build systems and package managers with cycle detection via topological sort (Kahn's/DFS, O(V+E)). Named systems (Terraform, Bazel, npm) are real and correctly attributed."
+}

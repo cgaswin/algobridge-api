@@ -1,0 +1,17 @@
+{
+  "slug": "container-with-most-water",
+  "latency_ms": 36987,
+  "input_tokens": 29137,
+  "output_tokens": 2599,
+  "raw": "{\"explanation\": \"While this problem is primarily a classic pedagogical puzzle with limited direct industry occurrences, its two-pointer greedy technique reduces an exhaustive O(n^2) pairwise search down to O(n) time by advancing inward from the shorter boundary. In production software, this monotonic elimination strategy is valuable for optimizing interval selection and geometric bounding queries where checking all combinations would introduce intolerable latency.\", \"system_examples\": [\"Waveform analysis tools in digital oscilloscopes \\u2014 locating two pulse peaks across a discrete sample sequence that enclose the largest rectangular power envelope bounded by the lower amplitude peak.\", \"Automated warehouse rack packing engines \\u2014 selecting two variable-height vertical dividers along a track to maximize the rectangular containment volume bounded by the shorter divider.\"], \"use_case\": \"A telemetry pipeline schedules bulk data transfers between two synchronization pulses chosen from an uneven sequence, where sustained throughput is limited by the lower link capacity of the two pulses multiplied by the time interval between them. The scheduler must select the optimal pair of synchronization markers across the timeline to maximize total transmitted volume.\"}",
+  "parsed": {
+    "use_case": "A telemetry pipeline schedules bulk data transfers between two synchronization pulses chosen from an uneven sequence, where sustained throughput is limited by the lower link capacity of the two pulses multiplied by the time interval between them. The scheduler must select the optimal pair of synchronization markers across the timeline to maximize total transmitted volume.",
+    "system_examples": [
+      "Waveform analysis tools in digital oscilloscopes — locating two pulse peaks across a discrete sample sequence that enclose the largest rectangular power envelope bounded by the lower amplitude peak.",
+      "Automated warehouse rack packing engines — selecting two variable-height vertical dividers along a track to maximize the rectangular containment volume bounded by the shorter divider."
+    ],
+    "explanation": "While this problem is primarily a classic pedagogical puzzle with limited direct industry occurrences, its two-pointer greedy technique reduces an exhaustive O(n^2) pairwise search down to O(n) time by advancing inward from the shorter boundary. In production software, this monotonic elimination strategy is valuable for optimizing interval selection and geometric bounding queries where checking all combinations would introduce intolerable latency."
+  },
+  "schema_error": null,
+  "issues": []
+}

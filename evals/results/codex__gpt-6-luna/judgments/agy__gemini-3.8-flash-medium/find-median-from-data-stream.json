@@ -1,0 +1,10 @@
+{
+  "slug": "find-median-from-data-stream",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The technical explanation of the two-heap mechanism is spot-on, and the candidate astutely notes that production tools like Prometheus use bucketed approximations rather than exact running medians."
+}

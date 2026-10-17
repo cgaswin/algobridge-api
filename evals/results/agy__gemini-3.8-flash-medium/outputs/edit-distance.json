@@ -1,0 +1,18 @@
+{
+  "slug": "edit-distance",
+  "latency_ms": 32542,
+  "input_tokens": 28590,
+  "output_tokens": 2132,
+  "raw": "{\"explanation\": \"The problem is solved using dynamic programming over a 2D cost matrix of prefix transformations, reducing the naive recursion's exponential O(3^(m+n)) complexity to O(m \\u00d7 n) time and O(min(m, n)) auxiliary space. In latency-critical production systems, executing full O(m \\u00d7 n) comparisons across millions of terms is prohibitively slow. Production engines typically constrain the calculation with a small maximum distance threshold using banded matrix evaluation or precompile the logic into Levenshtein automata to filter dictionary candidates in sub-millisecond time.\", \"system_examples\": [\"Elasticsearch \\u2014 evaluates fuzzy search queries by measuring the minimum character edits needed to transform an unrecognized search term into indexed vocabulary terms.\", \"Git \\u2014 calculates similarity scores between files and code blocks during diff operations to detect renamed files and align modified text lines accurately.\", \"Grammarly \\u2014 identifies spelling correction candidates by finding dictionary entries that fall within a narrow edit boundary of a flagged token.\"], \"use_case\": \"Search engines and spell-checking systems evaluate misspelled search terms by finding dictionary words that require the fewest character insertions, deletions, or substitutions to match. Similarly, bioinformatics tools compare DNA or RNA sequences to determine evolutionary divergence by calculating the minimum mutation operations required to transform one sequence into another.\"}",
+  "parsed": {
+    "use_case": "Search engines and spell-checking systems evaluate misspelled search terms by finding dictionary words that require the fewest character insertions, deletions, or substitutions to match. Similarly, bioinformatics tools compare DNA or RNA sequences to determine evolutionary divergence by calculating the minimum mutation operations required to transform one sequence into another.",
+    "system_examples": [
+      "Elasticsearch — evaluates fuzzy search queries by measuring the minimum character edits needed to transform an unrecognized search term into indexed vocabulary terms.",
+      "Git — calculates similarity scores between files and code blocks during diff operations to detect renamed files and align modified text lines accurately.",
+      "Grammarly — identifies spelling correction candidates by finding dictionary entries that fall within a narrow edit boundary of a flagged token."
+    ],
+    "explanation": "The problem is solved using dynamic programming over a 2D cost matrix of prefix transformations, reducing the naive recursion's exponential O(3^(m+n)) complexity to O(m × n) time and O(min(m, n)) auxiliary space. In latency-critical production systems, executing full O(m × n) comparisons across millions of terms is prohibitively slow. Production engines typically constrain the calculation with a small maximum distance threshold using banded matrix evaluation or precompile the logic into Levenshtein automata to filter dictionary candidates in sub-millisecond time."
+  },
+  "schema_error": null,
+  "issues": []
+}

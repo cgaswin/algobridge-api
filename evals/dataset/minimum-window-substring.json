@@ -1,0 +1,22 @@
+{
+  "slug": "minimum-window-substring",
+  "title": "Minimum Window Substring",
+  "difficulty": "Hard",
+  "topic": "Sliding Window",
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "url": "https://leetcode.com/problems/minimum-window-substring/",
+  "description": "Given strings s and t, return the shortest substring of s that contains every character of t (including duplicates). Return an empty string if none exists.",
+  "reference": {
+    "use_case": "Finding the shortest span of a document or log that contains every required term, such as a search-result snippet or the tightest time range in which all symptoms of an incident appear.",
+    "system_examples": [
+      "Search snippet generation (e.g. Lucene/Elasticsearch highlighters) — picking a short passage that covers the query terms for result previews",
+      "Incident tooling — finding the tightest log time window that contains all required error signatures",
+      "Bioinformatics — locating the shortest genomic region that contains a required set of motifs"
+    ],
+    "explanation": "Expand the right edge until all required characters are covered, then shrink the left edge while coverage holds, tracking counts in a hash map; this finds the minimum window in O(|s| + |t|) instead of checking all O(n²) substrings. The expand/contract window is the standard tool for coverage queries over streams."
+  }
+}

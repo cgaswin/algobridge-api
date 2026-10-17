@@ -1,0 +1,10 @@
+{
+  "slug": "subsets",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Feature-flag combination enumeration and O(n·2^n) backtracking align with the reference's core, but system examples are only generic tool categories with no named frameworks (e.g. no QuickCheck/Hypothesis) or query optimizers."
+}

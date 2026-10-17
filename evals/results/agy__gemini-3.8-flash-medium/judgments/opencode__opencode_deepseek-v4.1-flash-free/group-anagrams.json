@@ -1,0 +1,12 @@
+{
+  "slug": "group-anagrams",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "MaxQuant — grouping peptides with identical amino acid compositions into equivalence classes for 'isobaric protein identification' is a stretched/loosely-attributed claim"
+  ],
+  "rationale": "Canonicalize-then-group key insight and complexity match the reference; the mass-spec example is a plausible but weakly-supported stretch."
+}

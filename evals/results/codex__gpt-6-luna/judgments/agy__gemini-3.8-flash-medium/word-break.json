@@ -1,0 +1,10 @@
+{
+  "slug": "word-break",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The dynamic programming explanation is accurate, but framing unspaced segmentation as a general command parser or protocol validator is a somewhat loose fit. Furthermore, the examples remain broad categories without naming specific tokenizers or libraries."
+}

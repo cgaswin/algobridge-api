@@ -1,0 +1,10 @@
+{
+  "slug": "coin-change",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correct DP account with the greedy caveat implied; examples (payment, packaging) are on-point but generic with no named systems, falling short of the reference's ATM/cloud-instance concreteness."
+}

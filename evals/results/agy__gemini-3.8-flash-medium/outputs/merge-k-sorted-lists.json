@@ -1,0 +1,18 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "latency_ms": 57349,
+  "input_tokens": 13230,
+  "output_tokens": 6025,
+  "raw": "{\"explanation\": \"The standard optimal technique uses a min-heap (priority queue) of size k containing the head of each list, or pairwise divide-and-conquer, to repeatedly extract the minimum element and advance its respective list. This reduces time complexity from O(N \\u00b7 k) for naive sequential merging to O(N log k), where N is the total number of elements across all lists. In production, this pattern is essential for external sorting and distributed stream aggregation because it maintains a globally sorted output using only O(k) working memory without loading entire datasets into RAM.\", \"system_examples\": [\"RocksDB \\u2014 During read operations and background compaction passes, data from multiple sorted table files (SSTables) is merged into a single sorted stream to present the latest view of each key.\", \"Apache Lucene \\u2014 When executing queries across multiple index segments, sorted document streams from each individual segment are merged into a single globally ordered result list.\", \"PostgreSQL \\u2014 During query execution where sorted results exceed working memory, multiple sorted temporary runs spilled to disk are merged into a unified ordered stream for the final output.\"], \"use_case\": \"A real-time telemetry pipeline aggregates time-stamped metric events streamed from hundreds of independent microservices into a single globally ordered monitoring feed. This allows observability dashboards and anomaly detection engines to inspect cross-service interactions in exact chronological order.\"}",
+  "parsed": {
+    "use_case": "A real-time telemetry pipeline aggregates time-stamped metric events streamed from hundreds of independent microservices into a single globally ordered monitoring feed. This allows observability dashboards and anomaly detection engines to inspect cross-service interactions in exact chronological order.",
+    "system_examples": [
+      "RocksDB — During read operations and background compaction passes, data from multiple sorted table files (SSTables) is merged into a single sorted stream to present the latest view of each key.",
+      "Apache Lucene — When executing queries across multiple index segments, sorted document streams from each individual segment are merged into a single globally ordered result list.",
+      "PostgreSQL — During query execution where sorted results exceed working memory, multiple sorted temporary runs spilled to disk are merged into a unified ordered stream for the final output."
+    ],
+    "explanation": "The standard optimal technique uses a min-heap (priority queue) of size k containing the head of each list, or pairwise divide-and-conquer, to repeatedly extract the minimum element and advance its respective list. This reduces time complexity from O(N · k) for naive sequential merging to O(N log k), where N is the total number of elements across all lists. In production, this pattern is essential for external sorting and distributed stream aggregation because it maintains a globally sorted output using only O(k) working memory without loading entire datasets into RAM."
+  },
+  "schema_error": null,
+  "issues": []
+}

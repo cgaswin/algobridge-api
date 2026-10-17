@@ -1,0 +1,18 @@
+{
+  "slug": "coin-change",
+  "latency_ms": 37631,
+  "input_tokens": 29611,
+  "output_tokens": 2636,
+  "raw": "{\"explanation\": \"The problem is solved using bottom-up dynamic programming or breadth-first search over remainder amounts, reducing an exponential O(n^amount) recursive search to O(n * amount) time and O(amount) space. In production, sovereign currency systems are engineered to be canonical so a simple greedy strategy suffices, meaning pure coin change rarely appears in standard banking. However, the formulation is foundational for unbounded knapsack variants where resource increments are non-canonical, inventory is constrained, or arbitrary sizing tiers cause greedy heuristics to fail.\", \"system_examples\": [\"Automated teller machine (ATM) dispensing firmware \\u2014 Determining the minimum number of banknotes to dispense across available cassette denominations for an exact withdrawal amount, particularly when currency exhaustion forces non-standard denominations.\", \"E-commerce payment and loyalty engines \\u2014 Selecting the fewest pre-denominated gift cards, store credit tokens, or discount vouchers to cover an exact invoice total without leaving an unredeemed remainder.\", \"Network packet fragmentation layers \\u2014 Segmenting an exact byte payload into the minimum number of pre-allocated, fixed-size transfer buffers when strict protocol frames are enforced.\"], \"use_case\": \"Determining the minimum number of fixed-size virtual machines, storage volumes, or voucher credits needed to satisfy an exact capacity or balance target. This prevents provisioning fragmentation and reduces administrative overhead when capacity is purchased in arbitrary, fixed-size units.\"}",
+  "parsed": {
+    "use_case": "Determining the minimum number of fixed-size virtual machines, storage volumes, or voucher credits needed to satisfy an exact capacity or balance target. This prevents provisioning fragmentation and reduces administrative overhead when capacity is purchased in arbitrary, fixed-size units.",
+    "system_examples": [
+      "Automated teller machine (ATM) dispensing firmware — Determining the minimum number of banknotes to dispense across available cassette denominations for an exact withdrawal amount, particularly when currency exhaustion forces non-standard denominations.",
+      "E-commerce payment and loyalty engines — Selecting the fewest pre-denominated gift cards, store credit tokens, or discount vouchers to cover an exact invoice total without leaving an unredeemed remainder.",
+      "Network packet fragmentation layers — Segmenting an exact byte payload into the minimum number of pre-allocated, fixed-size transfer buffers when strict protocol frames are enforced."
+    ],
+    "explanation": "The problem is solved using bottom-up dynamic programming or breadth-first search over remainder amounts, reducing an exponential O(n^amount) recursive search to O(n * amount) time and O(amount) space. In production, sovereign currency systems are engineered to be canonical so a simple greedy strategy suffices, meaning pure coin change rarely appears in standard banking. However, the formulation is foundational for unbounded knapsack variants where resource increments are non-canonical, inventory is constrained, or arbitrary sizing tiers cause greedy heuristics to fail."
+  },
+  "schema_error": null,
+  "issues": []
+}

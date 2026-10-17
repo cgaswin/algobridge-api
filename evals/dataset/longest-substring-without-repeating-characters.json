@@ -1,0 +1,22 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "title": "Longest Substring Without Repeating Characters",
+  "difficulty": "Medium",
+  "topic": "Sliding Window",
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+  "description": "Given a string s, return the length of the longest substring that contains no repeated characters.",
+  "reference": {
+    "use_case": "Finding the longest continuous run of events in which no item repeats, such as the longest stretch of a browsing session without revisiting a page.",
+    "system_examples": [
+      "IPsec anti-replay protection (RFC 4303) — tracking recently seen sequence numbers to reject duplicate packets",
+      "Stream processors (Apache Flink, Kafka Streams) — maintaining per-key windows over event streams with uniqueness constraints",
+      "Feed and playlist systems — ensuring a contiguous run of shown items contains no repeats"
+    ],
+    "explanation": "A sliding window plus a hash map of each character's last index lets the left edge jump past a repeat instead of restarting, giving O(n). Growing and shrinking a window that maintains an invariant is the core of windowed stream processing and replay detection."
+  }
+}

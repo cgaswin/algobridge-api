@@ -1,0 +1,10 @@
+{
+  "slug": "network-delay-time",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Describes the priority-queue shortest-path computation and max-arrival answer correctly, roughly Dijkstra, but cites generic routing/alerting categories instead of OSPF/IS-IS or named systems."
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "minimum-window-substring",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Search snippet generation (Lucene highlighter) and incident log-window search (Splunk) match the reference exactly, including the incident-tooling example. Sliding-window two-pointer O(|s|+|t|) is the same technique."
+}

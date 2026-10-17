@@ -1,0 +1,17 @@
+{
+  "slug": "word-break",
+  "latency_ms": 6073,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A search or messaging service can check whether a tokenized query or incoming text can be fully explained by entries in its approved vocabulary, with entries reusable across the text. This is useful for validating dictionary-backed commands or detecting whether a string consists entirely of known terms.\",\"system_examples\":[\"Spell-checking and text-input systems — determine whether a string can be split into valid dictionary words, including compounds.\",\"Command parsers and protocol validators — verify that an input is composed entirely of recognized, reusable tokens.\"],\"explanation\":\"Dynamic programming over string positions checks whether each prefix can be formed from a previously reachable position plus a dictionary word, typically in O(n·L) time with efficient word lookup, where n is the string length and L bounds candidate word lengths. This avoids enumerating exponentially many possible segmentations; the core problem is also a useful teaching model for tokenization, though production parsers often add rules beyond a plain word list.\"}",
+  "parsed": {
+    "use_case": "A search or messaging service can check whether a tokenized query or incoming text can be fully explained by entries in its approved vocabulary, with entries reusable across the text. This is useful for validating dictionary-backed commands or detecting whether a string consists entirely of known terms.",
+    "system_examples": [
+      "Spell-checking and text-input systems — determine whether a string can be split into valid dictionary words, including compounds.",
+      "Command parsers and protocol validators — verify that an input is composed entirely of recognized, reusable tokens."
+    ],
+    "explanation": "Dynamic programming over string positions checks whether each prefix can be formed from a previously reachable position plus a dictionary word, typically in O(n·L) time with efficient word lookup, where n is the string length and L bounds candidate word lengths. This avoids enumerating exponentially many possible segmentations; the core problem is also a useful teaching model for tokenization, though production parsers often add rules beyond a plain word list."
+  },
+  "schema_error": null,
+  "issues": []
+}

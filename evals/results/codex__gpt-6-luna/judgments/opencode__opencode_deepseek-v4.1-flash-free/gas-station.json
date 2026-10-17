@@ -1,0 +1,10 @@
+{
+  "slug": "gas-station",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Same greedy 'running balance never negative' insight as the reference, but examples are generic (no named systems) and it introduces a 'fixed fuel capacity' constraint the problem does not have."
+}

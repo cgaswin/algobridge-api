@@ -1,0 +1,10 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "RocksDB compaction, Lucene segment merging, and PostgreSQL external-sort run merging are all correctly attributed, matching the reference's LSM/external-sort/shared-index framing. Min-heap with O(N log k) is the same core insight."
+}

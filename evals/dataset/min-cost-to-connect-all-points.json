@@ -1,0 +1,23 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "title": "Min Cost to Connect All Points",
+  "difficulty": "Medium",
+  "topic": "Advanced Graphs",
+  "tags": [
+    "Array",
+    "Union Find",
+    "Graph",
+    "Minimum Spanning Tree"
+  ],
+  "url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+  "description": "Given points on a 2D plane, return the minimum total cost to connect all points, where connecting two points costs their Manhattan distance.",
+  "reference": {
+    "use_case": "Connecting a set of sites with the least total cable, pipe, or road length so every site is reachable.",
+    "system_examples": [
+      "Network and utility planning — laying fiber, power lines, or pipes between sites at minimum total cost",
+      "Single-linkage hierarchical clustering — merges clusters in the same order as connecting points by cheapest links",
+      "VLSI/PCB design — estimating minimum wiring length between pins"
+    ],
+    "explanation": "This is a minimum spanning tree: Prim's algorithm (O(n²) suits this dense complete graph) or Kruskal's with union-find repeatedly adds the cheapest edge that doesn't form a cycle. MSTs appear in infrastructure planning, network design, and clustering."
+  }
+}

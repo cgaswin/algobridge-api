@@ -1,0 +1,12 @@
+{
+  "slug": "number-of-islands",
+  "accuracy": 4,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claim that union-find variants enable parallel component labeling across tiled and streaming datasets is overly broad; parallel labeling requires additional coordination and is not a direct property of ordinary union-find."
+  ],
+  "rationale": "Image masks, raster patches, and flood-fill selection are direct connected-component applications, with a correct linear-time traversal explanation. The answer names BFS, DFS, and disjoint-set union, so it is not spoiler-free."
+}

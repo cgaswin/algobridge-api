@@ -1,0 +1,13 @@
+{
+  "slug": "word-break",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claim that Twitter / X uses hashtag segmentation for topic extraction, content moderation, and ad targeting is an unsupported attribution.",
+    "The claim that production tokenizers and query parsers need reachability memoization to prevent denial-of-service risks from ambiguous inputs is overstated and not established by the examples."
+  ],
+  "rationale": "The segmentation examples closely match the problem, and the dynamic programming explanation is broadly sound. The specific Twitter / X product attribution and the security claim are more confident than the evidence warrants; the candidate also names dynamic programming, so it is not spoiler-free."
+}

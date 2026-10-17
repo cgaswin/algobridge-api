@@ -1,0 +1,18 @@
+{
+  "slug": "time-based-key-value-store",
+  "latency_ms": 28976,
+  "input_tokens": 28465,
+  "output_tokens": 1880,
+  "raw": "{\"explanation\": \"The standard solution combines a hash map pointing each key to a chronologically ordered array of entries, then uses binary search to find the predecessor timestamp. While a naive linear scan takes O(N) time per read across N versions, binary search reduces lookup latency to O(log N) while maintaining O(1) appends for monotonic timestamps. In production MVCC engines and time-series systems, this logarithmic retrieval ensures point-in-time queries remain fast even as version history grows into millions of entries.\", \"system_examples\": [\"Google Cloud Spanner \\u2014 uses multi-version concurrency control (MVCC) to execute point-in-time stale reads by finding the most recent committed version of a cell at or prior to a client-specified timestamp.\", \"Prometheus \\u2014 evaluates instant queries by locating the most recent recorded sample for a metric time series occurring at or before the query evaluation timestamp within a lookback window.\", \"Apache HBase \\u2014 retains versioned cells ordered chronologically per row key and column, returning the latest value whose timestamp does not exceed the query's upper time boundary.\"], \"use_case\": \"A configuration management service records historical revisions whenever an application setting or feature flag is updated. During post-incident debugging or replay analysis, the service must reliably determine which setting value was active at a specific past moment in time.\"}",
+  "parsed": {
+    "use_case": "A configuration management service records historical revisions whenever an application setting or feature flag is updated. During post-incident debugging or replay analysis, the service must reliably determine which setting value was active at a specific past moment in time.",
+    "system_examples": [
+      "Google Cloud Spanner — uses multi-version concurrency control (MVCC) to execute point-in-time stale reads by finding the most recent committed version of a cell at or prior to a client-specified timestamp.",
+      "Prometheus — evaluates instant queries by locating the most recent recorded sample for a metric time series occurring at or before the query evaluation timestamp within a lookback window.",
+      "Apache HBase — retains versioned cells ordered chronologically per row key and column, returning the latest value whose timestamp does not exceed the query's upper time boundary."
+    ],
+    "explanation": "The standard solution combines a hash map pointing each key to a chronologically ordered array of entries, then uses binary search to find the predecessor timestamp. While a naive linear scan takes O(N) time per read across N versions, binary search reduces lookup latency to O(log N) while maintaining O(1) appends for monotonic timestamps. In production MVCC engines and time-series systems, this logarithmic retrieval ensures point-in-time queries remain fast even as version history grows into millions of entries."
+  },
+  "schema_error": null,
+  "issues": []
+}

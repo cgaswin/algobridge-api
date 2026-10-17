@@ -1,0 +1,15 @@
+{
+  "slug": "word-search-ii",
+  "accuracy": 2,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 3,
+  "spoiler_free": false,
+  "hallucinations": [
+    "The claimed use of Wordament and Boggle with Friends for round analysis and computer opponents is not substantiated.",
+    "The described lexicon-driven OCR post-processors tracing adjacent character detections across scanned forms is an unsupported system attribution.",
+    "The stated optimized complexity O(MN * 4^(min(L, MN))) omits trie construction and does not accurately characterize the search, whose work depends on how many trie-prefix paths are explored.",
+    "The claim that joint prefix pruning is a critical production pattern in routing engines is an unsupported analogy."
+  ],
+  "rationale": "The grid-word-game scenario and trie-pruned search capture the central idea, but the OCR and routing examples are weakly supported, and the complexity comparison is misleading. The candidate names the trie and DFS technique, so it is not spoiler-free."
+}

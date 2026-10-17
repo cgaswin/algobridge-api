@@ -1,0 +1,17 @@
+{
+  "slug": "min-stack",
+  "latency_ms": 28847,
+  "input_tokens": 28308,
+  "output_tokens": 1772,
+  "raw": "{\"explanation\": \"The key technique is maintaining an auxiliary tracking stack (or storing paired state deltas) that records the running minimum at every level of the stack, achieving O(1) retrieval instead of an O(N) scan per query at the cost of O(N) auxiliary space. While the standalone Min Stack is predominantly a classic interview problem, the underlying design pattern of coupling aggregated metadata with LIFO/FIFO lifecycle states is widely used in production to make latency-critical context lookups instantaneous.\", \"system_examples\": [\"Relational database transaction engines \\u2014 Tracking nested savepoints to immediately retrieve the oldest active snapshot identifier or strictest isolation level as subtransactions commit or roll back.\", \"Text editors and IDEs (e.g., VS Code) \\u2014 Managing nested indentation levels and code block scopes to instantly determine the minimum fold level or boundary constraints during syntax navigation.\"], \"use_case\": \"In nested execution environments like scoped permission managers or call-stack profilers, child frames inherit constraints from parent frames and require instantaneous access to the lowest active privilege level or smallest remaining execution deadline. As nested operations complete and their contexts are unwound, the runtime must immediately expose the previous minimum constraint without scanning all active frames.\"}",
+  "parsed": {
+    "use_case": "In nested execution environments like scoped permission managers or call-stack profilers, child frames inherit constraints from parent frames and require instantaneous access to the lowest active privilege level or smallest remaining execution deadline. As nested operations complete and their contexts are unwound, the runtime must immediately expose the previous minimum constraint without scanning all active frames.",
+    "system_examples": [
+      "Relational database transaction engines — Tracking nested savepoints to immediately retrieve the oldest active snapshot identifier or strictest isolation level as subtransactions commit or roll back.",
+      "Text editors and IDEs (e.g., VS Code) — Managing nested indentation levels and code block scopes to instantly determine the minimum fold level or boundary constraints during syntax navigation."
+    ],
+    "explanation": "The key technique is maintaining an auxiliary tracking stack (or storing paired state deltas) that records the running minimum at every level of the stack, achieving O(1) retrieval instead of an O(N) scan per query at the cost of O(N) auxiliary space. While the standalone Min Stack is predominantly a classic interview problem, the underlying design pattern of coupling aggregated metadata with LIFO/FIFO lifecycle states is widely used in production to make latency-critical context lookups instantaneous."
+  },
+  "schema_error": null,
+  "issues": []
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "3sum",
+  "latency_ms": 6322,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A data quality pipeline can scan a batch of signed measurements to find distinct three-record combinations whose values balance to zero, such as offsetting ledger adjustments or sensor readings. It must emit each value combination only once even when the input contains repeated values.\",\"system_examples\":[\"Accounting reconciliation systems — identify three distinct adjustment entries whose signed amounts net to zero.\",\"Scientific data analysis pipelines — find sets of three measurements whose signed deviations sum to zero.\"],\"explanation\":\"Sorting followed by a two-pointer scan for each fixed first value takes O(n²) time after sorting, versus O(n³) for checking every triple; duplicate skipping ensures unique value combinations. This can make batch analysis practical for moderate-sized datasets, though the output itself can still be large; 3Sum is also primarily a teaching problem rather than a widely exposed production feature.\"}",
+  "parsed": {
+    "use_case": "A data quality pipeline can scan a batch of signed measurements to find distinct three-record combinations whose values balance to zero, such as offsetting ledger adjustments or sensor readings. It must emit each value combination only once even when the input contains repeated values.",
+    "system_examples": [
+      "Accounting reconciliation systems — identify three distinct adjustment entries whose signed amounts net to zero.",
+      "Scientific data analysis pipelines — find sets of three measurements whose signed deviations sum to zero."
+    ],
+    "explanation": "Sorting followed by a two-pointer scan for each fixed first value takes O(n²) time after sorting, versus O(n³) for checking every triple; duplicate skipping ensures unique value combinations. This can make batch analysis practical for moderate-sized datasets, though the output itself can still be large; 3Sum is also primarily a teaching problem rather than a widely exposed production feature."
+  },
+  "schema_error": null,
+  "issues": []
+}

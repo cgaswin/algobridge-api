@@ -1,0 +1,17 @@
+{
+  "slug": "container-with-most-water",
+  "latency_ms": 5931,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A reservoir or tank layout planner can compare pairs of vertical boundaries to estimate the largest rectangular cross-section that can be filled without spilling. The same calculation can help choose two support walls for a temporary liquid-holding setup when the space between them determines capacity.\",\"system_examples\":[\"Reservoir and tank planning software — estimates the maximum contained cross-sectional area between candidate wall heights.\",\"Teaching and interview platforms — uses an idealized container model to assess array reasoning; direct production use of this exact formulation is uncommon.\"],\"explanation\":\"The two-pointer greedy scan runs in O(n) time and O(1) extra space, compared with checking all pairs in O(n²). It matters when many candidate boundaries need evaluation, though the exact problem is primarily a teaching exercise rather than a common production workload.\"}",
+  "parsed": {
+    "use_case": "A reservoir or tank layout planner can compare pairs of vertical boundaries to estimate the largest rectangular cross-section that can be filled without spilling. The same calculation can help choose two support walls for a temporary liquid-holding setup when the space between them determines capacity.",
+    "system_examples": [
+      "Reservoir and tank planning software — estimates the maximum contained cross-sectional area between candidate wall heights.",
+      "Teaching and interview platforms — uses an idealized container model to assess array reasoning; direct production use of this exact formulation is uncommon."
+    ],
+    "explanation": "The two-pointer greedy scan runs in O(n) time and O(1) extra space, compared with checking all pairs in O(n²). It matters when many candidate boundaries need evaluation, though the exact problem is primarily a teaching exercise rather than a common production workload."
+  },
+  "schema_error": null,
+  "issues": []
+}

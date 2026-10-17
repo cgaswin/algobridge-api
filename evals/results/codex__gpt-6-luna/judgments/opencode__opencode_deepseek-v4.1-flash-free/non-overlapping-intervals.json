@@ -1,0 +1,10 @@
+{
+  "slug": "non-overlapping-intervals",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Matches the classic sort-by-end-time greedy to maximize kept intervals and compute removals, with the same scheduling scenarios, though examples are category-level rather than named systems."
+}

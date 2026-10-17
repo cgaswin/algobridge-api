@@ -1,0 +1,12 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "accuracy": 3,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Amazon fulfillment centers planning internal conveyor or communication links via a Manhattan-distance minimum spanning tree — this specific application is invented with no supporting evidence."
+  ],
+  "rationale": "MST with Prim/Kruskal is correctly identified and the cable-laying scenario matches the reference, but the Amazon example is a fabricated attribution and one example is generic."
+}

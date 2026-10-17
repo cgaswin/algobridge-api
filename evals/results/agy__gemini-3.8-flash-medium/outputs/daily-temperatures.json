@@ -1,0 +1,17 @@
+{
+  "slug": "daily-temperatures",
+  "latency_ms": 25035,
+  "input_tokens": 27972,
+  "output_tokens": 1400,
+  "raw": "{\"explanation\": \"The problem is solved using a monotonic stack to maintain unresolved previous readings until a higher value arrives, reducing worst-case time complexity from O(N\\u00b2) to O(N). Each element is pushed and popped at most once, which makes single-pass evaluation possible. In production systems handling large historical batches or continuous telemetry, this linear efficiency prevents processing backlogs and CPU spikes during high-throughput ingestion.\", \"system_examples\": [\"Prometheus-compatible alerting services \\u2014 evaluating metric cooldowns and sustained-threshold durations across streaming telemetry to manage alert escalation delays.\", \"Financial backtesting platforms like QuantConnect \\u2014 computing time-to-breakout metrics across historical price series to evaluate how long an asset takes to reach a higher price.\"], \"use_case\": \"In infrastructure monitoring, an alerting pipeline tracks how long a server's resource utilization spike persists before being eclipsed by a more severe peak. This duration is used to distinguish transient flutters from escalating degradation patterns and adjust alert cooldowns.\"}",
+  "parsed": {
+    "use_case": "In infrastructure monitoring, an alerting pipeline tracks how long a server's resource utilization spike persists before being eclipsed by a more severe peak. This duration is used to distinguish transient flutters from escalating degradation patterns and adjust alert cooldowns.",
+    "system_examples": [
+      "Prometheus-compatible alerting services — evaluating metric cooldowns and sustained-threshold durations across streaming telemetry to manage alert escalation delays.",
+      "Financial backtesting platforms like QuantConnect — computing time-to-breakout metrics across historical price series to evaluate how long an asset takes to reach a higher price."
+    ],
+    "explanation": "The problem is solved using a monotonic stack to maintain unresolved previous readings until a higher value arrives, reducing worst-case time complexity from O(N²) to O(N). Each element is pushed and popped at most once, which makes single-pass evaluation possible. In production systems handling large historical batches or continuous telemetry, this linear efficiency prevents processing backlogs and CPU spikes during high-throughput ingestion."
+  },
+  "schema_error": null,
+  "issues": []
+}

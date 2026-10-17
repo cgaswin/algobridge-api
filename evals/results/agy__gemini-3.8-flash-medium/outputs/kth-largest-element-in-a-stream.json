@@ -1,0 +1,17 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "latency_ms": 28171,
+  "input_tokens": 28558,
+  "output_tokens": 1891,
+  "raw": "{\"explanation\": \"The standard technique maintains a min-heap fixed at size k, processing each new stream event in O(log k) time and O(k) space compared to the naive approach of storing and sorting the cumulative history in O(N log N). In production environments handling infinite event streams, strictly bounding memory to k elements prevents out-of-memory failures while enabling instantaneous O(1) threshold retrieval.\", \"system_examples\": [\"Apache Flink \\u2014 Computing continuous running top-N metrics and threshold boundaries across unbounded streaming event data.\", \"Prometheus \\u2014 Maintaining threshold values for high-percentile latency observations as live service metrics are scraped in real time.\"], \"use_case\": \"Maintaining a live score threshold for a top-ranked gaming leaderboard as match results arrive continuously from millions of players. This allows the service to instantly determine whether a newly submitted score qualifies for display without persisting or re-evaluating the entire game history.\"}",
+  "parsed": {
+    "use_case": "Maintaining a live score threshold for a top-ranked gaming leaderboard as match results arrive continuously from millions of players. This allows the service to instantly determine whether a newly submitted score qualifies for display without persisting or re-evaluating the entire game history.",
+    "system_examples": [
+      "Apache Flink — Computing continuous running top-N metrics and threshold boundaries across unbounded streaming event data.",
+      "Prometheus — Maintaining threshold values for high-percentile latency observations as live service metrics are scraped in real time."
+    ],
+    "explanation": "The standard technique maintains a min-heap fixed at size k, processing each new stream event in O(log k) time and O(k) space compared to the naive approach of storing and sorting the cumulative history in O(N log N). In production environments handling infinite event streams, strictly bounding memory to k elements prevents out-of-memory failures while enabling instantaneous O(1) threshold retrieval."
+  },
+  "schema_error": null,
+  "issues": []
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "combination-sum",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Backtracking with forward-only pruning and output-sensitivity matches the reference exactly; the cut-list example is decent but coin-change overlaps the sibling problem and no specific products are named."
+}

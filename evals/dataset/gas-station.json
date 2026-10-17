@@ -1,0 +1,20 @@
+{
+  "slug": "gas-station",
+  "title": "Gas Station",
+  "difficulty": "Medium",
+  "topic": "Greedy",
+  "tags": [
+    "Array",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/gas-station/",
+  "description": "Given gas available at each station on a circular route and the cost to travel to the next station, return the starting station index from which you can complete the circuit once, or -1 if impossible (the answer is unique if it exists).",
+  "reference": {
+    "use_case": "Finding a starting point on a circular route from which a vehicle can complete the full loop, when each stop adds fuel and each leg consumes some.",
+    "system_examples": [
+      "Delivery and bus loop routing — choosing where a vehicle should start so it never runs out of fuel or charge",
+      "Cyclic cash-flow planning — choosing the start month of a recurring schedule so the running balance never goes negative"
+    ],
+    "explanation": "If total gas ≥ total cost a solution exists, and one pass that resets the start whenever the running tank goes negative finds it in O(n), because no station inside a failed segment can be a valid start. The same 'running balance never below zero' reasoning applies to cyclic resource scheduling."
+  }
+}

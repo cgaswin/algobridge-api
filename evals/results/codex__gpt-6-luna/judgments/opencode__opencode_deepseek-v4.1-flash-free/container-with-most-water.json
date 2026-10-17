@@ -1,0 +1,10 @@
+{
+  "slug": "container-with-most-water",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correct two-pointer O(n) versus O(n²), but it omits the reference's key proof (the shorter side can never anchor a better answer) and gives only vague, self-admittedly uncommon systems."
+}

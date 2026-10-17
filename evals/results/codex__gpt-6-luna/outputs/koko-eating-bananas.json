@@ -1,0 +1,18 @@
+{
+  "slug": "koko-eating-bananas",
+  "latency_ms": 6767,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A batch-processing service must choose the slowest worker rate that still clears a known queue before a deadline, where each job occupies a worker for at least one time unit and partial work on a job cannot be carried across time slots. Picking the minimum sufficient rate avoids overprovisioning while meeting the service-level deadline.\",\"system_examples\":[\"Batch processing systems — sizing per-worker throughput to finish a fixed set of indivisible jobs before a deadline, with at most one job assigned per worker per interval.\"],\"explanation\":\"The feasibility of a candidate rate is monotonic, so binary search finds the minimum valid rate while summing the required time across piles. This takes O(n log M) time for n piles and maximum pile size M, instead of checking each possible rate in O(nM); it is useful when deadline constraints must be met without excessive capacity.\"}",
+  "parsed": {
+    "use_case": "A batch-processing service must choose the slowest worker rate that still clears a known queue before a deadline, where each job occupies a worker for at least one time unit and partial work on a job cannot be carried across time slots. Picking the minimum sufficient rate avoids overprovisioning while meeting the service-level deadline.",
+    "system_examples": [
+      "Batch processing systems — sizing per-worker throughput to finish a fixed set of indivisible jobs before a deadline, with at most one job assigned per worker per interval."
+    ],
+    "explanation": "The feasibility of a candidate rate is monotonic, so binary search finds the minimum valid rate while summing the required time across piles. This takes O(n log M) time for n piles and maximum pile size M, instead of checking each possible rate in O(nM); it is useful when deadline constraints must be met without excessive capacity."
+  },
+  "schema_error": null,
+  "issues": [
+    "expected 2-4 system_examples, got 1"
+  ]
+}

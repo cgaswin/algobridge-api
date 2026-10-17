@@ -1,0 +1,10 @@
+{
+  "slug": "time-based-key-value-store",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correct binary-search-over-sorted-timestamps claim and genuinely the same point-in-time-read core as the reference. However, system examples are generic categories (\"Temporal databases\", \"Configuration management systems\") rather than named systems like CockroachDB, Spanner, HBase, or Feast."
+}

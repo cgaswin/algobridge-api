@@ -1,0 +1,17 @@
+{
+  "slug": "sum-of-two-integers",
+  "latency_ms": 6309,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"Low-level arithmetic routines can compute totals on processors or virtual machines where addition must be expressed through primitive bit operations, such as implementing an instruction emulator or a constrained arithmetic library. The same logic is also useful in coding exercises that model how signed integer addition works at the bit level.\",\"system_examples\":[\"CPU instruction emulators — implement integer addition according to the emulated instruction set’s carry and overflow behavior.\",\"Cryptographic and embedded arithmetic libraries — perform fixed-width integer operations using bit-level primitives when the target environment constrains available arithmetic instructions.\"],\"explanation\":\"The standard method repeatedly combines XOR for the sum bits without carries and AND followed by a left shift for the carry bits, stopping when no carry remains. It takes O(w) time and O(1) space for a w-bit integer, compared with treating each unit increment as a separate operation; this is mainly a teaching exercise, with direct production use in low-level arithmetic and emulation.\"}",
+  "parsed": {
+    "use_case": "Low-level arithmetic routines can compute totals on processors or virtual machines where addition must be expressed through primitive bit operations, such as implementing an instruction emulator or a constrained arithmetic library. The same logic is also useful in coding exercises that model how signed integer addition works at the bit level.",
+    "system_examples": [
+      "CPU instruction emulators — implement integer addition according to the emulated instruction set’s carry and overflow behavior.",
+      "Cryptographic and embedded arithmetic libraries — perform fixed-width integer operations using bit-level primitives when the target environment constrains available arithmetic instructions."
+    ],
+    "explanation": "The standard method repeatedly combines XOR for the sum bits without carries and AND followed by a left shift for the carry bits, stopping when no carry remains. It takes O(w) time and O(1) space for a w-bit integer, compared with treating each unit increment as a separate operation; this is mainly a teaching exercise, with direct production use in low-level arithmetic and emulation."
+  },
+  "schema_error": null,
+  "issues": []
+}

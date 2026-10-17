@@ -1,0 +1,17 @@
+{
+  "slug": "subsets",
+  "latency_ms": 6556,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A configuration service may need to enumerate every valid combination of optional features for a small set of independent flags, such as generating test cases for feature interactions. The same task appears when listing every possible selection of items from a small catalog.\",\"system_examples\":[\"Property-based testing frameworks — generate combinations of optional inputs or settings to exercise a function across cases.\",\"Feature-flag configuration tools — enumerate combinations of a small set of independent flags for validation or testing.\"],\"explanation\":\"Backtracking builds each subset by deciding whether to include each element, taking O(n·2^n) time to produce the output and O(n) auxiliary space, versus checking all 2^n candidates with extra work to construct each one. Since the output itself has 2^n subsets, exponential time is unavoidable; in production this is practical only for small inputs.\"}",
+  "parsed": {
+    "use_case": "A configuration service may need to enumerate every valid combination of optional features for a small set of independent flags, such as generating test cases for feature interactions. The same task appears when listing every possible selection of items from a small catalog.",
+    "system_examples": [
+      "Property-based testing frameworks — generate combinations of optional inputs or settings to exercise a function across cases.",
+      "Feature-flag configuration tools — enumerate combinations of a small set of independent flags for validation or testing."
+    ],
+    "explanation": "Backtracking builds each subset by deciding whether to include each element, taking O(n·2^n) time to produce the output and O(n) auxiliary space, versus checking all 2^n candidates with extra work to construct each one. Since the output itself has 2^n subsets, exponential time is unavoidable; in production this is practical only for small inputs."
+  },
+  "schema_error": null,
+  "issues": []
+}

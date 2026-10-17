@@ -1,0 +1,18 @@
+{
+  "slug": "merge-intervals",
+  "latency_ms": 23334,
+  "input_tokens": 27339,
+  "output_tokens": 1325,
+  "raw": "{\"explanation\": \"The core technique sorts intervals by their start boundary and performs a single greedy linear pass, extending or committing the current merged interval. This improves performance from an O(N^2) naive pairwise comparison approach to O(N log N), bounded entirely by the sort step. In production, this operation prevents fragmentation in memory allocators, optimizes network payloads for range queries, and keeps temporal index lookups compact.\", \"system_examples\": [\"Google Calendar \\u2014 consolidating overlapping busy blocks from multiple personal and shared calendars to expose unified free/busy availability.\", \"Linux kernel virtual memory manager \\u2014 coalescing contiguous and overlapping address ranges represented by vm_area_struct entries during memory allocations and unmapping.\", \"HTTP caching proxies (such as Varnish) \\u2014 merging overlapping Byte-Range requests into continuous ranges before fetching assets from origin servers.\"], \"use_case\": \"A calendar service needs to compute a user's unified busy blocks by collapsing overlapping meeting invitations and personal events across multiple linked accounts. This consolidated schedule allows external scheduling assistants to quickly detect true open windows without evaluating redundant time spans.\"}",
+  "parsed": {
+    "use_case": "A calendar service needs to compute a user's unified busy blocks by collapsing overlapping meeting invitations and personal events across multiple linked accounts. This consolidated schedule allows external scheduling assistants to quickly detect true open windows without evaluating redundant time spans.",
+    "system_examples": [
+      "Google Calendar — consolidating overlapping busy blocks from multiple personal and shared calendars to expose unified free/busy availability.",
+      "Linux kernel virtual memory manager — coalescing contiguous and overlapping address ranges represented by vm_area_struct entries during memory allocations and unmapping.",
+      "HTTP caching proxies (such as Varnish) — merging overlapping Byte-Range requests into continuous ranges before fetching assets from origin servers."
+    ],
+    "explanation": "The core technique sorts intervals by their start boundary and performs a single greedy linear pass, extending or committing the current merged interval. This improves performance from an O(N^2) naive pairwise comparison approach to O(N log N), bounded entirely by the sort step. In production, this operation prevents fragmentation in memory allocators, optimizes network payloads for range queries, and keeps temporal index lookups compact."
+  },
+  "schema_error": null,
+  "issues": []
+}

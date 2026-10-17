@@ -1,0 +1,18 @@
+{
+  "slug": "longest-common-subsequence",
+  "latency_ms": 25672,
+  "input_tokens": 27679,
+  "output_tokens": 1417,
+  "raw": "{\"explanation\": \"The problem is solved using 2D dynamic programming, which reduces the exponential O(2^(n+m)) naive branching approach to O(n\\u00b7m) time and space. While classic LCS is fundamental theory, production systems usually optimize memory down to linear space using Hirschberg's algorithm or use Myers' O(N\\u00b7D) diff algorithm to scale efficiently when the edit distance D between inputs is small.\", \"system_examples\": [\"Git \\u2014 compares file snapshots during diff and merge operations to determine which lines were added, removed, or retained between commits.\", \"Unix diff utility \\u2014 computes the minimal edit script needed to transform one text document into another by identifying matching lines.\", \"NCBI BLAST and alignment tools \\u2014 aligns DNA, RNA, or protein sequences against reference databases to detect homologous regions and measure sequence similarity.\"], \"use_case\": \"Comparing two revisions of a source code file to generate a concise, human-readable diff by identifying the maximum sequence of lines preserved in their original order. It is also used to assess evolutionary divergence by finding conserved, ordered segments between two genetic sequences.\"}",
+  "parsed": {
+    "use_case": "Comparing two revisions of a source code file to generate a concise, human-readable diff by identifying the maximum sequence of lines preserved in their original order. It is also used to assess evolutionary divergence by finding conserved, ordered segments between two genetic sequences.",
+    "system_examples": [
+      "Git — compares file snapshots during diff and merge operations to determine which lines were added, removed, or retained between commits.",
+      "Unix diff utility — computes the minimal edit script needed to transform one text document into another by identifying matching lines.",
+      "NCBI BLAST and alignment tools — aligns DNA, RNA, or protein sequences against reference databases to detect homologous regions and measure sequence similarity."
+    ],
+    "explanation": "The problem is solved using 2D dynamic programming, which reduces the exponential O(2^(n+m)) naive branching approach to O(n·m) time and space. While classic LCS is fundamental theory, production systems usually optimize memory down to linear space using Hirschberg's algorithm or use Myers' O(N·D) diff algorithm to scale efficiently when the edit distance D between inputs is small."
+  },
+  "schema_error": null,
+  "issues": []
+}

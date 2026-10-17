@@ -1,0 +1,10 @@
+{
+  "slug": "daily-temperatures",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Monotonic-stack next-greater-element O(N) insight matches the reference, and Prometheus/QuantConnect are correctly positioned. The monitoring scenario is a valid, well-fitted next-greater-element application."
+}

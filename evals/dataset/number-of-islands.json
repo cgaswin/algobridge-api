@@ -1,0 +1,24 @@
+{
+  "slug": "number-of-islands",
+  "title": "Number of Islands",
+  "difficulty": "Medium",
+  "topic": "Graphs",
+  "tags": [
+    "Array",
+    "Depth-First Search",
+    "Breadth-First Search",
+    "Union Find",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/number-of-islands/",
+  "description": "Given a 2D grid of '1' (land) and '0' (water), return the number of islands, where an island is land connected horizontally or vertically.",
+  "reference": {
+    "use_case": "Counting distinct connected regions in a grid, such as separate land masses in a satellite image or isolated blobs in a scanned document.",
+    "system_examples": [
+      "OpenCV connectedComponents — labeling separate blobs in a binary image",
+      "GIS raster analysis — identifying contiguous flood, wildfire, or land regions",
+      "Image editors — paint-bucket flood fill of a contiguous region"
+    ],
+    "explanation": "Scan the grid and launch a DFS/BFS (or union-find) from each unvisited land cell to mark one whole component at a time, in O(rows × cols). Connected-component labeling is a core primitive in computer vision and mapping."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "gas-station",
+  "latency_ms": 6309,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A fleet-routing service can decide whether a vehicle with a fixed fuel capacity can complete a loop through specified refueling points, and where it should begin, given fuel available and travel cost for each leg. The same check applies to cyclic production or delivery routes with resource gains and costs at each stop.\",\"system_examples\":[\"Fuel-stop route planners — determine whether a vehicle can complete a specified loop from one of its refueling stops using the fuel available at each stop.\",\"Circular production-line schedulers — find a starting station from which accumulated output can cover the resource cost of every subsequent stage in one cycle.\"],\"explanation\":\"The greedy scan tracks the total fuel balance and the current candidate start; when the balance becomes negative, no station in that failed segment can be a valid start, so the candidate moves past it. This takes O(n) time and O(1) extra space, compared with checking every start in O(n²); production systems benefit from the linear scan when evaluating many route or cycle configurations.\"}",
+  "parsed": {
+    "use_case": "A fleet-routing service can decide whether a vehicle with a fixed fuel capacity can complete a loop through specified refueling points, and where it should begin, given fuel available and travel cost for each leg. The same check applies to cyclic production or delivery routes with resource gains and costs at each stop.",
+    "system_examples": [
+      "Fuel-stop route planners — determine whether a vehicle can complete a specified loop from one of its refueling stops using the fuel available at each stop.",
+      "Circular production-line schedulers — find a starting station from which accumulated output can cover the resource cost of every subsequent stage in one cycle."
+    ],
+    "explanation": "The greedy scan tracks the total fuel balance and the current candidate start; when the balance becomes negative, no station in that failed segment can be a valid start, so the candidate moves past it. This takes O(n) time and O(1) extra space, compared with checking every start in O(n²); production systems benefit from the linear scan when evaluating many route or cycle configurations."
+  },
+  "schema_error": null,
+  "issues": []
+}

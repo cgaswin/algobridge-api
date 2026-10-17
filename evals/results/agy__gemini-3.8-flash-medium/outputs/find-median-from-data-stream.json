@@ -1,0 +1,17 @@
+{
+  "slug": "find-median-from-data-stream",
+  "latency_ms": 30345,
+  "input_tokens": 28994,
+  "output_tokens": 2333,
+  "raw": "{\"explanation\": \"The standard solution balances two heaps\\u2014a max-heap for the lower half of numbers and a min-heap for the upper half\\u2014yielding O(log N) insertions and O(1) median queries instead of the naive O(N log N) re-sorting or O(N) linear insertion. In production, however, maintaining an exact median over an unbounded stream is primarily a conceptual interview exercise because storing all historical elements consumes linear memory; industry telemetry systems instead deploy bounded-memory quantile sketches such as T-Digest or DDSketch.\", \"system_examples\": [\"Biomedical sensor telemetry systems \\u2014 computing the running median of continuous physiological readings to filter out impulse noise and motion artifacts as sensor samples arrive.\", \"Algorithmic trade execution routers \\u2014 maintaining the live median execution latency across exchange fills to dynamically adjust order routing thresholds without reprocessing past transactions.\"], \"use_case\": \"Real-time monitoring services must track the exact 50th percentile of request latencies as continuous streams of RPC calls complete. Each incoming measurement must update the central metric immediately without re-ordering or rescanning the entire history of observed values.\"}",
+  "parsed": {
+    "use_case": "Real-time monitoring services must track the exact 50th percentile of request latencies as continuous streams of RPC calls complete. Each incoming measurement must update the central metric immediately without re-ordering or rescanning the entire history of observed values.",
+    "system_examples": [
+      "Biomedical sensor telemetry systems — computing the running median of continuous physiological readings to filter out impulse noise and motion artifacts as sensor samples arrive.",
+      "Algorithmic trade execution routers — maintaining the live median execution latency across exchange fills to dynamically adjust order routing thresholds without reprocessing past transactions."
+    ],
+    "explanation": "The standard solution balances two heaps—a max-heap for the lower half of numbers and a min-heap for the upper half—yielding O(log N) insertions and O(1) median queries instead of the naive O(N log N) re-sorting or O(N) linear insertion. In production, however, maintaining an exact median over an unbounded stream is primarily a conceptual interview exercise because storing all historical elements consumes linear memory; industry telemetry systems instead deploy bounded-memory quantile sketches such as T-Digest or DDSketch."
+  },
+  "schema_error": null,
+  "issues": []
+}

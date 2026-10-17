@@ -1,0 +1,10 @@
+{
+  "slug": "jump-game",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures the same reachability-with-range-limits scenario and greedy max-reach frontier technique as the reference, with concrete plausible systems (EV trip planner, linker branch trampolines, Zigbee relay chains). No technical errors and the technique is not named in the non-explanation fields."
+}

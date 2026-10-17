@@ -1,0 +1,18 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "latency_ms": 27717,
+  "input_tokens": 28877,
+  "output_tokens": 2144,
+  "raw": "{\"explanation\": \"The core technique is a trie (prefix tree), which stores strings along shared branches so that common prefixes share ancestor nodes. Looking up or inserting a prefix of length L takes O(L) time regardless of the total dictionary size N, vastly outperforming an O(N * L) full scan. In production, this pattern and its compressed variants like radix trees are foundational for low-latency autocomplete systems, network routing tables, and spell checkers.\", \"system_examples\": [\"Google Search \\u2014 serves real-time autocomplete suggestions by matching a user's typed prefix against indexed search queries.\", \"Linux Kernel Network Stack \\u2014 matches incoming packet destination IP addresses against subnet routing tables using longest prefix matching to select the next-hop interface.\", \"Language Server Protocol (LSP) implementations \\u2014 queries in-memory code symbol tables to suggest valid variable, function, and package names as a developer types.\"], \"use_case\": \"Real-time autocomplete and predictive text engines must rapidly determine whether any cataloged phrases match a user's typed input after every keystroke. Scanning an entire dictionary on each character entry would introduce unacceptable latency and fail to meet interactive response deadlines.\"}",
+  "parsed": {
+    "use_case": "Real-time autocomplete and predictive text engines must rapidly determine whether any cataloged phrases match a user's typed input after every keystroke. Scanning an entire dictionary on each character entry would introduce unacceptable latency and fail to meet interactive response deadlines.",
+    "system_examples": [
+      "Google Search — serves real-time autocomplete suggestions by matching a user's typed prefix against indexed search queries.",
+      "Linux Kernel Network Stack — matches incoming packet destination IP addresses against subnet routing tables using longest prefix matching to select the next-hop interface.",
+      "Language Server Protocol (LSP) implementations — queries in-memory code symbol tables to suggest valid variable, function, and package names as a developer types."
+    ],
+    "explanation": "The core technique is a trie (prefix tree), which stores strings along shared branches so that common prefixes share ancestor nodes. Looking up or inserting a prefix of length L takes O(L) time regardless of the total dictionary size N, vastly outperforming an O(N * L) full scan. In production, this pattern and its compressed variants like radix trees are foundational for low-latency autocomplete systems, network routing tables, and spell checkers."
+  },
+  "schema_error": null,
+  "issues": []
+}

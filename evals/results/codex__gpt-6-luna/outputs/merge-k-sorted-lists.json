@@ -1,0 +1,17 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "latency_ms": 7061,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A data ingestion service can receive sorted event streams from many partitions and needs to combine them into one globally time-ordered stream for downstream processing. Each input stays ordered, so the task is to repeatedly choose the next earliest record across streams.\",\"system_examples\":[\"Apache Kafka Streams — merging ordered records from multiple input partitions or streams by event time.\",\"External merge-sort systems — combining sorted runs produced during large dataset sorting into one ordered output.\"],\"explanation\":\"A min-heap gives O(N log k) time for N total nodes across k lists, versus O(Nk) when repeatedly scanning all list heads; pairwise divide-and-conquer merging also achieves O(N log k). This matters in production because the cost grows with the number of streams rather than multiplying every record by that number, while keeping only a small set of current candidates in play.\"}",
+  "parsed": {
+    "use_case": "A data ingestion service can receive sorted event streams from many partitions and needs to combine them into one globally time-ordered stream for downstream processing. Each input stays ordered, so the task is to repeatedly choose the next earliest record across streams.",
+    "system_examples": [
+      "Apache Kafka Streams — merging ordered records from multiple input partitions or streams by event time.",
+      "External merge-sort systems — combining sorted runs produced during large dataset sorting into one ordered output."
+    ],
+    "explanation": "A min-heap gives O(N log k) time for N total nodes across k lists, versus O(Nk) when repeatedly scanning all list heads; pairwise divide-and-conquer merging also achieves O(N log k). This matters in production because the cost grows with the number of streams rather than multiplying every record by that number, while keeping only a small set of current candidates in play."
+  },
+  "schema_error": null,
+  "issues": []
+}

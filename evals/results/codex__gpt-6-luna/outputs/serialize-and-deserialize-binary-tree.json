@@ -1,0 +1,17 @@
+{
+  "slug": "serialize-and-deserialize-binary-tree",
+  "latency_ms": 6205,
+  "input_tokens": null,
+  "output_tokens": null,
+  "raw": "{\"use_case\":\"A service needs to store or transmit a hierarchical configuration or syntax tree, then rebuild it later with the same parent-child structure, including missing children. The encoding must preserve enough structural information to distinguish different trees with the same values.\",\"system_examples\":[\"Protocol Buffers — encodes nested message structures for transmission and parsing, preserving field and nested-message boundaries.\",\"Git — stores commit and tree objects in a serialized object format that can be read back to reconstruct repository structure.\"],\"explanation\":\"A traversal records node values along with explicit markers for absent children, so decoding can rebuild the exact shape; this takes O(n) time and O(n) space for n nodes. Compared with repeatedly searching or rebuilding structure from incomplete data, one pass avoids ambiguity and scales predictably, which matters when trees are persisted or sent between services.ющие\"}",
+  "parsed": {
+    "use_case": "A service needs to store or transmit a hierarchical configuration or syntax tree, then rebuild it later with the same parent-child structure, including missing children. The encoding must preserve enough structural information to distinguish different trees with the same values.",
+    "system_examples": [
+      "Protocol Buffers — encodes nested message structures for transmission and parsing, preserving field and nested-message boundaries.",
+      "Git — stores commit and tree objects in a serialized object format that can be read back to reconstruct repository structure."
+    ],
+    "explanation": "A traversal records node values along with explicit markers for absent children, so decoding can rebuild the exact shape; this takes O(n) time and O(n) space for n nodes. Compared with repeatedly searching or rebuilding structure from incomplete data, one pass avoids ambiguity and scales predictably, which matters when trees are persisted or sent between services.ющие"
+  },
+  "schema_error": null,
+  "issues": []
+}

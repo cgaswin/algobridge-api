@@ -1,0 +1,13 @@
+{
+  "slug": "detect-squares",
+  "accuracy": 2,
+  "specificity": 5,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": false,
+  "hallucinations": [
+    "Cadence Virtuoso performs the described matching of registered corner coordinates for square vias and guard rings during physical design rule checks; this specific product capability is unsupported and likely misattributed.",
+    "Autodesk AutoCAD evaluates whether an active coordinate completes a square with existing reference points as described; this specific system claim is unsupported."
+  ],
+  "rationale": "The point-frequency lookup method and complexity are accurately described, and the examples are concrete geometric settings. However, the named product behaviors are asserted too specifically without support, and the use case and explanation reveal the coordinate-hash/diagonal technique."
+}
