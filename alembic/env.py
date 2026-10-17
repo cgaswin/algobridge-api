@@ -10,6 +10,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.db import models  # noqa: F401  # Ensure model metadata is registered
 from app.db.base import Base
+from app.db.url import sync_database_url
 
 config = context.config
 
@@ -21,10 +22,13 @@ load_dotenv(project_root / ".env")
 
 database_url = os.getenv("DATABASE_URL")
 if database_url:
-    sync_database_url = database_url.replace(
-        "postgresql+asyncpg://", "postgresql+psycopg://", 1
+    # ConfigParser treats % as interpolation, so escape it (passwords may contain it).
+    config.set_main_option(
+        "sqlalchemy.url",
+        sync_database_url(database_url)
+        .render_as_string(hide_password=False)
+        .replace("%", "%%"),
     )
-    config.set_main_option("sqlalchemy.url", sync_database_url)
 
 target_metadata = Base.metadata
 

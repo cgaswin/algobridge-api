@@ -20,6 +20,12 @@ COPY app ./app
 COPY alembic ./alembic
 COPY alembic.ini ./
 
+COPY scripts ./scripts
+
+ENV PATH="/app/.venv/bin:$PATH"
+
 EXPOSE 8000
 
-CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Render's free plan has no pre-deploy step, so migrations run on start.
+# Hosts set $PORT; local runs fall back to 8000.
+CMD ["sh", "scripts/start.sh"]
