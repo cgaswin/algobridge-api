@@ -1,38 +1,32 @@
-import json
-
 from google import genai
+from google.genai import types
+from pydantic import BaseModel, ValidationError
 
 from app.config.settings import settings
 from app.core.errors import AppError, ErrorCode
+from app.llm.prompts import GENERATION_SYSTEM, build_generation_prompt
 from app.platforms.leetcode import Problem
 
 
 client = genai.Client(api_key=settings.gemini_api_key)
 
 
-def build_prompt(problem: Problem) -> str:
-    return f"""
-You are a senior software engineer. Given the following coding problem, explain how it appears in real-world engineering systems.
-
-Problem: {problem.title}
-Difficulty: {problem.difficulty}
-Tags: {", ".join(problem.tags)}
-Description: {problem.description}
-
-Respond ONLY with a valid JSON object in this exact format, no explanation or markdown:
-{{
-    "use_case": "A concise real-world use case where this problem appears",
-    "system_examples": "Specific systems or products that use this pattern",
-    "explanation": "Why this problem matters in production engineering"
-}}
-"""
+class Insight(BaseModel):
+    use_case: str
+    system_examples: list[str]
+    explanation: str
 
 
 async def generate_insights(problem: Problem) -> dict:
     try:
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=build_prompt(problem),
+        response = await client.aio.models.generate_content(
+            model=settings.gemini_model,
+            contents=build_generation_prompt(problem),
+            config=types.GenerateContentConfig(
+                system_instruction=GENERATION_SYSTEM,
+                response_mime_type="application/json",
+                response_schema=Insight,
+            ),
         )
         if not response.text:
             raise AppError(
@@ -40,11 +34,10 @@ async def generate_insights(problem: Problem) -> dict:
                 message="Gemini returned an empty response",
                 status_code=502,
             )
-        text = response.text.strip()
-        return json.loads(text)
+        return Insight.model_validate_json(response.text).model_dump()
     except AppError:
         raise
-    except json.JSONDecodeError:
+    except ValidationError:
         raise AppError(
             code=ErrorCode.LLM_FAILURE,
             message="Gemini returned an invalid response",

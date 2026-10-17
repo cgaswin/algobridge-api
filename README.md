@@ -88,8 +88,14 @@ docker compose up --build
 {
   "success": true,
   "data": {
+    "problem": {
+      "slug": "two-sum",
+      "title": "Two Sum",
+      "difficulty": "easy",
+      "tags": ["Array", "Hash Table"]
+    },
     "use_case": "...",
-    "system_examples": "...",
+    "system_examples": ["System — how the problem appears there", "..."],
     "explanation": "..."
   },
   "error": null
@@ -126,4 +132,6 @@ make format           # ruff format
 ## Notes
 
 - Cache is keyed by canonical problem identity (not raw URL variants).
+- Cached rows are regenerated when `GEMINI_MODEL` or the prompt version (`app/llm/prompts.py`) changes.
+- The generation prompt lives in `app/llm/prompts.py` and is shared with `evals/`, so eval results reflect production.
 - Runtime uses async DB driver; migrations are handled via Alembic configuration.
