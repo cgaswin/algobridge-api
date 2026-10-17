@@ -1,0 +1,10 @@
+{
+  "slug": "find-median-from-data-stream",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Same two-heap baseline plus t-digest/DDSketch scaling as the reference; system examples are plausible but generically named rather than specific products."
+}

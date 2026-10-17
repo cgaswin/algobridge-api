@@ -1,0 +1,12 @@
+{
+  "slug": "min-stack",
+  "accuracy": 3,
+  "specificity": 3,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "VS Code managing nested indentation/fold levels via a running-minimum structure — folding does not use a min-stack mechanism."
+  ],
+  "rationale": "The auxiliary tracking-stack explanation is correct and the nested push/undo framing aligns with the reference. However the named systems are stretched and the mechanisms vague, especially the VS Code folding claim."
+}

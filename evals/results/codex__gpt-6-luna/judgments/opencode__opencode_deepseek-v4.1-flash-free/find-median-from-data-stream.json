@@ -1,0 +1,10 @@
+{
+  "slug": "find-median-from-data-stream",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly captures the two-heap O(log n)/O(1) design and honestly notes that Prometheus histogram quantiles are a bucketed approximation rather than an exact running median; only one named system, the telemetry example is generic."
+}

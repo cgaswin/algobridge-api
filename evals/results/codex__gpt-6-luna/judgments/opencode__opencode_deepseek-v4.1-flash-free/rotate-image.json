@@ -1,0 +1,10 @@
+{
+  "slug": "rotate-image",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly identifies the transpose-then-reverse-rows in-place transform, exactly matching the reference, but the systems are vague ('image-processing libraries', 'embedded graphics') with no named products."
+}

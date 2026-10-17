@@ -1,0 +1,10 @@
+{
+  "slug": "word-break",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Elasticsearch Kuromoji/Smart Chinese analyzers and hashtag segmentation are correct CJK/dictionary-segmentation examples, and the DP-with-max-word-length analysis matches the reference; only two system examples keeps specificity just below top."
+}

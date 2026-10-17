@@ -1,0 +1,10 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly uses the sliding-window-with-last-index technique and matches the reference's replay-detection and stream-uniqueness framing; examples are slightly more generic than the reference's RFC 4303/IPsec naming but accurate."
+}

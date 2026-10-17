@@ -1,0 +1,10 @@
+{
+  "slug": "number-of-1-bits",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Nails the same core: popcount via Kernighan's n&(n−1) loop and hardware POPCNT, with accurate Redis BITCOUNT and Lucene bitset examples matching the reference's bitmap-index framing."
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "jump-game",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures the greedy furthest-reachable-frontier invariant correctly, but the workflow 'skip up to N stages' mapping is a structural analogy with no named systems, weaker than the reference's EV-charging and relay examples."
+}

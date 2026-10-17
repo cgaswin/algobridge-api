@@ -1,0 +1,10 @@
+{
+  "slug": "number-of-islands",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Genuinely shares the connected-component core (satellite land/flood regions, grid simulations) with correct O(rows×cols) traversal analysis, but system examples are generic categories rather than named systems like OpenCV connectedComponents."
+}

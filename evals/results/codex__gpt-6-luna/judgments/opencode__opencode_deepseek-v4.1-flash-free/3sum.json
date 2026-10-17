@@ -1,0 +1,10 @@
+{
+  "slug": "3sum",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Scenario (offsetting signed amounts netting to zero) genuinely shares the triplet-sum core, and the sort + two-pointer O(n²) technique with duplicate skipping is correctly and honestly explained. Specificity is weaker than the reference: the examples are thinner and 'scientific data analysis pipelines' is vague, and it omits the k-sum reduction noted in the reference."
+}

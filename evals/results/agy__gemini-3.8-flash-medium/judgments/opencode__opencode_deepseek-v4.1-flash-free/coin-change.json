@@ -1,0 +1,12 @@
+{
+  "slug": "coin-change",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Network packet fragmentation described as a coin-change/minimum-buffer problem is a loose analogy; real fragmentation uses a fixed MTU split, not optimal denomination selection."
+  ],
+  "rationale": "Captures the same unbounded-knapsack DP insight as the reference and even notes canonical currencies make greedy work. The packet-fragmentation example stretches the model, but the ATM and voucher examples are sound and concrete."
+}

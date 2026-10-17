@@ -170,6 +170,8 @@ class CliProvider:
     name = "cli"
     timeout_s = 600.0
     prompt_via_stdin = True
+    # Set for CLIs without a structured-output flag; the schema goes in the prompt.
+    schema_in_prompt = False
 
     def __init__(self, model: str, temperature: float):
         self.model = model
@@ -185,15 +187,14 @@ class CliProvider:
     async def complete(
         self, system: str, user: str, schema: type[BaseModel]
     ) -> LLMResult:
-        prompt = (
-            f"{system}\n\n{user}\n\n"
-            "Do not use any tools, read files, or run commands. Answer directly with the JSON object only."
-        )
+        schema_json = json.dumps(strict_schema(schema.model_json_schema()))
+        prompt = f"{system}\n\n{user}\n\n"
+        if self.schema_in_prompt:
+            prompt += f"The JSON must match this schema, with every field present:\n{schema_json}\n\n"
+        prompt += "Do not use any tools, read files, or run commands. Answer directly with the JSON object only."
         with tempfile.TemporaryDirectory(prefix="algobridge-eval-") as tmp:
             schema_path, out_path = Path(tmp) / "schema.json", Path(tmp) / "out.txt"
-            schema_path.write_text(
-                json.dumps(strict_schema(schema.model_json_schema()))
-            )
+            schema_path.write_text(schema_json)
 
             start = time.perf_counter()
             proc = await asyncio.create_subprocess_exec(
@@ -275,11 +276,32 @@ class CodexProvider(CliProvider):
         return out_path.read_text() if out_path.exists() else "", None, None
 
 
+class OpenCodeProvider(CliProvider):
+    name = "opencode"
+    schema_in_prompt = True
+
+    def command(self, prompt: str, schema_path: Path, out_path: Path) -> list[str]:
+        return [
+            "opencode", "run", "--standalone", "-m", self.model, "--format", "json",
+        ]  # fmt: skip
+
+    def parse(
+        self, stdout: str, stderr: str, out_path: Path
+    ) -> tuple[str, int | None, int | None]:
+        # JSON lines of events; opencode run doesn't report token usage.
+        events = [json.loads(line) for line in stdout.splitlines() if line.strip()]
+        text = "".join(
+            e["part"].get("text", "") for e in events if e.get("type") == "text"
+        )
+        return text, None, None
+
+
 PROVIDERS: dict[str, type] = {
     "gemini": GeminiProvider,
     "openrouter": OpenRouterProvider,
     "agy": AntigravityProvider,
     "codex": CodexProvider,
+    "opencode": OpenCodeProvider,
 }
 
 

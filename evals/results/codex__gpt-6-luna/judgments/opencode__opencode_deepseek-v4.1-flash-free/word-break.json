@@ -1,0 +1,10 @@
+{
+  "slug": "word-break",
+  "accuracy": 4,
+  "specificity": 2,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "DP-over-positions explanation is accurate and the segmentation core matches the reference. But examples are vague categories (spell-checking, command parsers) with no named tokenizers like Elasticsearch ICU/Kuromoji or hashtag segmentation."
+}

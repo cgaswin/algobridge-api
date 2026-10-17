@@ -1,0 +1,10 @@
+{
+  "slug": "word-search-ii",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "The trie+DFS prefix-pruning explanation matches the reference, and Wordament/Boggle are legitimate, but the OCR post-processor is a generic unnamed category versus the reference's concrete Snort/Suricata and moderation examples."
+}

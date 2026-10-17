@@ -1,0 +1,10 @@
+{
+  "slug": "koko-eating-bananas",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures the same monotonic-feasibility plus search-over-rate insight as the reference, with a valid batch-deadline framing. Only one, fairly generic system example (\"Batch processing systems\"), so less concrete than the reference's named cloud/transcoding cases."
+}

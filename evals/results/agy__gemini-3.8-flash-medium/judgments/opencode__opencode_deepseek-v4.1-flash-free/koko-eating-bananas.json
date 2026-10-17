@@ -1,0 +1,10 @@
+{
+  "slug": "koko-eating-bananas",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Matches the reference's SLA/deadline capacity-sizing insight and binary-search-on-the-answer technique, with named systems (AWS Batch, video transcoding). Monotonic-feasibility explanation is correct."
+}

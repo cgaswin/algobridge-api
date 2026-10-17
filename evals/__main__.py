@@ -14,7 +14,9 @@ def parse_args() -> argparse.Namespace:
 
     gen = sub.add_parser("generate", help="generate insights for each dataset problem")
     gen.add_argument(
-        "--provider", required=True, help="gemini | openrouter | reference"
+        "--provider",
+        required=True,
+        help="gemini | openrouter | agy | codex | opencode | reference",
     )
     gen.add_argument("--model", help="model id, required unless --provider reference")
     gen.add_argument("--temperature", type=float, default=0.3)

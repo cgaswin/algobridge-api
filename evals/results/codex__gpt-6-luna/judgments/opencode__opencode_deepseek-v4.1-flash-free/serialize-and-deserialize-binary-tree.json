@@ -1,0 +1,10 @@
+{
+  "slug": "serialize-and-deserialize-binary-tree",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Captures the preorder-with-null-markers insight and names Protocol Buffers and Git correctly, but the explanation ends with garbled non-English text ('ющие'), a clear quality defect."
+}

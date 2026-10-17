@@ -1,0 +1,10 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correct O(L) trie behavior with prefix/autocomplete use cases; Elasticsearch completion suggester is named (though backed by an FST, not claimed as a trie), shell completion is generic, and the reference's kernel routing and Merkle Patricia examples are missing."
+}

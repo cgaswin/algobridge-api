@@ -1,0 +1,12 @@
+{
+  "slug": "combination-sum",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Karpenter is described as summing node sizes to hit exact vCPU/memory targets; in practice it does bin-packing-style scheduling, not exact combination-sum enumeration."
+  ],
+  "rationale": "Backtracking with forward-only pruning and DP fallback mirror the reference's core. The Karpenter attribution overstates how that autoscaler works, but the voucher/ATM examples genuinely match all-combinations enumeration."
+}

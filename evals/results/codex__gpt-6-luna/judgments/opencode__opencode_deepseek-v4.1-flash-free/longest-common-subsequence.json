@@ -1,0 +1,10 @@
+{
+  "slug": "longest-common-subsequence",
+  "accuracy": 4,
+  "specificity": 3,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Same diff/version-comparison use case and O(mn) DP as the reference, but hedges Git's relationship to sequence matching (\"related... ideas\") and leaves system examples vague beyond Git. Substantively aligned but less precise about diff being the direct application."
+}

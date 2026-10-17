@@ -1,0 +1,10 @@
+{
+  "slug": "min-cost-to-connect-all-points",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Manhattan-distance PCB/utility routing is a genuine MST application, and Cadence Innovus (interconnect wirelength estimation) and QGIS are plausible real tools. Explicitly names MST and Prim's O(n²) dense-graph approach, matching the reference."
+}

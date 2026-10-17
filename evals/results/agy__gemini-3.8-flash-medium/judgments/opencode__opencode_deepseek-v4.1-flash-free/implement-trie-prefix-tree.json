@@ -1,0 +1,10 @@
+{
+  "slug": "implement-trie-prefix-tree",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Names the same autocomplete/routing applications and explanation (shared-prefix O(L) lookups, radix/compressed variants) as the reference, with accurate real systems."
+}

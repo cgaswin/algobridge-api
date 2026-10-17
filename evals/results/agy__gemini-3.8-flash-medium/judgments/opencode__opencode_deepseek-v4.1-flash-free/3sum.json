@@ -1,0 +1,10 @@
+{
+  "slug": "3sum",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Accurate: sorting + two-pointer O(n²) and duplicate skipping match the reference exactly, and BlackLine is a real reconciliation product. The grid-settlement 'triplet of imbalances' framing is plausible but somewhat invented, slightly weakening the accuracy of the named examples."
+}

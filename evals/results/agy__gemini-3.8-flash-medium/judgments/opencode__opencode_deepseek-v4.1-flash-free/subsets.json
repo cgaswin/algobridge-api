@@ -1,0 +1,10 @@
+{
+  "slug": "subsets",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Both GROUP BY CUBE (which literally enumerates all column subsets) and combinatorial feature-flag testing are accurate, genuinely subset-enumeration applications, and the 2^n/O(n·2^n) analysis matches the reference."
+}

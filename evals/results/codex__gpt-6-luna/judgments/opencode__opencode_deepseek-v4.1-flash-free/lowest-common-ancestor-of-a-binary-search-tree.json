@@ -1,0 +1,10 @@
+{
+  "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correct O(h)/O(1) BST walk and a valid shared-parent framing, but system examples are generic placeholders rather than the reference's concrete git merge-base and IP longest-prefix cases. Core idea of finding where two paths diverge is preserved."
+}

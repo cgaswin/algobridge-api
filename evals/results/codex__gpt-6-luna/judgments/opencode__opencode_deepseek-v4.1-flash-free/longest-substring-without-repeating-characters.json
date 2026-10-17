@@ -1,0 +1,10 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "accuracy": 3,
+  "specificity": 2,
+  "relevance": 3,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Sliding-window O(n) explanation is right, but the use case (password character diversity / typing statistics) is a strained misapplication and the systems are generic. Reference's anti-replay, stream-window, and playlist examples share the computational core far more genuinely."
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "course-schedule",
+  "accuracy": 3,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Kubernetes is described as ordering resources with declared prerequisites and handling cyclic dependencies in workflows, which is not an accurate characterization of its dependency handling."
+  ],
+  "rationale": "Topological cycle detection and complexity are right, but the Kubernetes attribution is dubious while the Maven example is sound; no named build tools like the reference's Make/Bazel."
+}

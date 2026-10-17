@@ -1,0 +1,10 @@
+{
+  "slug": "kth-largest-element-in-a-stream",
+  "accuracy": 5,
+  "specificity": 3,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Correctly identifies the capped min-heap with the kth largest at the root and O(log k) updates, matching the reference's core technique. Systems cited (observability dashboard, leaderboard) are plausible but less concrete than Lucene/Elasticsearch top-hits."
+}

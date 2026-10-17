@@ -1,0 +1,10 @@
+{
+  "slug": "lru-cache",
+  "accuracy": 5,
+  "specificity": 5,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Redis, Linux page cache, and Memcached slab LRU are all correctly attributed and the hash-map + doubly-linked-list O(1) rationale matches the reference. Use case (bounded in-memory cache evicting least-recently-used) is on point."
+}

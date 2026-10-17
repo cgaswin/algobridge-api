@@ -1,0 +1,10 @@
+{
+  "slug": "group-anagrams",
+  "accuracy": 5,
+  "specificity": 2,
+  "relevance": 4,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Valid canonicalize-then-group framing, but examples ('contact deduplication systems', 'word-game servers') are unnamed and it misses the reference's strong query-fingerprinting case (PostgreSQL pg_stat_statements)."
+}

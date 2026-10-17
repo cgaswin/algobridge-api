@@ -1,0 +1,12 @@
+{
+  "slug": "sum-of-two-integers",
+  "accuracy": 3,
+  "specificity": 4,
+  "relevance": 4,
+  "agreement": 3,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Circom zk-SNARK compiler — claims integer addition is implemented via XOR/AND primitive constraint wires, but in zk-SNARKs addition is a native field operation, not simulated with bitwise carry logic"
+  ],
+  "rationale": "The Yosys/hardware-synthesis example and the XOR/AND half-adder explanation are sound, but the Circom attribution is dubious and the answer drifts from the reference's ALU/GMP framing."
+}

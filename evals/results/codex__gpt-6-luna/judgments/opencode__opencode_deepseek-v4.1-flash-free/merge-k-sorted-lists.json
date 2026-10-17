@@ -1,0 +1,12 @@
+{
+  "slug": "merge-k-sorted-lists",
+  "accuracy": 4,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 5,
+  "spoiler_free": true,
+  "hallucinations": [
+    "Apache Kafka Streams described as merging ordered records from multiple partitions/streams by event time — Kafka Streams merges by per-partition offset order, not a general by-event-time k-way merge feature."
+  ],
+  "rationale": "Correct k-way min-heap insight with the same O(N log k) vs O(Nk) and divide-and-conquer points as the reference, but names fewer concrete systems and stretches the Kafka claim."
+}

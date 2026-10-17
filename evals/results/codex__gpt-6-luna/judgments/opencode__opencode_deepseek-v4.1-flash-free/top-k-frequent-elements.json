@@ -1,0 +1,10 @@
+{
+  "slug": "top-k-frequent-elements",
+  "accuracy": 5,
+  "specificity": 4,
+  "relevance": 5,
+  "agreement": 4,
+  "spoiler_free": true,
+  "hallucinations": [],
+  "rationale": "Elasticsearch terms aggregations and Prometheus topk are real, correctly described named systems, and the count-then-heap/bucket explanation matches the reference. It omits the reference's approximate-sketch scaling note, but the core insight is intact."
+}
