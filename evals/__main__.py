@@ -46,7 +46,7 @@ async def main() -> None:
     args = parse_args()
 
     if args.command == "report":
-        report = build_report(len(load_problems()))
+        report = build_report(load_problems())
         (RESULTS_DIR / "report.md").parent.mkdir(parents=True, exist_ok=True)
         (RESULTS_DIR / "report.md").write_text(report)
         print(report)

@@ -3,7 +3,14 @@ from collections import Counter
 
 import pytest
 
-from evals.providers import AntigravityProvider, LLMResult, RateLimiter, strict_schema
+from evals.prompts import PROMPT_VERSION
+from evals.providers import (
+    AntigravityProvider,
+    LLMResult,
+    OpenCodeProvider,
+    RateLimiter,
+    strict_schema,
+)
 from evals.runner import build_report, generate, judge
 from evals.schema import (
     Insight,
@@ -37,6 +44,16 @@ def test_find_spoilers_allows_terms_in_title():
     )
 
     assert find_spoilers(insight, "Implement Trie (Prefix Tree)") == ["heap"]
+
+
+def test_find_spoilers_matches_plurals_but_not_the_verb_tries():
+    insight = Insight(
+        use_case="Keeps two heaps balanced and tries again on failure",
+        system_examples=["Uses two pointers", "B"],
+        explanation="",
+    )
+
+    assert find_spoilers(insight, "Find Median") == ["two pointer", "heap"]
 
 
 def test_parse_json_text_strips_markdown_fences():
@@ -98,11 +115,67 @@ async def test_generate_judge_report_pipeline(tmp_path):
         batch_size=6,
     )
 
-    report = build_report(total_problems=36, results_dir=tmp_path)
+    report = build_report(load_problems(), results_dir=tmp_path)
     assert (
-        "| fake__fake-model | fake__judge | 1/36 | 1/36 | 1/1 | 5.00 | 4.00 | 5.00 | 4.00 | 4.50 | 1.5s | 20 |"
-        in report
+        "| fake__fake-model | fake__judge | 1/36 | 1/36 | 1/1 | 1/1 | 1/1 "
+        "| 5.00 | 4.00 | 5.00 | 4.00 | 4.50 | 1.5s | 20 |" in report
     )
+
+
+def _write(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data))
+
+
+def test_report_reruns_structural_checks_on_saved_outputs(tmp_path):
+    problem = load_problems(["3sum"])[0]
+    run_dir = tmp_path / "old__run"
+    _write(run_dir / "run.json", {"prompt_version": PROMPT_VERSION})
+    # Saved before the checks existed: one example and a plural spoiler, no issues recorded.
+    parsed = {
+        "use_case": "Balance two heaps of ledger entries",
+        "system_examples": ["Only one"],
+        "explanation": "x",
+    }
+    _write(
+        run_dir / "outputs" / "3sum.json",
+        {
+            "slug": problem.slug,
+            "latency_ms": 0,
+            "output_tokens": None,
+            "parsed": parsed,
+            "issues": [],
+        },
+    )
+
+    report = build_report([problem], results_dir=tmp_path)
+
+    assert "| old__run | – | 0 | 1/1 | 0/1 | 0/1 |" in report
+
+
+@pytest.mark.anyio
+async def test_generate_refuses_to_resume_with_a_different_prompt_version(tmp_path):
+    problems = load_problems(["3sum"])
+    _write(tmp_path / "run.json", {"prompt_version": "v0"})
+
+    with pytest.raises(SystemExit, match="--force"):
+        await generate(problems, tmp_path, None, RateLimiter(rpm=60_000))
+
+
+@pytest.mark.anyio
+async def test_regenerating_an_output_drops_its_stale_judgments(tmp_path):
+    problems = load_problems(["3sum", "lru-cache"])
+    limiter = RateLimiter(rpm=60_000)
+    await generate(problems, tmp_path, None, limiter)
+    for slug in ("3sum", "lru-cache"):
+        _write(tmp_path / "judgments" / "some__judge" / f"{slug}.json", {})
+
+    await generate(problems[:1], tmp_path, None, limiter, force=True)
+
+    output = json.loads((tmp_path / "outputs" / "3sum.json").read_text())
+    assert output["prompt_version"] == PROMPT_VERSION
+    assert not (tmp_path / "judgments" / "some__judge" / "3sum.json").exists()
+    assert (tmp_path / "judgments" / "some__judge" / "lru-cache.json").exists()
 
 
 def test_strict_schema_closes_nested_objects():
@@ -130,3 +203,19 @@ def test_antigravity_parse_prefers_structured_output(tmp_path):
 
     assert json.loads(text) == {"use_case": "x"}
     assert (input_tokens, output_tokens) == (100, 7)
+
+
+def test_opencode_parse_joins_text_events(tmp_path):
+    events = [
+        {"type": "step_start", "part": {}},
+        {"type": "text", "part": {"text": '{"use_case": '}},
+        {"type": "text", "part": {"text": '"x"}'}},
+    ]
+    stdout = "\n".join(json.dumps(e) for e in events) + "\n"
+
+    text, input_tokens, output_tokens = OpenCodeProvider("m", 0).parse(
+        stdout, "", tmp_path / "unused"
+    )
+
+    assert json.loads(text) == {"use_case": "x"}
+    assert (input_tokens, output_tokens) == (None, None)

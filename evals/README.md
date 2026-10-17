@@ -20,9 +20,13 @@ Compares LLMs on the job the API does: turning a LeetCode problem into a real-wo
 
 1. **generate** – runs a model over every problem with the prompt in `prompts.py` (`PROMPT_VERSION`). It records the raw output, the parsed JSON, schema errors, latency, tokens, and deterministic issues (wrong example count, spoiler terms).
 2. **judge** – an LLM grades each valid output against the reference, scoring 1–5 for accuracy (including hallucinated product claims), specificity, relevance and agreement, plus a spoiler flag.
-3. **report** – builds a comparison table and writes it to `results/report.md`.
+3. **report** – builds a comparison table and writes it to `results/report.md`. It reruns the deterministic checks on every saved output, so changes to them apply to old runs too. Columns:
+   - `schema ok`: outputs that parsed into the expected JSON.
+   - `rules ok`: of those, outputs with no structural issue other than spoilers, such as the wrong number of system examples.
+   - `spoiler ok`: no spoiler term found by the keyword check.
+   - `judge spoiler ok`: the judge's `spoiler_free` verdict.
 
-Every step is resumable. Existing outputs and judgments are skipped, so after a rate limit or an exhausted daily quota you can rerun the same command.
+Every step is resumable. Existing outputs and judgments are skipped, so after a rate limit or an exhausted daily quota you can rerun the same command. A run can't be resumed after `PROMPT_VERSION` changes, so it never mixes prompt versions; use `--force` to regenerate it. Regenerating an output deletes its old judgments, so rerun `judge` afterwards.
 
 ## Usage
 

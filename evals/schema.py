@@ -105,8 +105,15 @@ def find_spoilers(insight: Insight, title: str) -> list[str]:
     return [
         term
         for term in SPOILER_TERMS
-        if term not in allowed and re.search(rf"\b{re.escape(term)}\b", text)
+        if term not in allowed and re.search(_spoiler_pattern(term), text)
     ]
+
+
+def _spoiler_pattern(term: str) -> str:
+    # Match plurals too ("heaps", "two pointers"). "trie" is the exception: its
+    # plural "tries" is also an everyday verb, so matching it gives false hits.
+    plural = "" if term == "trie" else "(?:e?s)?"
+    return rf"\b{re.escape(term)}{plural}\b"
 
 
 def structural_issues(insight: Insight, problem: Problem) -> list[str]:

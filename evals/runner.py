@@ -41,6 +41,14 @@ async def generate(
     force: bool = False,
 ) -> None:
     """Generate one output per problem. provider=None writes the references (pipeline check)."""
+    run_file = run_dir / "run.json"
+    if run_file.exists() and not force:
+        previous = _read_json(run_file).get("prompt_version")
+        if previous != PROMPT_VERSION:
+            raise SystemExit(
+                f"{run_dir.name} was generated with prompt {previous}, not {PROMPT_VERSION}. "
+                "Rerun with --force to regenerate it, so the run doesn't mix prompt versions."
+            )
     _write_json(
         run_dir / "run.json",
         {
@@ -87,10 +95,14 @@ async def generate(
         except (ValueError, ValidationError) as exc:
             schema_error = str(exc)[:500]
 
+        # Judgments graded the previous output, so they no longer apply.
+        for stale in run_dir.glob(f"judgments/*/{problem.slug}.json"):
+            stale.unlink()
         _write_json(
             path,
             {
                 "slug": problem.slug,
+                "prompt_version": PROMPT_VERSION,
                 "latency_ms": latency_ms,
                 "input_tokens": input_tokens,
                 "output_tokens": output_tokens,
@@ -168,24 +180,48 @@ def _fmt(value: float | None, pattern: str = "{:.2f}") -> str:
     return "–" if value is None else pattern.format(value)
 
 
-def build_report(total_problems: int, results_dir: Path = RESULTS_DIR) -> str:
+def build_report(problems: list[Problem], results_dir: Path = RESULTS_DIR) -> str:
+    """Rebuild the table from saved outputs and judgments.
+
+    Structural checks are rerun on each saved output, so changes to them apply to
+    old runs too.
+    """
+    by_slug = {p.slug: p for p in problems}
     header = (
-        "| run | judge | judged | schema ok | spoiler ok | accuracy | specificity | relevance "
-        "| agreement | overall | p50 latency | avg out tokens |\n"
-        "|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+        "| run | judge | judged | schema ok | rules ok | spoiler ok | judge spoiler ok "
+        "| accuracy | specificity | relevance | agreement | overall | p50 latency | avg out tokens |\n"
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
     )
     rows = []
     for run_dir in sorted(p.parent for p in results_dir.glob("*/run.json")):
-        outputs = [_read_json(p) for p in sorted((run_dir / "outputs").glob("*.json"))]
-        valid = [o for o in outputs if o["parsed"] is not None]
+        outputs = [
+            o
+            for o in (
+                _read_json(p) for p in sorted((run_dir / "outputs").glob("*.json"))
+            )
+            if o["slug"] in by_slug
+        ]
+        issues = {
+            o["slug"]: structural_issues(
+                Insight.model_validate(o["parsed"]), by_slug[o["slug"]]
+            )
+            for o in outputs
+            if o["parsed"] is not None
+        }
+        rules_ok = [
+            s
+            for s, i in issues.items()
+            if not any(not x.startswith("spoiler") for x in i)
+        ]
         spoiler_ok = [
-            o for o in valid if not any(i.startswith("spoiler") for i in o["issues"])
+            s for s, i in issues.items() if not any(x.startswith("spoiler") for x in i)
         ]
         latencies = [o["latency_ms"] / 1000 for o in outputs if o["latency_ms"]]
         out_tokens = [o["output_tokens"] for o in outputs if o["output_tokens"]]
         base = [
-            f"{len(valid)}/{total_problems}",
-            f"{len(spoiler_ok)}/{len(valid)}" if valid else "–",
+            f"{len(issues)}/{len(problems)}",
+            f"{len(rules_ok)}/{len(issues)}" if issues else "–",
+            f"{len(spoiler_ok)}/{len(issues)}" if issues else "–",
         ]
         tail = [
             _fmt(statistics.median(latencies) if latencies else None, "{:.1f}s"),
@@ -194,17 +230,23 @@ def build_report(total_problems: int, results_dir: Path = RESULTS_DIR) -> str:
 
         judge_dirs = sorted(p for p in (run_dir / "judgments").glob("*") if p.is_dir())
         if not judge_dirs:
-            rows.append([run_dir.name, "–", "0", *base, *["–"] * 5, *tail])
+            rows.append([run_dir.name, "–", "0", *base, *["–"] * 6, *tail])
         for judge_dir in judge_dirs:
-            judgments = [_read_json(p) for p in judge_dir.glob("*.json")]
+            judgments = [
+                j
+                for j in (_read_json(p) for p in judge_dir.glob("*.json"))
+                if j["slug"] in by_slug
+            ]
+            judge_spoiler_ok = sum(j["spoiler_free"] for j in judgments)
             means = [_mean([j[f] for j in judgments]) for f in SCORE_FIELDS]
             overall = _mean([m for m in means if m is not None])
             rows.append(
                 [
                     run_dir.name,
                     judge_dir.name,
-                    f"{len(judgments)}/{total_problems}",
+                    f"{len(judgments)}/{len(problems)}",
                     *base,
+                    f"{judge_spoiler_ok}/{len(judgments)}" if judgments else "–",
                     *(_fmt(m) for m in means),
                     _fmt(overall),
                     *tail,
