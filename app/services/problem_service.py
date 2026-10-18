@@ -7,6 +7,7 @@ from app.config.settings import settings
 from app.llm.gemini import generate_insights
 from app.llm.prompts import PROMPT_VERSION
 from app.platforms.leetcode import extract_slug, fetch_problem
+from app.services.generation_budget import reserve_generation
 
 
 # Cached rows from another model, prompt or payload shape are regenerated.
@@ -27,32 +28,50 @@ async def analyze_problem(url: str) -> dict:
 
     canonical_key = extract_slug(url)
 
-    async with AsyncSessionLocal() as session:
-        session: AsyncSession
-        cached_insights = await get_cached_insights_by_key(
-            session,
-            canonical_key=canonical_key,
-            source_version=SOURCE_VERSION,
-        )
-        if cached_insights is not None:
-            return cached_insights
+    try:
+        async with AsyncSessionLocal() as session:
+            session: AsyncSession
+            cached_insights = await get_cached_insights_by_key(
+                session,
+                canonical_key=canonical_key,
+                source_version=SOURCE_VERSION,
+            )
+    except Exception as exc:
+        raise AppError(
+            ErrorCode.GENERATION_UNAVAILABLE,
+            "Insights are temporarily unavailable. Please try again later.",
+            status_code=503,
+        ) from exc
+    if cached_insights is not None:
+        return cached_insights
 
-        problem = await fetch_problem(url)
-        insights = {
-            "problem": {
-                "slug": canonical_key,
-                "title": problem.title,
-                "difficulty": problem.difficulty.lower(),
-                "tags": problem.tags,
-            },
-            **await generate_insights(problem),
-        }
+    # Release the cache-read connection before reserving with another session.
+    # No database transaction is held open during upstream network calls.
+    problem = await fetch_problem(url)
+    await reserve_generation()
+    insights = {
+        "problem": {
+            "slug": canonical_key,
+            "title": problem.title,
+            "difficulty": problem.difficulty.lower(),
+            "tags": problem.tags,
+        },
+        **await generate_insights(problem),
+    }
 
-        await upsert_problem_insights(
-            session,
-            canonical_key=canonical_key,
-            raw_url=url,
-            insights_json=insights,
-            source_version=SOURCE_VERSION,
-        )
-        return insights
+    try:
+        async with AsyncSessionLocal() as session:
+            await upsert_problem_insights(
+                session,
+                canonical_key=canonical_key,
+                raw_url=url,
+                insights_json=insights,
+                source_version=SOURCE_VERSION,
+            )
+    except Exception as exc:
+        raise AppError(
+            ErrorCode.GENERATION_UNAVAILABLE,
+            "Unable to save insights. Please try again later.",
+            status_code=503,
+        ) from exc
+    return insights

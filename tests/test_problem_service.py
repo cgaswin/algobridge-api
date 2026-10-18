@@ -30,8 +30,16 @@ expected_payload = {
 }
 
 
+@pytest.fixture(autouse=True)
+def mock_budget():
+    with patch(
+        "app.services.problem_service.reserve_generation", AsyncMock()
+    ) as reserve:
+        yield reserve
+
+
 @pytest.mark.anyio
-async def test_analyze_problem_success():
+async def test_analyze_problem_success(mock_budget):
     with patch(
         "app.services.problem_service.get_cached_insights_by_key",
         AsyncMock(return_value=None),
@@ -53,6 +61,7 @@ async def test_analyze_problem_success():
                     )
 
     assert result == expected_payload
+    mock_budget.assert_awaited_once()
 
 
 @pytest.mark.anyio
@@ -82,7 +91,20 @@ async def test_analyze_problem_fetch_failure():
 
 
 @pytest.mark.anyio
-async def test_analyze_problem_cache_hit_skips_external_calls():
+@pytest.mark.parametrize("limit", [0, 100])
+async def test_analyze_problem_cache_hit_skips_external_calls(
+    mock_budget, monkeypatch, limit
+):
+    from app.services.problem_service import settings
+
+    monkeypatch.setattr(settings, "ai_daily_generation_limit", limit)
+    mock_budget.side_effect = AppError(
+        ErrorCode.GENERATION_PAUSED
+        if limit == 0
+        else ErrorCode.GENERATION_LIMIT_REACHED,
+        "No new generation allowed",
+        status_code=503 if limit == 0 else 429,
+    )
     with patch(
         "app.services.problem_service.get_cached_insights_by_key",
         AsyncMock(return_value=expected_payload),
@@ -105,6 +127,7 @@ async def test_analyze_problem_cache_hit_skips_external_calls():
 
     assert result == expected_payload
     assert mock_get_cached.call_args.kwargs["source_version"] == SOURCE_VERSION
+    mock_budget.assert_not_called()
     mock_fetch_problem.assert_not_called()
     mock_generate_insights.assert_not_called()
     mock_upsert_problem_insights.assert_not_called()
