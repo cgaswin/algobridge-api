@@ -1,8 +1,16 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
-from sqlalchemy import JSON, DateTime, ForeignKey, String, UniqueConstraint
+from sqlalchemy import (
+    JSON,
+    CheckConstraint,
+    Date,
+    DateTime,
+    ForeignKey,
+    String,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -10,6 +18,14 @@ from app.db.base import Base
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
+
+
+class GenerationBudget(Base):
+    __tablename__ = "generation_budgets"
+    __table_args__ = (CheckConstraint("used >= 0", name="ck_generation_budget_used"),)
+
+    day: Mapped[date] = mapped_column(Date, primary_key=True)
+    used: Mapped[int] = mapped_column(nullable=False)
 
 
 class Problem(Base):
