@@ -27,6 +27,12 @@ def test_finite_generation_timeout(monkeypatch):
     generate.assert_awaited_once()
 
 
+def test_production_client_does_not_use_aiohttp():
+    # google-genai's aiohttp transport retries disconnects even with attempts=1.
+    # Check the real default client: injecting httpx masks SDK auto-selection.
+    assert not gemini.client._api_client._use_aiohttp()
+
+
 def test_sdk_does_not_retry_retryable_provider_failure():
     calls = []
 
