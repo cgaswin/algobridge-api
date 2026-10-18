@@ -35,6 +35,12 @@ def test_exhausted_has_utc_retry():
             asyncio.run(budget.reserve_generation())
     assert exc.value.status_code == 429
     assert exc.value.details == {"retry_at": "2026-04-02T00:00:00+00:00"}
+    # Both statements must use the same UTC day if they straddle midnight.
+    assert session.execute.await_count == 2
+    for call in session.execute.await_args_list:
+        sql = str(call.args[0])
+        assert "(transaction_timestamp() AT TIME ZONE 'UTC')::date" in sql
+        assert "statement_timestamp()" not in sql
     session.commit.assert_awaited_once()
 
 

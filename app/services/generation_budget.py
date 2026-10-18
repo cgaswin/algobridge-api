@@ -13,7 +13,7 @@ from app.db.session import AsyncSessionLocal
 # The WHERE is evaluated against the locked row, not a prior application read.
 RESERVE = text("""
     INSERT INTO generation_budgets (day, used)
-    VALUES ((statement_timestamp() AT TIME ZONE 'UTC')::date, 1)
+    VALUES ((transaction_timestamp() AT TIME ZONE 'UTC')::date, 1)
     ON CONFLICT (day) DO UPDATE
     SET used = generation_budgets.used + 1
     WHERE generation_budgets.used < :limit
@@ -38,10 +38,12 @@ async def reserve_generation() -> None:
                 await session.execute(RESERVE, {"limit": limit})
             ).scalar_one_or_none()
             if day is None:
-                # Use the database clock for the retry boundary as well.
+                # Same transaction clock as the upsert, even across UTC midnight.
                 today = (
                     await session.execute(
-                        text("SELECT (statement_timestamp() AT TIME ZONE 'UTC')::date")
+                        text(
+                            "SELECT (transaction_timestamp() AT TIME ZONE 'UTC')::date"
+                        )
                     )
                 ).scalar_one()
             await session.commit()
